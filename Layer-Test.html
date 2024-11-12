@@ -14,36 +14,10 @@
         <div class="top-nav">
             <div class="window">
                 <!-- Test iframe inside the content window -->
-                <iframe src="https://example.com" frameborder="0" class="content-frame" id="contentFrame"></iframe>
+                <iframe src="https://shoponline.click" frameborder="0" class="content-frame"></iframe>
             </div>
         </div>
     </div>
-
-    <script>
-        // Select the iframe
-        const iframe = document.getElementById('contentFrame');
-
-        // Listen for the iframe content loading
-        iframe.onload = function() {
-            // Update the parent URL whenever the iframe content is loaded
-            const iframeSrc = iframe.contentWindow.location.href;
-            window.history.pushState(null, null, iframeSrc);  // Update the parent URL to reflect the iframe's content
-        };
-
-        // Optional: If you want to capture clicks within the iframe
-        iframe.contentWindow.document.addEventListener('click', function(event) {
-            if (event.target.tagName.toLowerCase() === 'a') {
-                // Prevent the link from navigating away from the iframe
-                event.preventDefault();
-
-                // Update the iframe's source with the clicked link's URL
-                iframe.src = event.target.href;
-
-                // Update the parent URL to reflect the new iframe URL
-                window.history.pushState(null, null, event.target.href);
-            }
-        });
-    </script>
 </body>
     
 <style>
@@ -94,6 +68,7 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Optional shadow */
     margin: 0 auto; /* Center the content window horizontally */
 }
+
 
 /* Content iframe */
 .content-frame {

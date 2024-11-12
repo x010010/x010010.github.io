@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Container with Peeking Banner</title>
+</head>
+<body>
+
+  <!-- Wrapper div to keep the banner and container aligned together -->
+  <div class="container-wrapper">
+    
+    <!-- Banner Image (Peeking Character) -->
+    <img src="images/Port-header.png" alt="Peeking Character" class="banner-image">
+
+    <!-- Content Container -->
+    <div class="centered-container">
+      <h1>Welcome to My Site</h1>
+      <p>This container has a character image that appears to peek over the main content area.</p>
+      <!-- Add more content here as needed -->
+    </div>
+    
+  </div>
+
+  <style>
+    /* Center the wrapper on the page */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    /* Wrapper to ensure banner and container stay aligned */
+    .container-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Style the peeking banner image for pixel art */
+    .banner-image {
+      width: 100%; /* Adjust width as needed */
+      max-width: 560px; /* Scale up as needed */
+      margin-bottom: -80px; /* Overlaps the container slightly */
+      z-index: 1;
+      image-rendering: pixelated; /* Ensures sharp edges for pixel art */
+    }
+
+    /* Style the container */
+    .centered-container {
+      width: 80%;
+      max-width: 800px;
+      padding: 20px;
+      border: 2px solid black; /* Inner black border */
+      background-color: #ffffff;
+      box-shadow: 0 0 0 6px white, 0 0 0 8px black; /* Outer borders */
+    }
+  </style>
+
+</body>
+</html>
