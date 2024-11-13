@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	//This is a note
+	//testing testing
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,11 +23,11 @@
     <script>
         const iframe = document.getElementById('contentFrame');
 
-        // Map URL slugs to the actual content files
+        // Map URL slugs to actual content files
         const slugToFileMap = {
-            "": "home.html",  // Empty path (homepage)
+            "": "home.html",        // Root path
             "iframe-content2": "iframe-content2.html"
-            // Add more mappings if needed
+            // Add more mappings as needed
         };
 
         function getSlugFromPath() {
@@ -36,47 +36,47 @@
 
         function loadContent(slug) {
             const fileToLoad = slugToFileMap[slug] || "home.html";
-            iframe.src = fileToLoad;  // Load the appropriate file into the iframe
+            iframe.src = fileToLoad;  // Load the mapped file in the iframe
         }
 
         function initializePage() {
             const slug = getSlugFromPath();
-            loadContent(slug);  // Load content based on initial URL
+            loadContent(slug);  // Load the content based on URL path
 
-            // Remove 'home' from the URL on homepage
+            // Remove '/home' from the URL on the main page
             if (slug === "") {
-                window.history.replaceState(null, null, "/");  // Clear 'home' from the URL
+                window.history.replaceState(null, null, "/");
             }
         }
 
-        // Ensure URL updates without `.html` and load correct iframe content on navigation
+        // Update parent URL without '.html' and manage slug changes on iframe content load
         iframe.onload = function() {
             const iframePath = iframe.contentWindow.location.pathname.replace(".html", "");
-            window.history.pushState(null, null, iframePath); // Update URL without '.html'
+            window.history.pushState(null, null, iframePath);  // Update URL without '.html'
         };
 
-        // Load iframe content based on back/forward navigation
+        // Manage back/forward navigation within the iframe content
         window.onpopstate = function() {
             const slug = getSlugFromPath();
             loadContent(slug);
         };
 
-        // Redirect direct access to iframe content pages to the main page
+        // Redirect any direct access to iframe pages back to the main page
         const directIframeAccess = Object.values(slugToFileMap).some(file =>
             window.location.pathname.endsWith(file)
         );
 
         if (directIframeAccess) {
-            // Redirect to main page to load the content within the iframe
+            // Redirect to the main page to load content within the iframe
             window.location.href = "/";
         } else {
-            initializePage();  // Initialize normally for main page accesses
+            initializePage();  // Normal initialization for main page accesses
         }
     </script>
 </body>
     
 <style>
-/* Style section remains the same */
+/* CSS styles remain unchanged */
 *, html, body {
     margin: 0;
     padding: 0;
