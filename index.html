@@ -22,45 +22,54 @@
     <script>
         const iframe = document.getElementById('contentFrame');
 
-        // Mapping of slugs to actual content pages
+        // Map URL slugs to the actual content files
         const slugToFileMap = {
-            "": "home.html",
-            "home": "home.html",
+            "": "home.html",  // Empty path (homepage)
             "iframe-content2": "iframe-content2.html"
-            // Add more mappings as needed
+            // Add more mappings if needed
         };
 
-        function getCurrentSlug() {
-            return window.location.pathname.replace(/^\/|\/$/g, ""); // Remove leading/trailing slashes
+        function getSlugFromPath() {
+            return window.location.pathname.replace(/^\/|\/$/g, "");  // Remove leading/trailing slashes
         }
 
-        function loadContentFromSlug() {
-            const slug = getCurrentSlug();
+        function loadContent(slug) {
             const fileToLoad = slugToFileMap[slug] || "home.html";
-            if (iframe.src.endsWith(fileToLoad)) return; // Prevents reloading if already set
-            iframe.src = fileToLoad;
+            iframe.src = fileToLoad;  // Load the appropriate file into the iframe
         }
 
-        // Initial load of iframe content based on URL slug
-        loadContentFromSlug();
+        function initializePage() {
+            const slug = getSlugFromPath();
+            loadContent(slug);  // Load content based on initial URL
 
-        // Update URL and iframe content on internal link clicks within the iframe
+            // Remove 'home' from the URL on homepage
+            if (slug === "") {
+                window.history.replaceState(null, null, "/");  // Clear 'home' from the URL
+            }
+        }
+
+        // Ensure URL updates without `.html` and load correct iframe content on navigation
         iframe.onload = function() {
             const iframePath = iframe.contentWindow.location.pathname.replace(".html", "");
-            window.history.pushState(null, null, iframePath); // Updates URL without .html
+            window.history.pushState(null, null, iframePath); // Update URL without '.html'
         };
 
-        // Handle navigation with back/forward buttons
-        window.onpopstate = loadContentFromSlug;
+        // Load iframe content based on back/forward navigation
+        window.onpopstate = function() {
+            const slug = getSlugFromPath();
+            loadContent(slug);
+        };
 
-        // Redirect to main page if directly accessing iframe content
-        const isDirectIframeAccess = Object.values(slugToFileMap).some(file =>
+        // Redirect direct access to iframe content pages to the main page
+        const directIframeAccess = Object.values(slugToFileMap).some(file =>
             window.location.pathname.endsWith(file)
         );
 
-        if (isDirectIframeAccess) {
-            // Redirect to main page if trying to directly access an iframe content page
+        if (directIframeAccess) {
+            // Redirect to main page to load the content within the iframe
             window.location.href = "/";
+        } else {
+            initializePage();  // Initialize normally for main page accesses
         }
     </script>
 </body>
