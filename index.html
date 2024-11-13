@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website</title>
+    <title>AlexPort</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,9 +21,11 @@
 
     <script>
         const iframe = document.getElementById('contentFrame');
+
+        // Mapping of slugs to actual content pages
         const slugToFileMap = {
             "": "home.html",
-            "iframe-content1": "home.html",
+            "home": "home.html",
             "iframe-content2": "iframe-content2.html"
             // Add more mappings as needed
         };
@@ -44,17 +46,21 @@
 
         // Update URL and iframe content on internal link clicks within the iframe
         iframe.onload = function() {
-            // Retrieve the iframe’s current path (without .html) and update URL
             const iframePath = iframe.contentWindow.location.pathname.replace(".html", "");
             window.history.pushState(null, null, iframePath); // Updates URL without .html
         };
 
-        // Listen for back/forward navigation to load correct iframe content
+        // Handle navigation with back/forward buttons
         window.onpopstate = loadContentFromSlug;
 
-        // Prevent direct iframe content display on refresh/navigating to a URL with a slug
-        if (!window.location.pathname.endsWith(".html")) {
-            loadContentFromSlug();
+        // Redirect to main page if directly accessing iframe content
+        const isDirectIframeAccess = Object.values(slugToFileMap).some(file =>
+            window.location.pathname.endsWith(file)
+        );
+
+        if (isDirectIframeAccess) {
+            // Redirect to main page if trying to directly access an iframe content page
+            window.location.href = "/";
         }
     </script>
 </body>
