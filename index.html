@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AlexPortfollio</title>
+    <title>Your Website</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,40 +22,40 @@
     <script>
         const iframe = document.getElementById('contentFrame');
         const slugToFileMap = {
-            "": "iframe-content1.html",
-            "iframe-content1": "iframe-content1.html",
+            "": "home.html",
+            "iframe-content1": "home.html",
             "iframe-content2": "iframe-content2.html"
-            // Add more mappings here as needed
+            // Add more mappings as needed
         };
 
-        // Function to update iframe based on URL slug
-        function loadContentFromSlug() {
-            const slug = window.location.pathname.substring(1); // Get URL path without leading "/"
-            const fileToLoad = slugToFileMap[slug] || "iframe-content1.html"; // Default to homepage if no match
-            iframe.src = fileToLoad; // Set iframe source based on URL path
+        function getCurrentSlug() {
+            return window.location.pathname.replace(/^\/|\/$/g, ""); // Remove leading/trailing slashes
         }
 
-        // Load content based on current URL when the page loads
+        function loadContentFromSlug() {
+            const slug = getCurrentSlug();
+            const fileToLoad = slugToFileMap[slug] || "home.html";
+            if (iframe.src.endsWith(fileToLoad)) return; // Prevents reloading if already set
+            iframe.src = fileToLoad;
+        }
+
+        // Initial load of iframe content based on URL slug
         loadContentFromSlug();
 
-        // Update URL and iframe content when an internal link is clicked in the iframe
+        // Update URL and iframe content on internal link clicks within the iframe
         iframe.onload = function() {
-            // Retrieve the loaded iframe path (without .html for clean URL)
-            const iframeSrc = iframe.contentWindow.location.pathname.replace(".html", "");
-            window.history.pushState(null, null, iframeSrc); // Update URL without reloading the page
+            // Retrieve the iframe’s current path (without .html) and update URL
+            const iframePath = iframe.contentWindow.location.pathname.replace(".html", "");
+            window.history.pushState(null, null, iframePath); // Updates URL without .html
         };
 
-        // Listen for navigation events from iframe link clicks
-        window.addEventListener("message", function(event) {
-            if (event.origin === window.location.origin) {
-                const newSlug = event.data.replace(".html", ""); // Remove .html extension for clean URL
-                iframe.src = slugToFileMap[newSlug] || "iframe-content1.html"; // Update iframe content
-                window.history.pushState(null, null, newSlug); // Update parent URL without .html
-            }
-        });
+        // Listen for back/forward navigation to load correct iframe content
+        window.onpopstate = loadContentFromSlug;
 
-        // Ensure page always loads with iframe in content window even after refresh
-        window.onpopstate = loadContentFromSlug; // Reload iframe content when browser's back or forward is used
+        // Prevent direct iframe content display on refresh/navigating to a URL with a slug
+        if (!window.location.pathname.endsWith(".html")) {
+            loadContentFromSlug();
+        }
     </script>
 </body>
     
