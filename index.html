@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-	//the hash slinging slasher
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,70 +8,17 @@
 </head>
 <body>
     <div class="page-wrapper">
-        <!-- Header Image -->
-        <img src="images/Port-header.gif" alt="Header" class="header-image">
-        
+        <img src="images/Port-header.gif" alt="Header" class="header-image">       
         <div class="top-nav">
             <div class="window">
-                <!-- Content iframe inside the content window -->
                 <iframe src="home.html" frameborder="0" class="content-frame" id="contentFrame"></iframe>
             </div>
         </div>
     </div>
-
-    <script>
-        // Set up the iframe and the hash-to-content mapping
-        const iframe = document.getElementById('contentFrame');
-
-        // Mapping of slugs to content within the page
-        const pageMappings = {
-            "home": "home.html", // Default home content
-            "content2": "iframe-container2.html", // For example: iframe-container2 content
-            // More content mappings as needed
-        };
-
-        // Function to update the iframe content dynamically based on the hash
-        function updateIframeContent() {
-            const path = window.location.hash.replace(/^#\/|\/$/g, ""); // Get the hash path without # and slashes
-            const contentPage = pageMappings[path] || "home.html"; // Default to home if slug not found
-            iframe.src = contentPage; // Dynamically update iframe's src attribute
-        }
-
-        // Function to handle link clicks (simulate hash change)
-        function handleLinkClick(event, slug) {
-            event.preventDefault(); // Prevent default link behavior (full page reload)
-            window.location.hash = "#" + slug; // Update URL with hash (no page reload)
-            updateIframeContent(); // Update iframe content
-        }
-
-        // Listen for changes in the hash (for browser's back/forward navigation)
-        window.addEventListener("hashchange", updateIframeContent);
-
-        // Update iframe content on initial load based on current hash
-        if (window.location.hash) {
-            updateIframeContent();
-        }
-
-        // Add event listeners to the navigation links
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (event) => {
-                const slug = link.getAttribute('href').replace("#", ""); // Extract slug from href
-                handleLinkClick(event, slug); // Handle link click
-            });
-        });
-    </script>
-
-    <!-- Navigation Links -->
-    <nav>
-        <a href="#content2" class="nav-link">Go to Content 2</a>
-        <a href="#home" class="nav-link">Go to Home</a>
-    </nav>
-
 </body>
-
+	
 <style>
-/* CSS styles remain unchanged */
-*, html, body {
+	*, html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -121,5 +67,5 @@ body {
     height: 100%;
     border: none;
 }
-</style>
+	</style>
 </html>

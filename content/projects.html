@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alecks Art</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="art.html">Art</a></li>
+            <li><a href="info.html">Info</a></li>
+        </ul>
+    </nav>
+
+    <!-- Content Section -->
+    <div class="content-section">
+        <!-- Content Bar 1 -->
+        <div class="content-bar">
+            <img src="thumbnail1.jpg" alt="Thumbnail 1" class="thumbnail">
+            <div class="content-text">
+                <h2>GRIMWAR (WIP)</h2>
+                <p class="subheading">Bookwyrm - 11 person team</p>
+                <p class="subheading2">UI, hand sprite animations</p>
+            </div>
+            <p class="more-text">September 2024 - May 2025</p>
+        </div>
+
+        <!-- Content Bar 2 -->
+        <div class="content-bar">
+            <img src="thumbnail2.jpg" alt="Thumbnail 2" class="thumbnail">
+            <div class="content-text">
+                <h2>Simon's Sandwiches</h2>
+                <p class="subheading">UCF - 7 person team</p>
+                <p class="subheading2">UI elements, character Design</p>
+            </div>
+            <p class="more-text">September - November 2024</p>
+        </div>
+
+        <!-- Content Bar 3 -->
+        <div class="content-bar">
+            <img src="thumbnail3.jpg" alt="Thumbnail 3" class="thumbnail">
+            <div class="content-text">
+                <h2>SpellBun'd</h2>
+                <p class="subheading">UCF - 6 person team</p>
+                <p class="subheading2">Half of 2D Sprites, cleanup, & all animation</p>
+            </div>
+            <p class="more-text">August -           September 2024</p>
+        </div>
+    </div>
+</body>
+<style>
+	
+	@font-face {
+    font-family: 'Better VCR';
+    src: url('fonts/Better_VCR_6.1.ttf') format('truetype'); /* Use the relative path to your font file */
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Better VCR', sans-serif; /* Apply your custom font to the entire page */
+    line-height: 1.6;
+    padding: 20px;
+}
+
+	/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Navigation Bar */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    background-color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #575757;
+}
+
+/* Content Section */
+.content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Content Bar */
+.content-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 30px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    min-height: 120px; /* Thicker content bar */
+    position: relative;
+}
+
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.content-text {
+    flex-grow: 1;
+}
+
+.content-text h2 {
+    font-size: 28px;  /* Larger and bold title */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subheading {
+    font-size: 16px;
+    color: #666;
+}
+
+.subheading2 {
+    font-size: 14px;
+    color: #888;
+    margin-top: 5px;
+}
+
+.more-text {
+    font-size: 14px;
+    color: #333;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    max-width: 200px;
+}
+
+/* Hover effect for content bars */
+.content-bar:hover {
+    background-color: #e2e2e2;
+    cursor: pointer;
+}
+
+	</style>
+</html>
