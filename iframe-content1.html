@@ -6,11 +6,10 @@
     <title>Iframe Content Page 1</title>
 </head>
 <body>
-    <h2>This is Iframe Content Page 1</h2>
+    <h2>This is Iframe Content Page 1 (Homepage)</h2>
     <p><a href="iframe-content2.html" id="linkToPage2">Go to Content Page 2</a></p>
 
     <script>
-        // Link click handling to navigate within iframe and notify parent
         document.getElementById("linkToPage2").addEventListener("click", function(event) {
             event.preventDefault(); // Prevent default link behavior
             const newUrl = this.href;
