@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	//HeyHeyHey
+	//the hash slinging slasher
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,7 @@
     </div>
 
     <script>
-        // Set up the iframe and the slug-to-content mapping
+        // Set up the iframe and the hash-to-content mapping
         const iframe = document.getElementById('contentFrame');
 
         // Mapping of slugs to content within the page
@@ -31,33 +31,32 @@
             // More content mappings as needed
         };
 
-        // Function to update the iframe content dynamically
-        function updateIframeContent(path) {
+        // Function to update the iframe content dynamically based on the hash
+        function updateIframeContent() {
+            const path = window.location.hash.replace(/^#\/|\/$/g, ""); // Get the hash path without # and slashes
             const contentPage = pageMappings[path] || "home.html"; // Default to home if slug not found
             iframe.src = contentPage; // Dynamically update iframe's src attribute
         }
 
-        // Function to handle link clicks (simulate pushState)
+        // Function to handle link clicks (simulate hash change)
         function handleLinkClick(event, slug) {
             event.preventDefault(); // Prevent default link behavior (full page reload)
-            window.history.pushState(null, null, "/" + slug); // Update URL without reloading
-            updateIframeContent(slug); // Update iframe content
+            window.location.hash = "#" + slug; // Update URL with hash (no page reload)
+            updateIframeContent(); // Update iframe content
         }
 
-        // Listen for the popstate event for browser's back/forward navigation
-        window.addEventListener("popstate", () => {
-            const path = window.location.pathname.replace(/^\/|\/$/g, "");
-            updateIframeContent(path);
-        });
+        // Listen for changes in the hash (for browser's back/forward navigation)
+        window.addEventListener("hashchange", updateIframeContent);
 
-        // Update iframe content on initial load based on current URL
-        const initialPath = window.location.pathname.replace(/^\/|\/$/g, "");
-        updateIframeContent(initialPath);
+        // Update iframe content on initial load based on current hash
+        if (window.location.hash) {
+            updateIframeContent();
+        }
 
         // Add event listeners to the navigation links
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', (event) => {
-                const slug = link.getAttribute('href').replace("/", ""); // Extract slug from href
+                const slug = link.getAttribute('href').replace("#", ""); // Extract slug from href
                 handleLinkClick(event, slug); // Handle link click
             });
         });
@@ -65,8 +64,8 @@
 
     <!-- Navigation Links -->
     <nav>
-        <a href="/content2" class="nav-link">Go to Content 2</a>
-        <a href="/home" class="nav-link">Go to Home</a>
+        <a href="#content2" class="nav-link">Go to Content 2</a>
+        <a href="#home" class="nav-link">Go to Home</a>
     </nav>
 
 </body>
