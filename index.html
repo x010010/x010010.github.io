@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alecks Port</title>
+    <title>AlexPortfollio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,46 +13,49 @@
         
         <div class="top-nav">
             <div class="window">
-                <!-- Test iframe inside the content window -->
-                <iframe src="iframe-content1.html" frameborder="0" class="content-frame" id="contentFrame"></iframe>
+                <!-- Content iframe inside the content window -->
+                <iframe frameborder="0" class="content-frame" id="contentFrame"></iframe>
             </div>
         </div>
     </div>
 
     <script>
         const iframe = document.getElementById('contentFrame');
-
-        // Function to load the appropriate content in the iframe based on URL
-        function loadContent() {
-            const path = window.location.pathname;
-
-            // If there's a specific path, load that content in the iframe
-            if (path && path !== "/") {
-                const contentPage = path.substring(1); // Remove leading slash
-                iframe.src = contentPage;  // Set iframe source to match URL path
-            }
-        }
-
-        // On page load, set the iframe content based on the current URL
-        loadContent();
-
-        // Update the URL when a new page is loaded in the iframe
-        iframe.onload = function() {
-            // Skip URL update for the initial homepage load
-            if (window.location.pathname === "/") return;
-
-            const iframeSrc = iframe.contentWindow.location.pathname; // Get the current path of the iframe content
-            window.history.pushState(null, null, iframeSrc); // Update the browser URL without reloading the page
+        const slugToFileMap = {
+            "": "iframe-content1.html",
+            "iframe-content1": "iframe-content1.html",
+            "iframe-content2": "iframe-content2.html"
+            // Add more mappings here as needed
         };
 
-        // Listen for messages from the iframe to handle link clicks within it
+        // Function to update iframe based on URL slug
+        function loadContentFromSlug() {
+            const slug = window.location.pathname.substring(1); // Get URL path without leading "/"
+            const fileToLoad = slugToFileMap[slug] || "iframe-content1.html"; // Default to homepage if no match
+            iframe.src = fileToLoad; // Set iframe source based on URL path
+        }
+
+        // Load content based on current URL when the page loads
+        loadContentFromSlug();
+
+        // Update URL and iframe content when an internal link is clicked in the iframe
+        iframe.onload = function() {
+            // Retrieve the loaded iframe path (without .html for clean URL)
+            const iframeSrc = iframe.contentWindow.location.pathname.replace(".html", "");
+            window.history.pushState(null, null, iframeSrc); // Update URL without reloading the page
+        };
+
+        // Listen for navigation events from iframe link clicks
         window.addEventListener("message", function(event) {
-            if (event.origin === window.location.origin) { // Verify the same origin
-                const newUrl = event.data;
-                iframe.src = newUrl; // Update iframe src to the new URL
-                window.history.pushState(null, null, newUrl); // Update the parent URL without reloading
+            if (event.origin === window.location.origin) {
+                const newSlug = event.data.replace(".html", ""); // Remove .html extension for clean URL
+                iframe.src = slugToFileMap[newSlug] || "iframe-content1.html"; // Update iframe content
+                window.history.pushState(null, null, newSlug); // Update parent URL without .html
             }
         });
+
+        // Ensure page always loads with iframe in content window even after refresh
+        window.onpopstate = loadContentFromSlug; // Reload iframe content when browser's back or forward is used
     </script>
 </body>
     
@@ -67,13 +70,11 @@
     font-family: Arial, sans-serif;
 }
 
-/* Background */
 body {
     background: url('images/clouds.png') no-repeat center center fixed;
     background-size: cover;
 }
 
-/* Wrapper for scaling the entire page */
 .page-wrapper {
     min-height: 100vh;
     width: 100%;
@@ -88,10 +89,9 @@ body {
     max-width: 550px;
     height: auto;
     margin-bottom: clamp(-25px, 2vh, -25px);
-	z-index: 2;
+    z-index: 2;
 }
 
-/* Window (content frame) */
 .window {
     position: relative;
     width: 100%;
@@ -105,7 +105,6 @@ body {
     margin: 0 auto;
 }
 
-/* Content iframe */
 .content-frame {
     width: 100%;
     height: 100%;
