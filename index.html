@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	//page mapping logic
+	//Whatsup?
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,16 +31,46 @@
             // Add other mappings as needed
         };
 
-        function updateIframeContent() {
-            const path = window.location.pathname.replace(/^\/|\/$/g, ""); // Get URL slug without slashes
+        // Function to update the iframe content
+        function updateIframeContent(path) {
             // Default to "home.html" if no slug is provided
             const contentPage = pageMappings[path] || "home.html";
             iframe.src = contentPage; // Update iframe src based on the mapping
         }
 
-        // Run the updateIframeContent function on page load
-        updateIframeContent();
+        // Function to handle clicking a link (simulate pushState)
+        function handleLinkClick(event, slug) {
+            event.preventDefault(); // Prevent default link behavior (full page reload)
+            window.history.pushState(null, null, "/" + slug); // Update URL without reloading
+            updateIframeContent(slug); // Update iframe content
+        }
+
+        // Listen for popstate event to handle browser's back/forward navigation
+        window.addEventListener("popstate", () => {
+            const path = window.location.pathname.replace(/^\/|\/$/g, "");
+            updateIframeContent(path);
+        });
+
+        // Update iframe content on initial load
+        const initialPath = window.location.pathname.replace(/^\/|\/$/g, "");
+        updateIframeContent(initialPath);
+
+        // Example of how to add dynamic links (this can be extended for actual links in your site)
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (event) => {
+                const slug = link.getAttribute('href').replace("/", ""); // Get the slug from href
+                handleLinkClick(event, slug);
+            });
+        });
+
     </script>
+
+    <!-- Example of links to navigate through different pages -->
+    <nav>
+        <a href="/content2" class="nav-link">Go to Content 2</a>
+        <a href="/home" class="nav-link">Go to Home</a>
+    </nav>
+
 </body>
 
 <style>
