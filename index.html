@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	//HIIIII ANOTHER TEST
+	//page mapping logic
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,23 +21,28 @@
     </div>
 
     <script>
-        // Set up the iframe and history handling
+        // Set up a basic routing mechanism
         const iframe = document.getElementById('contentFrame');
+        
+        // Mapping of slugs to HTML files
+        const pageMappings = {
+            "home": "home.html",
+            "content2": "iframe-container2.html",  // Example of a mapped slug
+            // Add other mappings as needed
+        };
 
-        function initializePage() {
+        function updateIframeContent() {
             const path = window.location.pathname.replace(/^\/|\/$/g, ""); // Get URL slug without slashes
-
-            if (path === "home") {
-                // Remove /home from the URL if present
-                window.history.replaceState(null, null, "/");
-            }
+            // Default to "home.html" if no slug is provided
+            const contentPage = pageMappings[path] || "home.html";
+            iframe.src = contentPage; // Update iframe src based on the mapping
         }
 
-        // Run the initializePage function to check and update the URL as needed
-        initializePage();
+        // Run the updateIframeContent function on page load
+        updateIframeContent();
     </script>
 </body>
-    
+
 <style>
 /* CSS styles remain unchanged */
 *, html, body {
