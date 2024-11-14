@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Nav Bar -->
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Scrolling BG -->
+    <div class="scrolling-background"></div>
+    <style>
+    .scrolling-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        background-image: url("images/stars-pattern.gif");
+        background-size: auto;
+        background-repeat: repeat;
+        z-index: -1;
+        animation: scroll 60s linear infinite;
+        image-rendering: crisp-edges;
+    }
+    @keyframes scroll {
+        from {
+            transform: translate(0, 0);
+        }
+        to {
+            transform: translate(-50%, -50%);
+        }
+    }
+    </style> <!-- Scrolling BG End -->
+    
+    <!-- Content Section -->
+    <div class="content-section">
+        <!-- Large Image with Caption and Title Overlay -->
+        <div class="image-container">
+            <!-- Large Image -->
+            <img src="grimwar_img/grimwar_screenshot.jpg" alt="Large Image">
+            
+            <!-- Large Title with Holographic effect -->
+            <h1 class="holographic-title">GRIMWAR</h1>
+        </div>
+
+        <!-- Regular Sized Heading -->
+        <h2 class="subheading">About GRIMWAR</h2>
+
+        <!-- Paragraph -->
+        <p class="description">
+            GRIMWAR is a first person movement shooter with pixel-centric visuals and fast paced gameplay. Use magical spells to vanquish mysterious entities while running through a treacherous tower. With an emphasis on movement, your swift feet are your avenues for freedom from your perilous imprisonment.
+        </p>
+
+        <!-- Regular Image with Caption -->
+        <div class="image-with-caption">
+            <img src="grimwar_img/grimwar-screenshot2.png" alt="Regular Image">
+            <p class="caption">A snapshot from one of my recent game projects.</p>
+			<h2 class="subheading">Project Specs</h2>
+			<p class="description">
+            Team size: 11 <br>
+			Role: 2D Artist <br>
+			Duration: September 2024 – May 2025 <br>
+			Engine: Unity <br>
+			Software: Aseprite, Adobe Photoshop, Adobe Premiere
+        </p>
+        </div>
+    
+	<h2 class="subheading">My Work</h2>
+			<p class="description">
+            I created conceptuallizations, frame by frame animation, and 2d visual assets for this project. One of note is the hands that appear during gameplay.
+        </p>
+		</div>
+<div class="image-gallery">
+    <img src="grimwar_img/process1.gif" alt="Image 1" class="gallery-image">
+    <img src="grimwar_img/process2.gif" alt="Image 2" class="gallery-image">
+    <img src="grimwar_img/process3.gif" alt="Image 3" class="gallery-image">
+    <img src="grimwar_img/process4.gif" alt="Image 4" class="gallery-image">
+</div>
+
+</body>
+
+<style>
+    @font-face {
+        font-family: 'Better VCR';
+        src: url('fonts/Better_VCR_6.1.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    body {
+        font-family: 'Better VCR', sans-serif;
+        line-height: 1.6;
+        padding: 0;
+        background-color: #222;
+        color: #fff;
+        margin: 0;
+        height: 100%;
+    }
+
+    /* Basic Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Navigation Bar */
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        background-color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    nav ul li {
+        display: inline-block;
+        margin: 0 20px;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 20px;
+        display: block;
+    }
+
+    nav ul li a:hover {
+        background-color: #575757;
+    }
+
+    /* Content Section */
+    .content-section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    /* Holographic Title */
+    .holographic-title {
+        font-size: 72px;
+        font-weight: bold;
+        color: white;
+        text-transform: uppercase;
+        background: linear-gradient(45deg, #00FFFF, #FF00FF, #FFFF00, #00FF00, #FF4500);
+        background-size: 400% 400%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: hologram 5s ease infinite;
+        letter-spacing: 5px;
+        /* Reduced glow */
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.6), 0 0 5px rgba(255, 255, 255, 0.4), 0 0 8px rgba(255, 255, 255, 0.3);
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+
+    /* Hologram Animation */
+    @keyframes hologram {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    /* Subheading */
+    .subheading {
+        font-size: 24px;
+        color: #ddd;
+        margin-bottom: 15px;
+    }
+
+    /* Paragraph */
+    .description {
+        font-size: 18px;
+        color: #bbb;
+        text-align: center;
+        margin-bottom: 15px;
+        max-width: 700px;
+    }
+
+    /* Image with Caption */
+    .image-with-caption {
+        text-align: center;
+    }
+
+    .image-with-caption img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .caption {
+        font-size: 14px;
+        color: #777;
+    }
+
+    /* Image Container for Overlay Title */
+    .image-container {
+        position: relative;
+        text-align: center;
+        width: 100%;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+    }
+
+    .image-container .caption {
+        font-size: 14px;
+        color: #777;
+        margin-top: 10px;
+    }
+	.image-gallery {
+    display: flex;
+    justify-content: space-between; /* Space between the images */
+    gap: 10px; /* Add space between the images */
+    flex-wrap: wrap; /* Allow images to wrap in smaller screens */
+    margin: 20px;
+}
+
+.gallery-image {
+    width: 23%; /* Each image will take up about 1/4 of the container */
+    height: auto; /* Maintain the aspect ratio */
+    border-radius: 8px; /* Optional: for rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add a shadow effect */
+    object-fit: cover; /* Ensure the image covers the space without distortion */
+}
+
+@media (max-width: 768px) {
+    .gallery-image {
+        width: 48%; /* On smaller screens, each image takes up about half the container */
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-image {
+        width: 100%; /* On very small screens, each image will take up the full width */
+    }
+}
+
+
+</style>
+</html>
