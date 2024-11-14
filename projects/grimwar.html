@@ -3,101 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>GRIMWAR</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Nav Bar -->
     <nav>
         <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="resume.html">Resume</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="../home.html">Home</a></li>
+            <li><a href="../resume.html">Resume</a></li>
+            <li><a href="../projects.html">Projects</a></li>
+            <li><a href="../contact.html">Contact</a></li>
         </ul>
     </nav>
-    
-    <!-- Scrolling BG -->
+
+    <!-- Scrolling Background -->
     <div class="scrolling-background"></div>
     <style>
-    .scrolling-background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 200%;
-        height: 200%;
-        background-image: url("images/stars-pattern.gif");
-        background-size: auto;
-        background-repeat: repeat;
-        z-index: -1;
-        animation: scroll 60s linear infinite;
-        image-rendering: crisp-edges;
-    }
-    @keyframes scroll {
-        from {
-            transform: translate(0, 0);
+        .scrolling-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background-image: url("images/stars-pattern.gif");
+            background-size: auto;
+            background-repeat: repeat;
+            z-index: -1;
+            animation: scroll 60s linear infinite;
+            image-rendering: crisp-edges;
         }
-        to {
-            transform: translate(-50%, -50%);
+        @keyframes scroll {
+            from {transform: translate(0, 0);}
+            to {transform: translate(-50%, -50%);}
         }
-    }
-    </style> <!-- Scrolling BG End -->
-    
-    <!-- Content Section -->
+    </style>
+
     <div class="content-section">
-        <!-- Large Image with Caption and Title Overlay -->
         <div class="image-container">
-            <!-- Large Image -->
             <img src="grimwar_img/grimwar_screenshot.jpg" alt="Large Image">
-            
-            <!-- Large Title with Holographic effect -->
             <h1 class="holographic-title">GRIMWAR</h1>
         </div>
 
-        <!-- Regular Sized Heading -->
-        <h2 class="subheading">About GRIMWAR</h2>
-
-        <!-- Paragraph -->
-        <p class="description">
-            GRIMWAR is a first person movement shooter with pixel-centric visuals and fast paced gameplay. Use magical spells to vanquish mysterious entities while running through a treacherous tower. With an emphasis on movement, your swift feet are your avenues for freedom from your perilous imprisonment.
-        </p>
-
-        <!-- Regular Image with Caption -->
-        <div class="image-with-caption">
-            <img src="grimwar_img/grimwar-screenshot2.png" alt="Regular Image">
-            <p class="caption">A snapshot from one of my recent game projects.</p>
-			<h2 class="subheading">Project Specs</h2>
-			<p class="description">
-            Team size: 11 <br>
-			Role: 2D Artist <br>
-			Duration: September 2024 – May 2025 <br>
-			Engine: Unity <br>
-			Software: Aseprite, Adobe Photoshop, Adobe Premiere
-        </p>
+        <!-- Alternating Layout Sections -->
+        <div class="content-row">
+            <div class="text-left">
+                <h2 class="subheading">About GRIMWAR</h2>
+                <p class="description">
+                    GRIMWAR is a first person movement shooter with pixel-centric visuals and fast paced gameplay.
+					Use magical spells to vanquish mysterious entities while running through a treacherous tower.
+					With an emphasis on movement, your swift feet are your avenues for freedom from your perilous imprisonment. <br>
+					<br>
+					This project is inspired by the pillars of the FPS genre; using their optimization as creative
+					fuel while being unbound by limitations of hardware. The project is set to conclude development May 2025.
+                </p>
+            </div>
+            <div class="image-right">
+                <img src="grimwar_img/grimwar-screenshot2.png" alt="About GRIMWAR Image">
+            </div>
         </div>
-    
-	<h2 class="subheading">My Work</h2>
-			<p class="description">
-            I created conceptuallizations, frame by frame animation, and 2d visual assets for this project. One of note is the hands that appear during gameplay.
-        </p>
+
+        <div class="content-row">
+            <div class="image-left">
+                <img src="grimwar_img/grimwar_screenshot3.png" alt="Project Specs Image">
+            </div>
+            <div class="text-right">
+                <h2 class="subheading">Project Specs</h2>
+                <p class="description">
+                    Team size: 11<br>
+                    Role: 2D Artist<br>
+                    Duration: September 2024 – May 2025<br>
+                    Engine: Unity<br>
+                    Software: Aseprite, Adobe Photoshop, Adobe Premiere
+                </p>
+            </div>
+        </div>
+
+        <h2 class="subheading">My Work</h2>
+		<p class="center-description">
+        	    I created conceptualizations, frame-by-frame animations, and 2D visual assets for this project.<br>
+				One notable asset is the hands that appear during gameplay.<br>
+				There are animated sprites for player actions which include:<br> Idle, Obtaining Unique Spells, Attacking with those spells, and Spell discarding.<br>
+				The process of creating each sprite is broken down into the four steps you can see below.<br>
+    </p>
+
+	<div class="image-gallery">
+    		<img src="grimwar_img/process1.gif" alt="Image 1" class="gallery-image">
+    		<img src="grimwar_img/process2.gif" alt="Image 2" class="gallery-image">
+    		<img src="grimwar_img/process3.gif" alt="Image 3" class="gallery-image">
+    		<img src="grimwar_img/process4.gif" alt="Image 4" class="gallery-image">
 		</div>
-<div class="image-gallery">
-    <img src="grimwar_img/process1.gif" alt="Image 1" class="gallery-image">
-    <img src="grimwar_img/process2.gif" alt="Image 2" class="gallery-image">
-    <img src="grimwar_img/process3.gif" alt="Image 3" class="gallery-image">
-    <img src="grimwar_img/process4.gif" alt="Image 4" class="gallery-image">
-</div>
+	
+		<p class="center-description">
+        	This involves recording poses using a video camera and converting the video file into a GIF. 
+			I used video software Adobe Premiere for this. In the GIF conversion processes, it naturally compresses the footage both in color and resolution. <br>
+			Once the footage is compressed, it is ready for Trimming. My program of choice for the remainder of the steps is Aseprite. The inital step is marking key frames in the poses. These are the strongest in the animation.
+			When these are marked, the other less important frames can begin to be deleted. The purpose of this is to reduce the amount of frames per animation down to the essesntials and display the action in as little frames as possible. <br>
+			<br>
+			Once the essential frames are chosen and the rest are cut, then can Adjustment begin. The inital footage features a swaying actor with a freehand camera. This step is meant to manually stabilize the pose and create flair within the animation. It is also common to manually rotate, skew, and correct posing on certain frames to make an animation flow smoother. Then the hand is tone corrected by adjusting contrast. 
+			</p>
+		<div class="image-gallery">
+    		<img src="grimwar_img/process5.gif" alt="Image 1" class="gallery-image">
+    		<img src="grimwar_img/process6.gif" alt="Image 2" class="gallery-image">
+    		<img src="grimwar_img/process7.gif" alt="Image 3" class="gallery-image">
+    		<img src="grimwar_img/process8.gif" alt="Image 4" class="gallery-image">
+		</div>
+			<p class="center-description">
+			Only when adjustments are made, will the animation be considered for Masking.<br>
+			Masking is done after the hand itself animates as intended; which includes the checking of this list: <br>
+			-Is the pose scaled correctly in relation to other poses? <br>
+			-Is the pose less than 10 animation frames?<br>
+			-Has the pose been stablized? Is it free from jitters? <br>
+			-Does the pose only come from bottom frame? (Pose does not come from side egde) <br>
+			-If a looping animation, does it loop seamlessly? <br>
+			-If an Intro/Outro animation, does it flow well into and from seqeuential poses? <br>
+			-Has the tone been corrected? <br>
+		If all are approved, then the Masking process can begin. Masking is removing the background from the main pose, which is done manually frame-by-frame to ensure a clean cut per animation. This is done to prevent blurred anti-aliased edges.<br>
+			After Masking, the final pose is indexed. The color count is reduced from 128 to 4. The pose is them imported into engine and set up in Unity's animator for gameplay use.
 
+    </p>
+        </div>
+	
 </body>
-
+  		
 <style>
+	/* Font */
     @font-face {
         font-family: 'Better VCR';
         src: url('fonts/Better_VCR_6.1.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
-    }
-
+    	}
     body {
         font-family: 'Better VCR', sans-serif;
         line-height: 1.6;
@@ -106,9 +142,9 @@
         color: #fff;
         margin: 0;
         height: 100%;
-    }
+    	}
+	/* Font End */
 
-    /* Basic Reset */
     * {
         margin: 0;
         padding: 0;
@@ -147,7 +183,6 @@
         flex-direction: column;
         gap: 20px;
         align-items: center;
-        justify-content: center;
         padding: 20px;
     }
 
@@ -164,7 +199,6 @@
         color: transparent;
         animation: hologram 5s ease infinite;
         letter-spacing: 5px;
-        /* Reduced glow */
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.6), 0 0 5px rgba(255, 255, 255, 0.4), 0 0 8px rgba(255, 255, 255, 0.3);
         position: absolute;
         top: 20%;
@@ -175,15 +209,9 @@
 
     /* Hologram Animation */
     @keyframes hologram {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
     }
 
     /* Subheading */
@@ -197,9 +225,15 @@
     .description {
         font-size: 18px;
         color: #bbb;
-        text-align: center;
         margin-bottom: 15px;
         max-width: 700px;
+    }
+
+	.center-description {
+        font-size: 18px;
+        color: #bbb;
+        margin-bottom: 15px;
+        max-width: 1500px;
     }
 
     /* Image with Caption */
@@ -230,39 +264,67 @@
         height: auto;
     }
 
-    .image-container .caption {
-        font-size: 14px;
-        color: #777;
-        margin-top: 10px;
+    /* Content Row Container */
+    .content-row {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+        max-width: 1500px;
     }
+
+    /* Text on the Left, Image on the Right */
+    .text-left, .image-right {
+        flex: 1;
+    }
+
+    .text-left {
+        padding-right: 20px;
+        text-align: left;
+    }
+
+    .image-right img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    /* Text on the Right, Image on the Left */
+    .image-left, .text-right {
+        flex: 1;
+    }
+
+    .image-left img {
+        width: 200%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .text-right {
+        padding-left: 800px;
+        text-align: right;
+    }
+
+    /* Adjust for smaller screens */
+    @media (max-width: 768px) {
+        .content-row {
+            flex-direction: column;
+        }
+	}
+		
 	.image-gallery {
-    display: flex;
-    justify-content: space-between; /* Space between the images */
-    gap: 10px; /* Add space between the images */
-    flex-wrap: wrap; /* Allow images to wrap in smaller screens */
-    margin: 20px;
-}
+    	display: flex;
+    	justify-content: space-between; /* Space between the images */
+    	gap: 10px; /* Add space between the images */
+    	flex-wrap: wrap; /* Allow images to wrap in smaller screens */
+    	margin: 20px;
+	}
 
-.gallery-image {
-    width: 23%; /* Each image will take up about 1/4 of the container */
-    height: auto; /* Maintain the aspect ratio */
-    border-radius: 8px; /* Optional: for rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add a shadow effect */
-    object-fit: cover; /* Ensure the image covers the space without distortion */
-}
+	.gallery-image {
+    	width: 23%; /* Each image will take up about 1/4 of the container */
+    	height: auto; /* Maintain the aspect ratio */
+    	border-radius: 5px; /* Optional: for rounded corners */
+    	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add a shadow effect */
 
-@media (max-width: 768px) {
-    .gallery-image {
-        width: 48%; /* On smaller screens, each image takes up about half the container */
-    }
-}
-
-@media (max-width: 480px) {
-    .gallery-image {
-        width: 100%; /* On very small screens, each image will take up the full width */
-    }
-}
-
-
+	}	
 </style>
 </html>
