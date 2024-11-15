@@ -11,7 +11,6 @@
     <nav>
         <ul>
             <li><a href="../home.html">Home</a></li>
-            <li><a href="../resume.html">Resume</a></li>
             <li><a href="../projects.html">Projects</a></li>
             <li><a href="../contact.html">Contact</a></li>
         </ul>
@@ -58,27 +57,34 @@
 					fuel while being unbound by limitations of hardware. The project is set to conclude development May 2025.
                 </p>
             </div>
+			<figure>
             <div class="image-right">
-                <img src="grimwar_img/grimwar-screenshot2.png" alt="About GRIMWAR Image">
+                <img src="grimwar_img/grimwar-play1.gif" alt="">
             </div>
+			 <figcaption class="caption">Hands in scene during movement</figcaption>
+        </figure>
         </div>
 
         <div class="content-row">
+			<figure>
             <div class="image-left">
-                <img src="grimwar_img/grimwar_screenshot3.png" alt="Project Specs Image">
+                <img src="grimwar_img/grimwar-play2.gif" alt="">
             </div>
+			 <figcaption class="caption">Idle in a lab room</figcaption>
+        </figure>
             <div class="text-right">
                 <h2 class="subheading">Project Specs</h2>
                 <p class="description">
+					-Currently Work in Progress- <br>
                     Team size: 11<br>
                     Role: 2D Artist<br>
                     Duration: September 2024 – May 2025<br>
                     Engine: Unity<br>
-                    Software: Aseprite, Adobe Photoshop, Adobe Premiere
+                    Software: Aseprite,<br> Adobe Photoshop & Premiere
                 </p>
             </div>
         </div>
-
+<!-- Line --> <hr> <style>hr {border-top: 2px solid white;width: 80%;margin: 20px auto;}</style>
         <h2 class="subheading">My Work</h2>
 		<p class="center-description">
         	    I created conceptualizations, frame-by-frame animations, and 2D visual assets for this project.<br>
@@ -86,13 +92,15 @@
 				There are animated sprites for player actions which include:<br> Idle, Obtaining Unique Spells, Attacking with those spells, and Spell discarding.<br>
 				The process of creating each sprite is broken down into the four steps you can see below.<br>
     </p>
-
+<figure>
 	<div class="image-gallery">
     		<img src="grimwar_img/process1.gif" alt="Image 1" class="gallery-image">
     		<img src="grimwar_img/process2.gif" alt="Image 2" class="gallery-image">
     		<img src="grimwar_img/process3.gif" alt="Image 3" class="gallery-image">
     		<img src="grimwar_img/process4.gif" alt="Image 4" class="gallery-image">
 		</div>
+		 <figcaption class="caption">Showcasing the process for creating hand animations</figcaption>
+        </figure>
 	
 		<p class="center-description">
         	This involves recording poses using a video camera and converting the video file into a GIF. 
@@ -102,12 +110,15 @@
 			<br>
 			Once the essential frames are chosen and the rest are cut, then can Adjustment begin. The initial footage features a swaying actor with a freehand camera. This step is meant to manually stabilize the pose and create flair within the animation. It is also common to manually rotate, skew, and correct posing on certain frames to make an animation flow smoother. Then the hand is tone corrected by adjusting contrast. 
 			</p>
+		<figure>
 		<div class="image-gallery">
     		<img src="grimwar_img/process5.gif" alt="Image 1" class="gallery-image">
     		<img src="grimwar_img/process6.gif" alt="Image 2" class="gallery-image">
     		<img src="grimwar_img/process7.gif" alt="Image 3" class="gallery-image">
     		<img src="grimwar_img/process8.gif" alt="Image 4" class="gallery-image">
 		</div>
+		 <figcaption class="caption">Showcasing hand animations in the Adjustment phase</figcaption>
+        </figure>
 			<p class="center-description">
 			Only when adjustments are made, will the animation be considered for Masking.<br>
 			Masking is done after the hand itself animates as intended; which includes the checking of this list: <br>
@@ -118,10 +129,22 @@
 			-If a looping animation, does it loop seamlessly? <br>
 			-If an Intro/Outro animation, does it flow well into and from sequential poses? <br>
 			-Has the tone been corrected? <br>
-		If all are approved, then the Masking process can begin. Masking is removing the background from the main pose, which is done manually frame-by-frame to ensure a clean cut per animation. This is done to prevent blurred anti-aliased edges from automated processes such as chroma/ultra keying.<br>
+			If all are approved, then the Masking process can begin. Masking is removing the background from the main pose, which is done manually frame-by-frame to ensure a clean cut per animation. This is done to prevent blurred anti-aliased edges from automated processes such as chroma/ultra keying.<br>
 			After Masking, the final pose is indexed. The color count is reduced from 128 to 4. The pose is then imported into engine and set up in Unity's animator for gameplay use.
-
+    		</p>
+		<h2 class="subheading">Reflection</h2>
+		<figure>
+		<div>
+                <img src="grimwar_img/grimwar-play3.gif" alt="">
+            </div>
+		 <figcaption class="caption">Hands in a kinetic scene with dynamic lighting</figcaption>
+        </figure>
+		<p class="center-description">
+        	    I love the style of the game. Pixelated, crunchy, and moody are asethetic choices I appreciate. I've done my best to match that style with my assets. The process for making the hands has been tough at times and I've experimented with different approaches. Most of the methods I had in mind were soley for cutting time spent on assets, though would hinder overall quality. I found that doing it in the way I've demonstrated was the best direction to go, even if the result took longer to produce. Team members were a great guide for direction and helped with scope considerations.
+				Im happy with the way the hands turned out and I am excited to continue work on this project for the remainder of its production.
     </p>
+		
+
         </div>
 	
 </body>
@@ -272,7 +295,6 @@
         max-width: 1500px;
     }
 
-    /* Text on the Left, Image on the Right */
     .text-left, .image-right {
         flex: 1;
     }
@@ -288,19 +310,18 @@
         border-radius: 8px;
     }
 
-    /* Text on the Right, Image on the Left */
     .image-left, .text-right {
         flex: 1;
     }
 
     .image-left img {
-        width: 200%;
+        width: 100%;
         height: auto;
         border-radius: 8px;
     }
 
     .text-right {
-        padding-left: 800px;
+        padding-left: 8px;
         text-align: right;
     }
 
@@ -313,8 +334,8 @@
 		
 	.image-gallery {
     	display: flex;
-    	justify-content: space-between; /* Space between the images */
-    	gap: 10px; /* Add space between the images */
+ 
+    	gap: 8px; /* Add space between the images */
     	flex-wrap: wrap; /* Allow images to wrap in smaller screens */
     	margin: 20px;
 	}
@@ -326,5 +347,16 @@
     	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add a shadow effect */
 
 	}	
+	figure {
+    margin: 0;
+    display: inline-block;
+    text-align: center;
+}
+
+figcaption {
+    font-size: 14px;
+    color: #bbb;
+    margin-top: 5px;
+}
 </style>
 </html>

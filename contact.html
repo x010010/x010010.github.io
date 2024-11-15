@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Nav Bar -->
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+	
+<!-- Scrolling BG -->
+    <div class="scrolling-background"></div>
+	<style>
+	.scrolling-background {
+    	position: fixed;
+    	top: 0;
+    	left: 0;
+    	width: 200%;
+    	height: 200%;
+    	background-image: url("images/stars-pattern.gif");
+    	background-size: auto;
+    	background-repeat: repeat;
+    	z-index: -1;
+    	animation: scroll 60s linear infinite;
+    	image-rendering: crisp-edges;
+		}
+	@keyframes scroll {
+    	from {transform: translate(0, 0);}
+    	to {transform: translate(-50%, -50%);}
+		}
+	</style> 
+<!-- Scrolling BG End -->
+	
+ 		<div class="contact">
+            <img src="images/Contact.png" alt="Large Image">
+        </div>
+ 
+
+</body>
+
+<style>
+    @font-face {
+        font-family: 'Better VCR';
+        src: url('fonts/Better_VCR_6.1.ttf') format('truetype'); /* Use the relative path to your font file */
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    body {
+        font-family: 'Better VCR', sans-serif; /* Apply your custom font to the entire page */
+        line-height: 1.6;
+        padding: 0;
+        background-color: #222;
+        color: #fff;
+        margin: 0;
+        height: 100%;
+        overflow: hidden; /* Prevent scrolling */
+    }
+
+    /* Basic Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Navigation Bar */
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        background-color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    nav ul li {
+        display: inline-block;
+        margin: 0 20px;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 20px;
+        display: block;
+    }
+
+    nav ul li a:hover {
+        background-color: #575757;
+    }
+
+    /* Content Section */
+    .content-section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        height: calc(100vh - 60px); /* Adjust content section height to fit the page */
+    }
+
+    /* Holographic Title */
+    .holographic-title {
+        font-size: 72px;
+        font-weight: bold;
+        color: white;
+        text-transform: uppercase;
+        background: linear-gradient(45deg, #00FFFF, #FF00FF, #FFFF00, #00FF00, #FF4500);
+        background-size: 400% 400%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: hologram 5s ease infinite;
+        letter-spacing: 5px;
+        /* Reduced glow */
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.6), 0 0 5px rgba(255, 255, 255, 0.4), 0 0 8px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Hologram Animation */
+    @keyframes hologram {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    /* Subheading */
+    .subheading {
+        font-size: 24px;
+        color: #ddd;
+        margin-bottom: 15px;
+    }
+
+    /* Paragraph */
+    .description {
+        font-size: 18px;
+        color: #bbb;
+        text-align: center;
+        margin-bottom: 15px;
+        max-width: 700px;
+    }
+
+    /* Smaller Text */
+    .small-text {
+        font-size: 14px;
+        color: #777;
+        text-align: center;
+    }
+
+  .contact {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .contact img {
+        width: 80%; /* Slightly reduce width to improve sharpness */
+        max-width: 700px;
+        height: auto;
+        image-rendering: crisp-edges; /* Sharpens the image in some browsers */
+        image-rendering: -webkit-optimize-contrast; /* Webkit-based browsers */
+    }
+
+</style>
+</html>
