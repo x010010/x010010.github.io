@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simon's Sandwiches</title>
+    <title>SpellBun'd</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -40,42 +40,41 @@
 
     <div class="content-section">
         <div class="image-container">
-            <img src="simons-sandwiches_img/simons-banner.jpg" alt="Large Image">
-            <h1 class="holographic-title">Simon's Sandwiches</h1>
+            <img src="spellbund_img/spellbund-banner.png" alt="Large Image">
+            <h1 class="holographic-title">SpellBun'd</h1>
         </div>
 
         <!-- Alternating Layout Sections -->
         <div class="content-row">
             <div class="text-left">
-                <h2 class="subheading">About Simon's Sandwiches</h2>
+                <h2 class="subheading">About SpellBun'd</h2>
                 <p class="description">
-                    Simon's Sandwiches is a memory game about taking sandwich orders. The "Simon's" food chain is gaining popularity and its up to you to fulfil every customer's order to the tee.<br>
-					<br>
-					The wacky cast of cusomters you encounter all have a unifying trait: They're all very picky.<br> They require their order to contain all the ingredients they asked for in the exact sequence they ordered it.
-					Can you keep up?
+                    SpellBun'd is an AFK wave-based survival game about a magical bunny that is fending off creatures that are after its magical book. <br>
+					It uses spells to vanquish these various scoundrels of varying size and strength.<br>
+					The game is endless, and upgrades are sparse; how long can you last?
                 </p>
             </div>
 			<figure>
             <div class="image-right">
-                <img src="simons-sandwiches_img/simon-play1.gif" alt="">
+                <img src="spellbund_img/spellbun-play1.gif" alt="">
             </div>
-			 <figcaption class="caption">Customer placing an order on Level 1</figcaption>
+			 <figcaption class="caption">Showing off basic spell casting</figcaption>
         </figure>
         </div>
 
         <div class="content-row">
 			<figure>
             <div class="image-left">
-                <img src="simons-sandwiches_img/simon-play2.gif" alt="">
+                <img src="spellbund_img/spellbund-play2.gif" alt="">
             </div>
-			 <figcaption class="caption">Inputting the correct order on Level 3</figcaption>
+			 <figcaption class="caption">Purchasing an upgrade from the shop</figcaption>
         </figure>
             <div class="text-right">
                 <h2 class="subheading">Project Specs</h2>
                 <p class="description">
-                    Team size: 7<br>
+                    Team size: 6<br>
                     Role: 2D Artist<br>
-                    Duration: September -<br> November 2024<br>
+                    Duration: August - September 2024<br>
                     Engine: Unity<br>
                     Software: Aseprite
                 </p>
@@ -86,33 +85,40 @@
 		
         <h2 class="subheading">My Work</h2>
 		<p class="center-description">
-        	    I created the concepts for most of the customers, as well as creating the final sprite for each.<br> This also includes their animations, which consists of: Neutral, Talking, Victory, Loss. 
+        	    I created the concepts for half of the characters, as well as creating final sprites for each.<br> This also includes their animations.<br>
+			For the bunny, this includes: Idle, Spell Active, Spell Cast, Hurt animations.<br>
+			For enemies, this includes: Walk, death.<br>
+			For the shop keeper, this includes: Intro, Idle
     </p>
 <figure>
 	<div class="image-gallery">
-    		<img src="simons-sandwiches_img/Mushrooms-showcase.gif" alt="Image 1" class="gallery-image">
-    		<img src="simons-sandwiches_img/Cats-showcase.gif" alt="Image 2" class="gallery-image">
-    		<img src="simons-sandwiches_img/Alien-showcase.gif" alt="Image 3" class="gallery-image">
+    		<img src="spellbund_img/bun_nomask_showcase.gif" alt="Image 1" class="gallery-image">
+    		<img src="spellbund_img/bun_goldmask_showcase.gif" alt="Image 2" class="gallery-image">
+    		<img src="spellbund_img/bun_woodmask_showcase.gif" alt="Image 3" class="gallery-image">
 		</div>
-		 <figcaption class="caption">Showcasing all the customers with their various animation poses</figcaption>
+		 <figcaption class="caption">Showcasing the bunny main character animations</figcaption>
+        </figure>
+		<div class="enemy"></div>
+		<figure>
+                <img src="spellbund_img/SHOWCASE_ENEMIES.gif" alt="" class="large-image">
+			 <figcaption class="caption">Enemy animation showcase</figcaption>
         </figure>
 	
 		<p class="center-description">
-        	Each level in the game consists of 4 orders. In those levels, the customers have a theme.<br>
-			The first level is Mushroom people. The second level is Cat people. Lastly, the third level is Aliens.<br>
-			Each character is expressive in their own way and has a unique order to give them each a personality.
+        	Each character on the field has its own set of animations and walk cycles. 
 
 			</p>
 
 		<h2 class="subheading">Reflection</h2>
 		<div>
 			<figure>
-                <img src="simons-sandwiches_img/simon-play3.gif" alt="">
-			 <figcaption class="caption">Inputting the incorrect order on Level 2</figcaption>
+                <img src="spellbund_img/spellbund-play3.gif" alt="">
+			 <figcaption class="caption">Bunny getting hurt by enemy</figcaption>
         </figure>
             </div>
 		<p class="center-description">
-        	    This project was fun and charming. I received feedback from my team about character designs and the process was involved and efficient.
+        	    I enjoyed this one heavily. Sprite-work of this style is what I enjoy doing most.<br>
+			Creating not only character designs but converting them to a lower pixel density and working with that constraint gives the sprites a fun retro look. Im very happy with how the sprites turned out.
     </p>
 		
 
@@ -329,5 +335,19 @@ figcaption {
     color: #bbb;
     margin-top: 5px;
 }
+
+.large-image {
+    display: block;
+    margin: 0 auto;
+    width: 500px; /* Fixed width */
+    height: auto;
+	image-rendering: pixelated;
+}
+
+
+
+
+
+
 </style>
 </html>
