@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlexPort</title>
+    <link rel="stylesheet" href="styles.css">
+	<link rel="icon" type="images/png" href="images/favicon.png">
+</head>
+<body>
+	<div class="page-wrapper">
+        <img src="images/Port-header.gif" alt="Header" class="header-image">   
+		<div class="custom-navbar">
+    <img src="images/navbar/navbar-left.png" class="nav-end left" alt="Left End">
+
+    <div class="nav-links">
+        <div class="nav-section">
+            <a href="index.html" class="nav-button">Home</a>
+        </div>
+        <img src="images/navbar/navbar-sep.png" class="nav-separator" alt="Separator">
+
+        <div class="nav-section">
+            <a href="projects.html" class="nav-button">Projects</a>
+        </div>
+        <img src="images/navbar/navbar-sep.png" class="nav-separator" alt="Separator">
+
+        <div class="nav-section">
+            <a href="resume.html" class="nav-button">Resume</a>
+        </div>
+        <img src="images/navbar/navbar-sep.png" class="nav-separator" alt="Separator">
+
+        <div class="nav-section">
+            <a href="contact.html" class="nav-button">Contact</a>
+        </div>
+    </div>
+
+    <img src="images/navbar/navbar-right.png" class="nav-end right" alt="Right End">
+</div>
+
+        <div class="top-nav">
+            <div class="window">
+                <iframe src="home.html" frameborder="0" class="content-frame" id="contentFrame"></iframe>
+            </div>
+        </div>
+    </div>
+	
+	<style>
+	/* NAVBAR CONTAINER */
+.custom-navbar {
+    display: flex;
+    width: max-content;
+    height: 40px;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+}
+
+.nav-end {
+    height: 100%;
+    width: auto;
+    image-rendering: pixelated;
+}
+
+/* NAV LINKS */
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+}
+
+.nav-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 15px;
+    height: 40px;
+
+    background: url('images/navbar/navbar-middle.png') center center no-repeat;
+    background-size: 100% 100%;
+    image-rendering: pixelated;
+}
+
+/* SEPARATORS */
+.nav-separator {
+    height: 100%;
+    max-height: 40px;
+    width: auto;
+    image-rendering: pixelated;
+}
+
+/* BUTTON TEXT */
+.nav-button {
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 5px 70px;
+    white-space: nowrap;
+}
+
+/* BUTTON HOVER */
+.nav-button:hover {
+    color: #ffcc00;
+}
+
+	</style>
+
+    
+</body>
+	
+<style>
+	*, html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: url('images/clouds.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.page-wrapper {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.header-image {
+    width: clamp(60%, 80%, 90%);
+    max-width: 550px;
+    height: auto;
+    margin-bottom: clamp(-25px, 2vh, -25px);
+    z-index: 2;
+}
+
+.window {
+    position: relative;
+    width: 100%;
+    max-width: 1500px;
+    height: 750px;
+    min-height: 750px;
+    overflow: hidden;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+}
+
+.content-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+	</style>
+</html>

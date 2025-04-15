@@ -1,0 +1,65 @@
+body {
+  font-family: 'Courier New', monospace; /* Monospace for a pixel-like font */
+  text-align: center;
+  margin-top: 50px;
+  background-color: #333; /* Dark background for contrast */
+  color: #fff; /* White text for better readability */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height */
+  margin: 0; /* Remove default margin */
+}
+
+#viewer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px; /* To ensure there's space below the viewer */
+}
+
+canvas {
+  border: 6px solid #fff; /* Thicker white frame for animation window */
+  display: block;
+  background-color: #222; /* Darker background for the canvas */
+  padding: 15px; /* Added padding to the canvas to prevent sprite from touching the edges */
+  image-rendering: pixelated; /* Preserve pixelated art */
+  transform: scale(1); /* Increase size of sprite by 300% */
+  margin-bottom: 10px; /* Ensure some space between canvas and controls */
+}
+
+#controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Add space between buttons */
+  margin-top: 10px; /* Adjust the space to place the controls below the canvas */
+}
+
+button {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  display: inline-block;
+  border: 2px solid #fff; /* Thicker white border for buttons */
+  background-color: #444; /* Dark button background */
+  color: #fff; /* White text */
+  cursor: pointer;
+  text-align: center;
+  line-height: 36px; /* Vertically center the emoji */
+  box-sizing: border-box;
+  border-radius: 4px; /* Slight rounded corners */
+}
+
+button:hover {
+  background-color: #555; /* Lighter hover effect */
+}
+
+button:focus {
+  outline: none; /* Remove default focus outline */
+}
+#spriteCanvas {
+  image-rendering: pixelated; /* Preserve pixelated art */
+  transform: scale(1);
+}
