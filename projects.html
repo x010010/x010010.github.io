@@ -27,7 +27,7 @@ html {
 body {
   margin: 0;
   background: #111;
-  color: #fff;
+  color: black;
   font-family: sans-serif;
   background: url('images/clouds.png');
 }
@@ -73,15 +73,93 @@ body {
             </div>
         </a>
     </div>
-	<style>
+<style>
+@font-face {
+    font-family: 'Better VCR';
+    src: url('fonts/Better_VCR_6.1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
-    .content-section {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+html, body {
+    font-family: 'Better VCR', sans-serif;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    overflow: auto;
+}
 
-        justify-content: center;
-    }
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 50px;
+}
+
+
+.content-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 30px;
+    background-color: #f4f4f4;
+    border-radius: 0px;
+    min-height: 120px;
+    position: relative;
+}
+
+.thumbnail {
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+    border-radius: 4px;
+}
+
+.content-text {
+    flex-grow: 1;
+}
+
+.content-text h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.subheading {
+    font-size: 16px;
+    color: #666;
+}
+
+.subheading2 {
+    font-size: 14px;
+    color: #888;
+    margin-top: 5px;
+}
+
+.more-text {
+    font-size: 14px;
+    color: #333;
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    max-width: 200px;
+}
+
+.content-bar:hover {
+    background-color: #e2e2e2;
+    cursor: pointer;
+}
+
+.content-bar-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+   
 
 </style>
 
