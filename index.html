@@ -107,7 +107,7 @@ body {
 
     /* Holographic Title */
     .holographic-title {
-        font-size: 72px;
+        font-size: clamp(2rem, 8vw, 72px);
         font-weight: bold;
         color: white;
         text-transform: uppercase;
@@ -163,7 +163,7 @@ body {
   width: 100%;
   max-width: 100%;
   margin: 2em auto;
-  padding: 2em;
+  padding: 2em 1em;
   box-sizing: border-box;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
@@ -189,14 +189,15 @@ body {
   }
 }
 	
-	@media (max-width: 600px) {
+@media (max-width: 600px) {
   .content-container {
     transform: scale(0.9);
     transform-origin: top center;
+	padding: 2em 1.5em;
   }
 }
 	
-	.content-container img,
+.content-container img,
 .content-container video,
 .content-container iframe {
   max-width: 100%;
