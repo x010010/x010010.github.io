@@ -1,45 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<!-- Scrolling BG -->
-    <div class="scrolling-background"></div>
-	<style>
-	.scrolling-background {
-    	position: fixed;
-    	top: 0;
-    	left: 0;
-    	width: 200%;
-    	height: 200%;
-    	background-image: url("images/walltexture.png");
-    	background-size: auto;
-    	background-repeat: repeat;
-    	z-index: -1;
-    	animation: scroll 40s linear infinite;
-    	image-rendering: crisp-edges;
-		}
-	@keyframes scroll {
-    	from {transform: translate(0, 0);}
-    	to {transform: translate(-50%, -50%);}
-		}
-	</style>
-<!-- Scrolling BG End -->
 
-    <!-- Nav Bar -->
-    <nav>
-        <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+<title>alecks.art - Projects</title>
+<div id="header"></div>
+<div id="nav"></div>
+<script>
+  fetch('header.html').then(res => res.text()).then(html => {
+    document.getElementById('header').innerHTML = html;
+  });
 
-    <!-- Content Section -->
+  fetch('nav.html').then(res => res.text()).then(html => {
+    document.getElementById('nav').innerHTML = html;
+  });
+</script>
+<style>
+html {
+  font-size: clamp(14px, 2.5vw, 18px);
+}
+
+body {
+  margin: 0;
+  background: #111;
+  color: #fff;
+  font-family: sans-serif;
+  background: url('images/clouds.png');
+}
+	
+</style>
+
+<main class="content-container"><!-- Content Below -->
+	
+	<!-- Content Section -->
     <div class="content-section">
         <!-- Content Bar 1 -->
         <a href="projects/grimwar.html" class="content-bar-link">
@@ -74,28 +65,104 @@
                 <div class="content-text">
                     <h2>SpellBun'd</h2>
                     <p class="subheading">6 person team</p>
-                    <p class="subheading2">Half of 2D Sprites, cleanup, & all animation</p>
+                    <p class="subheading2">Half of 2D Sprites, cleanup, &amp; all animation</p>
                 </div>
                 <p class="more-text">August 2024 - September 2024</p>
             </div>
         </a>
     </div>
 </body>
-<style>
-@font-face {
-    font-family: 'Better VCR';
-    src: url('fonts/Better_VCR_6.1.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
+	<style>
+    @font-face {
+        font-family: 'Perfect DOS';
+        src: url('fonts/Perfect_DOS_VGA_437.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
 
+    body {
+        font-family: 'Perfect DOS', sans-serif;
+        line-height: 1.6;
+        padding: 0;
+        background-color: #222;
+        color: #fff;
+        margin: 0;
+        height: 100%;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        background-color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    nav ul li {
+        display: inline-block;
+        margin: 0 20px;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 20px;
+        display: block;
+    }
+
+    nav ul li a:hover {
+        background-color: #575757;
+    }
+
+    .content-section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        height: calc(70vh - 60px);
+    }
+
+
+ 
+
+    .subheading {
+        font-size: 24px;
+        color: #ddd;
+        margin-bottom: 15px;
+    }
+
+    .description {
+        font-size: 18px;
+        color: #bbb;
+        text-align: center;
+        margin-bottom: 15px;
+        max-width: 700px;
+    }
+
+    .small-text {
+        font-size: 14px;
+        color: #777;
+        text-align: center;
+    }
+
+</style>
+	
+<style>
 html, body {
     font-family: 'Better VCR', sans-serif;
     line-height: 1.6;
     padding: 0;
     margin: 0;
     height: 100%;
-    overflow: auto;  /* Allow scrolling */
+    overflow: auto;
 }
 
 
@@ -106,40 +173,6 @@ html, body {
     box-sizing: border-box;
 }
 
-/* Navigation Bar */
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    background-color: #333;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-nav ul li {
-    display: inline-block;
-    margin: 0 20px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px 20px;
-    display: block;
-}
-
-nav ul li a:hover {
-    background-color: #575757;
-}
-
-.content-section {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    position: relative;
-    z-index: 1;
-    padding-bottom: 50px; /* Adds extra space at the bottom of the content */
-}
 
 
 /* Content Bar */
@@ -191,17 +224,68 @@ nav ul li a:hover {
     max-width: 200px;
 }
 
-/* Hover effect for content bars */
+
 .content-bar:hover {
     background-color: #e2e2e2;
     cursor: pointer;
 }
 
-/* Remove underline for links */
 .content-bar-link {
     text-decoration: none;
     color: inherit;
     display: block;
 }
+
+</main><!-- Content Above -->
+<style>
+.content-container {
+  position: relative;
+  max-width: 80%;
+  margin: 2em auto;
+  padding: 2em 1em;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  background-image: url('images/walltexture.png');
+  background-repeat: repeat;
+  background-size: auto;
+  animation: background-scroll 25s linear infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow-y: auto;
+}
+
+@keyframes background-scroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -500px -500px;
+  }
+}
+	
+@media (max-width: 600px) {
+  .content-container {
+    transform: scale(0.99);
+    transform-origin: top center;
+	padding: 2em 1.5em;
+	max-width: 100%;
+  }
+}
+	
+.content-container img,
+.content-container video,
+.content-container iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 </style>
+
 </html>
