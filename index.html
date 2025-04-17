@@ -26,7 +26,6 @@ body {
 
 <main class="content-container"><!-- Content Below -->
 	
-	<center>
 	<div class="content-section">
         <h1 class="holographic-title">Alecks.Art</h1>
 
@@ -41,7 +40,6 @@ body {
             Use the top bar for navigation
         </p>
     </div>
-		</center>
 	<style>
     @font-face {
         font-family: 'Perfect DOS';
@@ -163,12 +161,15 @@ body {
   padding: 2em;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-
   background-image: url('images/stars-pattern.gif');
   background-repeat: repeat;
   background-size: auto;
   animation: background-scroll 60s linear infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 
 @keyframes background-scroll {
   from {
