@@ -14,6 +14,10 @@
   });
 </script>
 <style>
+html {
+  font-size: clamp(14px, 2.5vw, 18px);
+}
+
 body {
   margin: 0;
   background: #111;
@@ -156,9 +160,11 @@ body {
 <style>
 .content-container {
   position: relative;
-  max-width: 960px;
+  width: 100%;
+  max-width: 100%;
   margin: 2em auto;
   padding: 2em;
+  box-sizing: border-box;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   background-image: url('images/stars-pattern.gif');
@@ -168,8 +174,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
-
 
 @keyframes background-scroll {
   from {
@@ -179,6 +188,22 @@ body {
     background-position: -500px -500px;
   }
 }
+	
+	@media (max-width: 600px) {
+  .content-container {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+}
+	
+	.content-container img,
+.content-container video,
+.content-container iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 </style>
 
 </html>
