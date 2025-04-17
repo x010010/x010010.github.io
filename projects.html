@@ -18,6 +18,12 @@ html {
   font-size: clamp(14px, 2.5vw, 18px);
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+	
 body {
   margin: 0;
   background: #111;
@@ -25,14 +31,12 @@ body {
   font-family: sans-serif;
   background: url('images/clouds.png');
 }
-	
 </style>
 
 <main class="content-container"><!-- Content Below -->
 	
-	<!-- Content Section -->
     <div class="content-section">
-        <!-- Content Bar 1 -->
+		
         <a href="projects/grimwar.html" class="content-bar-link">
             <div class="content-bar">
                 <img src="images/GRIMWAR_Thumbnail.png" alt="Thumbnail 1" class="thumbnail">
@@ -45,7 +49,6 @@ body {
             </div>
         </a>
 
-        <!-- Content Bar 2 -->
         <a href="projects/simons-sandwiches.html" class="content-bar-link">
             <div class="content-bar">
                 <img src="images/SimonsSandwiches_Thumbnail.png" alt="Thumbnail 2" class="thumbnail">
@@ -58,7 +61,6 @@ body {
             </div>
         </a>
 
-        <!-- Content Bar 3 -->
         <a href="projects/spellbund.html" class="content-bar-link">
             <div class="content-bar">
                 <img src="images/Spellbund_thumbnail.png" alt="Thumbnail 3" class="thumbnail">
@@ -71,170 +73,17 @@ body {
             </div>
         </a>
     </div>
-</body>
 	<style>
-    @font-face {
-        font-family: 'Perfect DOS';
-        src: url('fonts/Perfect_DOS_VGA_437.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    body {
-        font-family: 'Perfect DOS', sans-serif;
-        line-height: 1.6;
-        padding: 0;
-        background-color: #222;
-        color: #fff;
-        margin: 0;
-        height: 100%;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    nav ul {
-        list-style-type: none;
-        padding: 0;
-        background-color: #333;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    nav ul li {
-        display: inline-block;
-        margin: 0 20px;
-    }
-
-    nav ul li a {
-        color: white;
-        text-decoration: none;
-        font-size: 18px;
-        padding: 10px 20px;
-        display: block;
-    }
-
-    nav ul li a:hover {
-        background-color: #575757;
-    }
 
     .content-section {
         display: flex;
         flex-direction: column;
         gap: 20px;
-        align-items: center;
+
         justify-content: center;
-        height: calc(70vh - 60px);
-    }
-
-
- 
-
-    .subheading {
-        font-size: 24px;
-        color: #ddd;
-        margin-bottom: 15px;
-    }
-
-    .description {
-        font-size: 18px;
-        color: #bbb;
-        text-align: center;
-        margin-bottom: 15px;
-        max-width: 700px;
-    }
-
-    .small-text {
-        font-size: 14px;
-        color: #777;
-        text-align: center;
     }
 
 </style>
-	
-<style>
-html, body {
-    font-family: 'Better VCR', sans-serif;
-    line-height: 1.6;
-    padding: 0;
-    margin: 0;
-    height: 100%;
-    overflow: auto;
-}
-
-
-/* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-
-/* Content Bar */
-.content-bar {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ccc;
-    padding: 30px;
-    background-color: #f4f4f4;
-    border-radius: 0px;
-    min-height: 120px;
-    position: relative;
-}
-
-.thumbnail {
-    width: 150px;
-    height: 150px;
-    margin-right: 20px;
-    border-radius: 4px;
-}
-
-.content-text {
-    flex-grow: 1;
-}
-
-.content-text h2 {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.subheading {
-    font-size: 16px;
-    color: #666;
-}
-
-.subheading2 {
-    font-size: 14px;
-    color: #888;
-    margin-top: 5px;
-}
-
-.more-text {
-    font-size: 14px;
-    color: #333;
-    position: absolute;
-    bottom: 10px;
-    right: 20px;
-    max-width: 200px;
-}
-
-
-.content-bar:hover {
-    background-color: #e2e2e2;
-    cursor: pointer;
-}
-
-.content-bar-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
 
 </main><!-- Content Above -->
 <style>
@@ -258,6 +107,7 @@ html, body {
   word-wrap: break-word;
   overflow-wrap: break-word;
   overflow-y: auto;
+  height: calc(70vh - 6px);
 }
 
 @keyframes background-scroll {

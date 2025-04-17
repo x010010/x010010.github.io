@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
+<title>alecks.art</title>
 <div id="header"></div>
 <div id="nav"></div>
 <script>
@@ -18,6 +18,12 @@ html {
   font-size: clamp(14px, 2.5vw, 18px);
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+	
 body {
   margin: 0;
   background: #111;
@@ -25,7 +31,6 @@ body {
   font-family: sans-serif;
   background: url('images/clouds.png');
 }
-	
 </style>
 
 <main class="content-container"><!-- Content Below -->
@@ -99,7 +104,7 @@ body {
         gap: 20px;
         align-items: center;
         justify-content: center;
-        height: calc(70vh - 60px);
+        
     }
 
     .holographic-title {
@@ -116,6 +121,7 @@ body {
         letter-spacing: 5px;
         /* Reduced glow */
         text-shadow: 0 0 2px rgba(255, 255, 255, 0.6), 0 0 5px rgba(255, 255, 255, 0.4), 0 0 8px rgba(255, 255, 255, 0.3);
+		margin-top: 15%;
     }
 
     @keyframes hologram {
@@ -172,7 +178,8 @@ body {
   text-align: center;
   word-wrap: break-word;
   overflow-wrap: break-word;
-	overflow-y: auto;
+  overflow-y: auto;
+  height: calc(70vh - 6px);
 }
 
 @keyframes background-scroll {
