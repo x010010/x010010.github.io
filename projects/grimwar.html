@@ -30,11 +30,9 @@
 
     <div class="content-section">
         <div class="banner-bg">
-            <img src="grimwar_img/grimwar_screenshot.jpg" alt="">
-            <img class="logo-image" src="grimwar_img/GRIMWAR_logo.png" alt="">
-        </div>
-
-        <!-- Alternating Layout Sections -->
+        	<img src="grimwar_img/grimwar_screenshot.jpg" alt="">   
+			<img class="logo-image" src="grimwar_img/GRIMWAR_logo.png" alt="">
+			</div>
         <div class="content-row">
             <div class="text-left">
                 <h2 class="subheading">About GRIMWAR</h2>
@@ -74,25 +72,66 @@
             </div>
         </div>
 <!-- Line --> <hr> <style>hr {border-top: 2px solid white;width: 80%;margin: 20px auto;}</style>
-		 <div class="banner-bg">
-            <img src="grimwar_img/grimwar_screenshot.jpg" alt="">
-        <h2 class="heading">My Work</h2>
-		</div>
+		<div class="banner-bg">
+  <img src="grimwar_img/grimwar_screenshot.jpg" alt="" style="height: 150px; object-fit: cover;">
+  <h2 class="heading">My Work</h2>
+</div>
+
 		<p class="center-description">
         	    I created conceptualizations, frame-by-frame animations, and 2D visual assets for this project.<br>
-				One notable asset is the hands that appear during gameplay.<br>
-				There are animated sprites for player actions which include:<br> Idle, Obtaining Unique Spells, Attacking with those spells, and Spell discarding.<br>
-				The process of creating each sprite is broken down into the four steps you can see below.<br>
-    </p>
-<figure>
+		</p>
+  <h2 class="subheading">UI Arena Skull</h2>
+		<p class="center-description">
+				During gameplay, you traverse to areas that lock you in a space 
+				to prevent progression until all the enemies within are destroyed.<br>
+				This is what we call an arena.<br>
+				I made this skull UI element that is used to count enemies currently active within a wave.<br>
+				The initial concept of the arena skull was made by another artist
+				on the team; to which I was tasked with making the final sprite,
+				as well as animating it.
+    	</p>
+	<figure>
 	<div class="image-gallery">
-    		<img src="grimwar_img/process1.gif" alt="Image 1" class="gallery-image">
-    		<img src="grimwar_img/process2.gif" alt="Image 2" class="gallery-image">
-    		<img src="grimwar_img/process3.gif" alt="Image 3" class="gallery-image">
-    		<img src="grimwar_img/process4.gif" alt="Image 4" class="gallery-image">
+    		<img src="grimwar_img/arena_skull_concept.png" alt="" class="gallery-image">
+    		<img src="grimwar_img/EyeFlames.gif" alt="" class="gallery-image">
+    		<img src="grimwar_img/Skull Showcase5.gif" alt="" class="gallery-image">
+    		<img src="grimwar_img/SkullShowcase-All.gif" alt="" class="gallery-image">
+		</div>
+		 <figcaption class="caption">Process of animating the arena skull</figcaption>
+	</figure>
+		 <h2 class="subheading">Spell Icons</h2>
+		<img src="grimwar_img/all-spells.png" alt="" class="thumbnail">
+		<p class="center-description">
+				The spells are the player's avenue for action.<br>
+				They are all offensive weapons as well as offer unique abilities.<br>
+				We had the names for Dreams, Gravity, Pestilence, and Lightning; but no identifiable glyph to match.<br>
+				Dreams was actualized rather early on, so I had the other three to make concepts for.
+    	</p>
+	<figure>
+	<div class="image-gallery">
+    		<img src="grimwar_img/SpellConcepts-grav.png" alt="" class="gallery-image">
+    		<img src="grimwar_img/SpellConcepts-pest.png" alt="" class="gallery-image">
+    		<img src="grimwar_img/SpellConcepts-light1.png" alt="" class="gallery-image">
+    		<img src="grimwar_img/SpellConcepts-light2.png" alt="" class="gallery-image">
+		</div>
+		 <figcaption class="caption">All the spell icon concepts</figcaption>
+	</figure>
+  <h2 class="subheading">HUD Hands</h2>
+		<p class="center-description">
+				One notable asset is the hands that appear during gameplay.<br>
+				There are animated sprites for player actions which include:<br> 
+				Idle, Obtaining Unique Spells, Attacking with those spells, and Spell discarding.<br>
+				The process of creating each sprite is broken down into the four steps you can see below.<br>
+    	</p>
+	<figure>
+	<div class="image-gallery">
+    		<img src="grimwar_img/process1.gif" alt="" class="gallery-image">
+    		<img src="grimwar_img/process2.gif" alt="" class="gallery-image">
+    		<img src="grimwar_img/process3.gif" alt="" class="gallery-image">
+    		<img src="grimwar_img/process4.gif" alt="" class="gallery-image">
 		</div>
 		 <figcaption class="caption">Showcasing the process for creating hand animations</figcaption>
-        </figure>
+	</figure>
 	
 		<p class="center-description">
         	This involves recording poses using a video camera and converting the video file into a GIF. 
@@ -104,10 +143,10 @@
 			</p>
 		<figure>
 		<div class="image-gallery">
-    		<img src="grimwar_img/process5.gif" alt="Image 1" class="gallery-image">
-    		<img src="grimwar_img/process6.gif" alt="Image 2" class="gallery-image">
-    		<img src="grimwar_img/process7.gif" alt="Image 3" class="gallery-image">
-    		<img src="grimwar_img/process8.gif" alt="Image 4" class="gallery-image">
+    		<img src="grimwar_img/process5.gif" alt="" class="gallery-image">
+    		<img src="grimwar_img/process6.gif" alt="" class="gallery-image">
+    		<img src="grimwar_img/process7.gif" alt="" class="gallery-image">
+    		<img src="grimwar_img/process8.gif" alt="" class="gallery-image">
 		</div>
 		 <figcaption class="caption">Showcasing hand animations in the Adjustment phase</figcaption>
         </figure>
@@ -124,32 +163,56 @@
 			If all are approved, then the Masking process can begin. Masking is removing the background from the main pose, which is done manually frame-by-frame to ensure a clean cut per animation. This is done to prevent blurred anti-aliased edges from automated processes such as chroma/ultra keying.<br>
 			After Masking, the final pose is indexed. The color count is reduced from 128 to 4. The pose is then imported into engine and set up in Unity's animator for gameplay use.
     		</p>
-		<h2 class="subheading">Reflection</h2>
-		<figure>
-		<div>
+		 <h2 class="subheading">Game Disk</h2>
+		<p class="center-description">
+				The final CD for the game was assigned to me.<br>
+				The concept of the hand reaching out of the book's pages was a great jumping off point to start, so I approached it similarly to how I did the hands sprites.<br>
+				I did want to polish the look more, so I opted to repaint the hand before indexing.<br> 
+				There were many palette tests to help determine our favorite.
+    	</p>
+	<figure>
+	<div class="image-gallery">
+    		<img src="grimwar_img/cd-ref.png" alt="" class="gallery-image">
+    		<img src="grimwar_img/handpainted.png" alt="" class="gallery-image">
+    		<img src="grimwar_img/cd-pages.png" alt="" class="gallery-image">
+    		<img src="grimwar_img/CD.png" alt="" class="gallery-image">
+		</div>
+		 <figcaption class="caption">CD step-by-step</figcaption>
+	</figure>
+			<div class="banner-bg">
+  <img src="grimwar_img/grimwar_screenshot.jpg" alt="" style="height: 150px; object-fit: cover;">
+  <h2 class="heading">Reflection</h2>
+</div>
                 <img src="grimwar_img/grimwar-play3.gif" alt="">
             </div>
 		 <figcaption class="caption">Hands in a kinetic scene with dynamic lighting</figcaption>
-        </figure>
 		<p class="center-description">
         	    I love the style of the game. Pixelated, crunchy, and moody are asethetic choices I appreciate. I've done my best to match that style with my assets. The process for making the hands has been tough at times and I've experimented with different approaches. Most of the methods I had in mind were soley for cutting time spent on assets, though would hinder overall quality. I found that doing it in the way I've demonstrated was the best direction to go, even if the result took longer to produce. Team members were a great guide for direction and helped with scope considerations.
 				Im happy with the way the hands turned out and I am excited to continue work on this project for the remainder of its production.
-    </p>
-		
-
-        </div>
-	
+    </p>	
 </body>
   		
 <style>
 	.logo-image {
-	position: absolute;
+		position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
         z-index: 1;	
+		max-width: 500px;
+		transform: translate(-50%, -50%);
+        width: 50%;
 	}
-	/* Font */
+	.banner-bg {
+        position: relative;
+        text-align: center;
+        width: 100%;
+		max-width: 1000px;
+    }
+    .banner-bg img {
+        width: 100%;
+        height: auto;
+		display: block;
+    }
     @font-face {
         font-family: 'Better VCR';
         src: url('fonts/Better_VCR_6.1.ttf') format('truetype');
@@ -217,15 +280,7 @@
         font-size: 14px;
         color: #777;
     }
-    .banner-bg {
-        position: relative;
-        text-align: center;
-        width: 100%;
-    }
-    .banner-bg img {
-        width: 100%;
-        height: auto;
-    }
+ 
     .content-row {
         display: flex;
         align-items: center;
