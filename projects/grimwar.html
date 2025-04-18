@@ -29,9 +29,9 @@
 <body>
 
     <div class="content-section">
-        <div class="image-container">
-            <img src="grimwar_img/grimwar_screenshot.jpg" alt="Large Image">
-            <img class="logo-image" src="grimwar_img/GRIMWAR_logo.png" alt="Large Image">
+        <div class="banner-bg">
+            <img src="grimwar_img/grimwar_screenshot.jpg" alt="">
+            <img class="logo-image" src="grimwar_img/GRIMWAR_logo.png" alt="">
         </div>
 
         <!-- Alternating Layout Sections -->
@@ -44,7 +44,7 @@
 					With an emphasis on movement, your swift feet are your avenues for freedom from your perilous imprisonment. <br>
 					<br>
 					This project is inspired by the pillars of the FPS genre; using their optimization as creative
-					fuel while being unbound by limitations of hardware. The project is set to conclude development May 2025.
+					fuel while being unbound by limitations of hardware.
                 </p>
             </div>
 			<figure>
@@ -65,17 +65,19 @@
             <div class="text-right">
                 <h2 class="subheading">Project Specs</h2>
                 <p class="description">
-					-Currently Work in Progress- <br>
                     Team size: 11<br>
                     Role: 2D Artist<br>
                     Duration: September 2024 – May 2025<br>
                     Engine: Unity<br>
-                    Software: Aseprite,<br> Adobe Photoshop & Premiere
+                    Software: Aseprite,<br> Adobe Photoshop &amp; Premiere
                 </p>
             </div>
         </div>
 <!-- Line --> <hr> <style>hr {border-top: 2px solid white;width: 80%;margin: 20px auto;}</style>
-        <h2 class="subheading">My Work</h2>
+		 <div class="banner-bg">
+            <img src="grimwar_img/grimwar_screenshot.jpg" alt="">
+        <h2 class="heading">My Work</h2>
+		</div>
 		<p class="center-description">
         	    I created conceptualizations, frame-by-frame animations, and 2D visual assets for this project.<br>
 				One notable asset is the hands that appear during gameplay.<br>
@@ -163,15 +165,12 @@
         margin: 0;
         height: 100%;
     	}
-	/* Font End */
 
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
-
-    /* Content Section */
     .content-section {
         display: flex;
         flex-direction: column;
@@ -179,117 +178,100 @@
         align-items: center;
         padding: 20px;
     }
-
- 
-    /* Subheading */
+    .heading {
+        font-size: 40px;
+        color: #ddd;
+        margin-bottom: 15px;
+		position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;	
+	}	
     .subheading {
         font-size: 24px;
         color: #ddd;
         margin-bottom: 15px;
     }
-
-    /* Paragraph */
     .description {
         font-size: 18px;
         color: #bbb;
         margin-bottom: 15px;
         max-width: 700px;
     }
-
 	.center-description {
         font-size: 18px;
         color: #bbb;
         margin-bottom: 15px;
         max-width: 1500px;
     }
-
-    /* Image with Caption */
     .image-with-caption {
         text-align: center;
     }
-
     .image-with-caption img {
         max-width: 100%;
         height: auto;
         margin-bottom: 10px;
     }
-
     .caption {
         font-size: 14px;
         color: #777;
     }
-
-    /* Image Container for Overlay Title */
-    .image-container {
+    .banner-bg {
         position: relative;
         text-align: center;
         width: 100%;
     }
-
-    .image-container img {
+    .banner-bg img {
         width: 100%;
         height: auto;
     }
-
-    /* Content Row Container */
     .content-row {
         display: flex;
         align-items: center;
         margin: 20px 0;
         max-width: 1500px;
     }
-
     .text-left, .image-right {
         flex: 1;
     }
-
     .text-left {
         padding-right: 20px;
         text-align: left;
     }
-
     .image-right img {
         width: 100%;
         height: auto;
         border-radius: 8px;
     }
-
     .image-left, .text-right {
         flex: 1;
     }
-
     .image-left img {
         width: 100%;
         height: auto;
         border-radius: 8px;
     }
-
     .text-right {
         padding-left: 8px;
         text-align: right;
     }
-
-    /* Adjust for smaller screens */
     @media (max-width: 768px) {
         .content-row {
             flex-direction: column;
         }
 	}
-		
 	.image-gallery {
     	display: flex;
- 
     	gap: 8px; /* Add space between the images */
     	flex-wrap: wrap; /* Allow images to wrap in smaller screens */
     	margin: 20px;
 	}
-
 	.gallery-image {
     	width: 23%; /* Each image will take up about 1/4 of the container */
     	height: auto; /* Maintain the aspect ratio */
     	border-radius: 5px; /* Optional: for rounded corners */
     	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add a shadow effect */
-
 	}	
 	figure {
     margin: 0;
