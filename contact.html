@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+<title>alecks.art - Contact</title>
+<div id="header"></div>
+<div id="nav"></div>
+<script>
+  fetch('header.html').then(res => res.text()).then(html => {
+    document.getElementById('header').innerHTML = html;
+  });
+
+  fetch('nav.html').then(res => res.text()).then(html => {
+    document.getElementById('nav').innerHTML = html;
+  });
+</script>
 <body>
-    <!-- Nav Bar -->
-    <nav>
-        <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
 	
 <!-- Scrolling BG -->
     <div class="scrolling-background"></div>
@@ -40,7 +38,7 @@
 <!-- Scrolling BG End -->
 	
  		<div class="contact">
-            <img src="images/Contact.png" alt="Large Image">
+            <img src="images/Contact.png" alt="">
         </div>
  
 
@@ -72,31 +70,6 @@
         box-sizing: border-box;
     }
 
-    /* Navigation Bar */
-    nav ul {
-        list-style-type: none;
-        padding: 0;
-        background-color: #333;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    nav ul li {
-        display: inline-block;
-        margin: 0 20px;
-    }
-
-    nav ul li a {
-        color: white;
-        text-decoration: none;
-        font-size: 18px;
-        padding: 10px 20px;
-        display: block;
-    }
-
-    nav ul li a:hover {
-        background-color: #575757;
-    }
 
     /* Content Section */
     .content-section {
@@ -169,12 +142,13 @@
     }
 
     .contact img {
-        width: 80%; /* Slightly reduce width to improve sharpness */
-        max-width: 700px;
-        height: auto;
-        image-rendering: crisp-edges; /* Sharpens the image in some browsers */
-        image-rendering: -webkit-optimize-contrast; /* Webkit-based browsers */
-    }
-
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;	
+		max-width: 500px;
+		transform: translate(-50%, -50%);
+        width: 100%;
+	}
 </style>
 </html>

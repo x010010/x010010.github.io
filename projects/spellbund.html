@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpellBun'd</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+<title>alecks.art - Simon's Sandwiches</title>
+<div id="header"></div>
+<div id="nav"></div>
+<script>
+
+  fetch("../header.html")
+    .then(res => res.text())
+    .then(html => {
+      // Inject <base href="../"> right after <head>
+      const modifiedHTML = html.replace(
+        /<head([^>]*)>/i,
+        `<head$1><base href="../">`
+      );
+
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(modifiedHTML, "text/html");
+
+      document.getElementById('header').innerHTML = doc.body.innerHTML;
+    });
+
+
+  fetch('../nav.html').then(res => res.text()).then(html => {
+    document.getElementById('nav').innerHTML = html;
+  });
+</script>
 <body>
-    <!-- Nav Bar -->
-    <nav>
-        <ul>
-            <li><a href="../home.html">Home</a></li>
-            <li><a href="../projects.html">Projects</a></li>
-            <li><a href="../contact.html">Contact</a></li>
-        </ul>
-    </nav>
 
     <!-- Scrolling Background -->
     <div class="scrolling-background"></div>
@@ -38,11 +49,11 @@
         }
     </style>
 
-    <div class="content-section">
-        <div class="image-container">
-            <img src="spellbund_img/spellbund-banner.png" alt="Large Image">
-            <h1 class="holographic-title">SpellBun'd</h1>
-        </div>
+   <div class="content-section">
+        <div class="banner-bg">
+        	<img src="spellbund_img/spellbund-banner.png" alt="">   
+			<img class="logo-image" src="spellbund_img/Spellbund_logo.png" alt="">
+			</div>
 
         <!-- Alternating Layout Sections -->
         <div class="content-row">
@@ -83,7 +94,10 @@
 		
 		<!-- Line --> <hr> <style>hr {border-top: 2px solid white;width: 80%;margin: 20px auto;}</style>
 		
-        <h2 class="subheading">My Work</h2>
+       <div class="banner-bg">
+  <img src="spellbund_img/spellbund-banner.png" alt="" style="height: 150px; object-fit: cover;">
+  <h2 class="heading">My Work</h2>
+		</div>
 		<p class="center-description">
         	    I created the concepts for half of the characters, as well as creating final sprites for each.<br> This also includes their animations.<br>
 			For the bunny, this includes: Idle, Spell Active, Spell Cast, Hurt animations.<br>
@@ -109,7 +123,10 @@
 
 			</p>
 
-		<h2 class="subheading">Reflection</h2>
+	<div class="banner-bg">
+  <img src="spellbund_img/spellbund-banner.png" alt="" style="height: 150px; object-fit: cover;">
+  <h2 class="heading">Reflection</h2>
+		</div>
 		<div>
 			<figure>
                 <img src="spellbund_img/spellbund-play3.gif" alt="">
@@ -127,6 +144,26 @@
 </body>
   		
 <style>
+	.logo-image {
+		position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;	
+		max-width: 500px;
+		transform: translate(-50%, -50%);
+        width: 50%;
+	}
+	.banner-bg {
+        position: relative;
+        text-align: center;
+        width: 100%;
+		max-width: 1000px;
+    }
+    .banner-bg img {
+        width: 100%;
+        height: auto;
+		display: block;
+    }
 	/* Font */
     @font-face {
         font-family: 'Better VCR';
@@ -151,31 +188,6 @@
         box-sizing: border-box;
     }
 
-    /* Navigation Bar */
-    nav ul {
-        list-style-type: none;
-        padding: 0;
-        background-color: #333;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    nav ul li {
-        display: inline-block;
-        margin: 0 20px;
-    }
-
-    nav ul li a {
-        color: white;
-        text-decoration: none;
-        font-size: 18px;
-        padding: 10px 20px;
-        display: block;
-    }
-
-    nav ul li a:hover {
-        background-color: #575757;
-    }
 
     /* Content Section */
     .content-section {
@@ -213,8 +225,17 @@
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
     }
+	.heading {
+        font-size: 40px;
+        color: #ddd;
+        margin-bottom: 15px;
+		position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;	
+	}	
 
-    /* Subheading */
     .subheading {
         font-size: 24px;
         color: #ddd;
