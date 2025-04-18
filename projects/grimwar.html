@@ -3,45 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GRIMWAR</title>
+    <title>alecks.art - GRIMWAR</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Nav Bar -->
-    <nav>
-        <ul>
-            <li><a href="../home.html">Home</a></li>
-            <li><a href="../projects.html">Projects</a></li>
-            <li><a href="../contact.html">Contact</a></li>
-        </ul>
-    </nav>
 
-    <!-- Scrolling Background -->
-    <div class="scrolling-background"></div>
-    <style>
-        .scrolling-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 200%;
-            height: 200%;
-            background-image: url("images/stars-pattern.gif");
-            background-size: auto;
-            background-repeat: repeat;
-            z-index: -1;
-            animation: scroll 60s linear infinite;
-            image-rendering: crisp-edges;
-        }
-        @keyframes scroll {
-            from {transform: translate(0, 0);}
-            to {transform: translate(-50%, -50%);}
-        }
-    </style>
 
     <div class="content-section">
         <div class="image-container">
             <img src="grimwar_img/grimwar_screenshot.jpg" alt="Large Image">
-            <h1 class="holographic-title">GRIMWAR</h1>
+            <img class="logo-image" src="grimwar_img/GRIMWAR_logo.png" alt="Large Image">
         </div>
 
         <!-- Alternating Layout Sections -->
@@ -150,6 +121,13 @@
 </body>
   		
 <style>
+	.logo-image {
+	position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;	
+	}
 	/* Font */
     @font-face {
         font-family: 'Better VCR';
@@ -174,32 +152,6 @@
         box-sizing: border-box;
     }
 
-    /* Navigation Bar */
-    nav ul {
-        list-style-type: none;
-        padding: 0;
-        background-color: #333;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    nav ul li {
-        display: inline-block;
-        margin: 0 20px;
-    }
-
-    nav ul li a {
-        color: white;
-        text-decoration: none;
-        font-size: 18px;
-        padding: 10px 20px;
-        display: block;
-    }
-
-    nav ul li a:hover {
-        background-color: #575757;
-    }
-
     /* Content Section */
     .content-section {
         display: flex;
@@ -209,34 +161,7 @@
         padding: 20px;
     }
 
-    /* Holographic Title */
-    .holographic-title {
-        font-size: 72px;
-        font-weight: bold;
-        color: white;
-        text-transform: uppercase;
-        background: linear-gradient(45deg, #00FFFF, #FF00FF, #FFFF00, #00FF00, #FF4500);
-        background-size: 400% 400%;
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        animation: hologram 5s ease infinite;
-        letter-spacing: 5px;
-        text-shadow: 0 0 2px rgba(255, 255, 255, 0.6), 0 0 5px rgba(255, 255, 255, 0.4), 0 0 8px rgba(255, 255, 255, 0.3);
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 1;
-    }
-
-    /* Hologram Animation */
-    @keyframes hologram {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-
+ 
     /* Subheading */
     .subheading {
         font-size: 24px;
