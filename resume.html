@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>alecks.art</title>
+<div id="header"></div>
+<div id="nav"></div>
+<script>
+  fetch('header.html').then(res => res.text()).then(html => {
+    document.getElementById('header').innerHTML = html;
+  });
+
+  fetch('nav.html').then(res => res.text()).then(html => {
+    document.getElementById('nav').innerHTML = html;
+  });
+	
+  fetch('footer-resume.html').then(res => res.text()).then(html => {
+    document.getElementById('footer').innerHTML = html;
+  });
+</script>
+<style>
+html {
+  font-size: clamp(14px, 2.5vw, 18px);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+	
+body {
+  margin: 0;
+  background: #111;
+  color: #fff;
+  font-family: sans-serif;
+  background: url('images/clouds.png');
+}
+</style>
+
+<main class="content-container"><!-- Content Below -->
+	
+<center>
+<div class="pdf-container">
+  <iframe src="files/Alex_Resume.pdf#view=FitH" style="height: 100vh;width: 70vh;"></iframe>
+</center>
+</div>
+
+<style>
+
+iframe {
+  flex-grow: 1;
+  min-height: 50%; /* fallback */
+}
+		</style>
+
+	
+</main><!-- Content Above -->
+<style>
+.content-container {
+  position: relative;
+  max-width: 80%;
+  margin: 2em auto;
+  padding: 2em 1em;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  background-image: url('images/stars-pattern.gif');
+  background-repeat: repeat;
+  background-size: auto;
+  animation: background-scroll 60s linear infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow-y: auto;
+  height: calc(70vh - 6px);
+}
+
+@keyframes background-scroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -500px -500px;
+  }
+}
+	
+@media (max-width: 600px) {
+  .content-container {
+    transform: scale(0.99);
+    transform-origin: top center;
+	padding: 2em 1.5em;
+	max-width: 100%;
+  }
+}
+	
+.content-container img,
+.content-container video,
+.content-container iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+</style>
+<div id="footer"></div>
+</html>
