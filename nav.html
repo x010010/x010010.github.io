@@ -25,134 +25,155 @@
       <img src="images/navbar/navbar-right.png" alt="" class="nav-right" />
     </nav>
   </div>
+
+  <!-- isolated vertical center line -->
+      <style>
+        #center-line {
+          position: fixed;
+          left: 50%;
+          top: 0;
+          bottom: 0;
+          width: 1px;
+          transform: translateX(-50%);
+          background: rgba(255, 0, 0, 0.85);
+          z-index: 9999;
+          pointer-events: none;
+        }
+      </style>
+      
+      <div id="center-line" aria-hidden="true"></div>
+<!-- isolated vertical center line -->
+
 </div>
+
 <style>
-:root {
-  --nav-size: 40px;
-}
-
-.navbar-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  overflow: hidden;
-  box-sizing: border-box;
-  padding-top: 20px; 
-  position: relative;
-  z-index: 8;
-}
-
-.navbar-scaler {
-  transform-origin: top center;
-  transition: transform 0.2s ease;
-  max-width: 100%;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.custom-navbar {
-  display: flex;
-  align-items: center;
-  height: var(--nav-size);
-  box-sizing: border-box;
-  flex-wrap: nowrap;
-  max-width: 100%;
-  transition: height 0.3s ease; /* Smooth transition for height */
-}
-
-.custom-navbar img {
-  width: var(--nav-size);
-  height: var(--nav-size);
-  flex-shrink: 0;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  transition: width 0.3s ease, height 0.3s ease; /* Transition width and height */
-}
-
-.nav-links-wrapper {
-  display: flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  flex: 1 1 auto;
-  overflow: hidden;
-}
-
-.nav-section {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.nav-bg {
-  background-image: url('images/navbar/navbar-middle.png');
-  background-repeat: repeat-x;
-  background-size: 100% 100%;
-  height: var(--nav-size);
-  display: flex;
-  align-items: center;
-  padding: 0 50px;
-  white-space: nowrap;
-  image-rendering: pixelated;
-  image-rendering: crisp-edges;
-  flex-shrink: 0;
-  transition: padding 0.3s ease, height 0.3s ease; /* Transition padding and height */
-}
-
-.nav-sep {
-  width: var(--nav-size);
-  height: var(--nav-size);
-  flex-shrink: 0;
-  transition: width 0.3s ease, height 0.3s ease; /* Transition width and height */
-}
-
-.nav-bg a {
-  color: black;
-  text-decoration: none;
-  font-family: sans-serif;
-  font-size: calc(var(--nav-size) * 0.45);
-  line-height: var(--nav-size);
-  display: inline-block;
-  transition: font-size 0.3s ease, color 0.3s ease, font-weight 0.3s ease;
-  font-weight: normal;
-}
-
-/* Hover effect */
-.nav-bg:hover a {
-  color: #b89cb8;
-  font-weight: bold;
-}
-@media (max-width: 1100px) {
   :root {
-    --nav-size: 38px;
+    --nav-size: 40px;
   }
+
+  .navbar-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: 20px; 
+    position: relative;
+    z-index: 8;
+  }
+
+  .navbar-scaler {
+    transform-origin: top center;
+    transition: transform 0.2s ease;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .custom-navbar {
+    display: flex;
+    align-items: center;
+    height: var(--nav-size);
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+    max-width: 100%;
+    transition: height 0.3s ease; /* Smooth transition for height */
+    margin: 0 auto; 
+  }
+
+  .custom-navbar img {
+    width: var(--nav-size);
+    height: var(--nav-size);
+    flex-shrink: 0;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    transition: width 0.3s ease, height 0.3s ease; /* Transition width and height */
+  }
+
+  .nav-links-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex: 1 1 auto;
+    overflow: hidden;
+  }
+
+  .nav-section {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
   .nav-bg {
-    padding: 0 30px;
+    background-image: url('images/navbar/navbar-middle.png');
+    background-repeat: repeat-x;
+    background-size: 100% 100%;
+    height: var(--nav-size);
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    white-space: nowrap;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    flex-shrink: 0;
+    transition: padding 0.3s ease, height 0.3s ease; /* Transition padding and height */
   }
-}
-@media (max-width: 800px) {
-  :root {
-    --nav-size: 36px;
+
+  .nav-sep {
+    width: var(--nav-size);
+    height: var(--nav-size);
+    flex-shrink: 0;
+    transition: width 0.3s ease, height 0.3s ease; /* Transition width and height */
   }
-  .nav-bg {
-    padding: 0 10px;
+
+  .nav-bg a {
+    color: black;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: calc(var(--nav-size) * 0.45);
+    line-height: var(--nav-size);
+    display: inline-block;
+    transition: font-size 0.3s ease, color 0.3s ease, font-weight 0.3s ease;
+    font-weight: normal;
   }
-}
-@media (max-width: 600px) {
-  :root {
-    --nav-size: 35px;
+
+  /* Hover effect */
+  .nav-bg:hover a {
+    color: #b89cb8;
+    font-weight: bold;
   }
-  .nav-bg {
-    padding: 0 2px;
+  @media (max-width: 1100px) {
+    :root {
+      --nav-size: 38px;
+    }
+    .nav-bg {
+      padding: 0 30px;
+    }
   }
-}
-@media (max-width: 450px) {
-  :root {
-    --nav-size: 32px;
+  @media (max-width: 800px) {
+    :root {
+      --nav-size: 36px;
+    }
+    .nav-bg {
+      padding: 0 10px;
+    }
   }
-  .nav-bg {
-    padding: 0 0px;
+  @media (max-width: 600px) {
+    :root {
+      --nav-size: 35px;
+    }
+    .nav-bg {
+      padding: 0 2px;
+    }
   }
-}
+  @media (max-width: 450px) {
+    :root {
+      --nav-size: 32px;
+    }
+    .nav-bg {
+      padding: 0 0px;
+    }
+  }
 </style>
 </html>

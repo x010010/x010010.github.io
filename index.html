@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!--Hello, thanks for inspecting the code to the site! This website is hosted with Github Pages and is made with pure HTML.-->
 <title>alecks.art</title>
+
 <div id="header"></div>
-<div id="nav"></div>
 <script>
   fetch('header.html').then(res => res.text()).then(html => {
     document.getElementById('header').innerHTML = html;
-  });
-
-  fetch('nav.html').then(res => res.text()).then(html => {
-    document.getElementById('nav').innerHTML = html;
   });
 </script>
 <style>

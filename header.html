@@ -1,53 +1,262 @@
 <!DOCTYPE html>
-
-
 <html lang="en">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link rel="stylesheet" href="styles.css">
 
-	
+
 <header>
-	<center>
-		<img src="images/Port-header.gif" alt="Header" class="header-image">
-	</center>
+	<img src="images/Port-header.gif" alt="Header" class="header-image">
 </header>
+
 <style>
 .header-image {
+	display: block;  
 	padding-top: 20px;
     width: clamp(60%, 80%, 90%);
     max-width: 550px;
     height: auto;
     z-index: 10;
     position: relative;
-    margin-bottom: -49px; 
 	pointer-events: none;
+	margin: 0 auto;
+	margin-bottom: -47px;
 }
 
 @media (max-width: 1100px) {
   .header-image {
-	margin-bottom: -49px;
+	margin-bottom: -47px;
 	}
 }
 @media (max-width: 800px) {
   .header-image {
-	margin-bottom: -49px;
+	margin-bottom: -47px;
 	}
 }
-@media (max-width: 600px) {
+@media (max-width: 695px) {
  .header-image {
 	margin-bottom: -45px;
 	}
 }
-@media (max-width: 550px) {
+@media (max-width: 635px) {
  .header-image {
 	margin-bottom: -41px;
+	}
+}
+@media (max-width: 550px) {
+ .header-image {
+	margin-bottom: -40px;
 	}
 }
 @media (max-width: 500px) {
  .header-image {
-	margin-bottom: -41px;
+	margin-bottom: -39px;
 	}
 }
 </style>
+
+
+<body>
+<div class="navbar-container">
+  <div class="navbar-scaler">
+    <nav class="custom-navbar">
+      <img src="images/navbar/navbar-left.webp" alt="" class="nav-left" />
+      <div class="nav-links-wrapper">
+        <div class="left-half">
+          <div class="nav-section">
+            <div class="nav-bg"><a href="index.html">HOME</a></div>
+          </div>
+          <img src="images/navbar/navbar-sep.webp" alt="" class="nav-sep" />
+          <div class="nav-section">
+            <div class="nav-bg"><a href="projects.html">PROJECTS</a></div>
+          </div>
+        </div>
+        <img src="images/navbar/navbar-sep.webp" alt="" class="nav-sep" />
+        <div class="right-half">
+          <div class="nav-section">
+            <div class="nav-bg"><a href="resume.html">RESUME</a></div>
+          </div>
+          <img src="images/navbar/navbar-sep.webp" alt="" class="nav-sep" />
+          <div class="nav-section">
+            <div class="nav-bg"><a href="contact.html">CONTACT</a></div>
+          </div>
+        </div>
+      </div>
+      <img src="images/navbar/navbar-right.webp" alt="" class="nav-right" />
+    </nav>
+  </div>
+</div>
+</body>
+
+<style>
+:root {
+  --nav-size: 40px;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-top: 20px;
+  position: relative;
+  z-index: 8;
+}
+
+.navbar-scaler {
+  transform-origin: top center;
+  transition: transform 0.2s ease;
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.custom-navbar {
+  display: flex;
+  align-items: center;
+  height: var(--nav-size);
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+  max-width: 100%;
+  transition: height 0.3s ease;
+  margin: 0 auto;
+}
+
+.custom-navbar img {
+  width: var(--nav-size);
+  height: var(--nav-size);
+  flex-shrink: 0;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.nav-links-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.nav-section {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.nav-bg {
+  background-image: url('images/navbar/navbar-middle.webp');
+  background-repeat: repeat-x;
+  background-size: 100% 100%;
+  height: var(--nav-size);
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
+  white-space: nowrap;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  flex-shrink: 0;
+  transition: padding 0.3s ease, height 0.3s ease;
+}
+
+.nav-sep {
+  width: var(--nav-size);
+  height: var(--nav-size);
+  flex-shrink: 0;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.nav-bg a {
+  color: black;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: calc(var(--nav-size) * 0.45);
+  line-height: var(--nav-size);
+  display: inline-block;
+  transition: font-size 0.3s ease, color 0.3s ease, font-weight 0.3s ease;
+  font-weight: normal;
+  z-index: 9;
+}
+
+.nav-bg:hover a {
+  color: #b89cb8;
+  font-weight: bold;
+}
+
+.nav-links-wrapper img.nav-sep:nth-of-type(2) {
+  visibility: hidden;
+}
+
+.navbar-scaler::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  width: var(--nav-size);
+  height: var(--nav-size);
+  pointer-events: none;
+  background-image: url('images/navbar/navbar-sep.webp');
+  background-repeat: no-repeat;
+  background-size: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  z-index: 5;
+}
+
+
+.nav-links-wrapper .left-half {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.nav-links-wrapper .right-half {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+@media (max-width: 1100px) {
+  :root {
+    --nav-size: 38px;
+  }
+  .nav-bg {
+    padding: 0 30px;
+  }
+}
+@media (max-width: 800px) {
+  :root {
+    --nav-size: 36px;
+  }
+  .nav-bg {
+    padding: 0 10px;
+  }
+}
+@media (max-width: 600px) {
+  :root {
+    --nav-size: 35px;
+  }
+  .nav-bg {
+    padding: 0 2px;
+  }
+}
+@media (max-width: 450px) {
+  :root {
+    --nav-size: 32px;
+  }
+  .nav-bg {
+    padding: 0 0px;
+  }
+}
+
+</style>
+
 </html>

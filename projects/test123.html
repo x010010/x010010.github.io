@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+
+<div id="header"></div>
+<div id="nav"></div>
+
+<style>
+  /* Make iframes behave like raw inline blocks */
+  .embed-reset {
+    display: block;
+    width: 100%;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+  }
+</style>
+
+<script>
+  // Create an iframe with all the right defaults
+  function createEmbed(containerId, src) {
+    const wrap = document.getElementById(containerId);
+    const iframe = document.createElement('iframe');
+    iframe.className = 'embed-reset';
+    iframe.setAttribute('scrolling', 'no');
+    iframe.setAttribute('loading', 'eager'); // header/nav should load immediately
+    iframe.src = src; // use absolute path from root
+    wrap.replaceChildren(iframe);
+    wireFrame(iframe);
+    return iframe;
+  }
+
+  function fitFrame(iframe) {
+    const doc = iframe.contentDocument;
+    if (!doc) return;
+
+    // Ensure no default margins/scrollbars *inside* the embedded doc
+    if (!doc.getElementById('__iframe_reset__')) {
+      const s = doc.createElement('style');
+      s.id = '__iframe_reset__';
+      s.textContent = `
+        html, body { margin:0 !important; background:transparent !important; overflow:hidden !important; }
+      `;
+      (doc.head || doc.documentElement).appendChild(s);
+    }
+
+    // Ensure links navigate the parent page, not inside the iframe
+    if (!doc.querySelector('base[target="_parent"]')) {
+      const base = doc.createElement('base');
+      base.setAttribute('target', '_parent');
+      (doc.head || doc.documentElement).insertBefore(base, (doc.head || doc.documentElement).firstChild);
+    }
+
+    const html = doc.documentElement, body = doc.body;
+    const height = Math.max(
+      body.scrollHeight, body.offsetHeight,
+      html.clientHeight, html.scrollHeight, html.offsetHeight
+    );
+    iframe.style.height = height + 'px';
+  }
+
+  function wireFrame(iframe) {
+    iframe.addEventListener('load', () => {
+      fitFrame(iframe);
+      const doc = iframe.contentDocument;
+      if (!doc) return;
+
+      // Re-fit when content or layout changes
+      try {
+        new ResizeObserver(() => fitFrame(iframe)).observe(doc.documentElement);
+      } catch (_) {}
+
+      try {
+        new MutationObserver(() => fitFrame(iframe)).observe(doc.documentElement, {
+          childList: true, subtree: true, attributes: true, characterData: true
+        });
+      } catch (_) {}
+
+      // Re-fit when images finish loading
+      doc.querySelectorAll('img').forEach(img => {
+        img.addEventListener('load', () => fitFrame(iframe), { once: true });
+      });
+
+      // Re-fit on media-query reflow inside the iframe
+      iframe.contentWindow.addEventListener('resize', () => fitFrame(iframe));
+    });
+  }
+
+  // Re-fit on parent resize too
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('.embed-reset').forEach(f => fitFrame(f));
+  });
+
+  // IMPORTANT: use absolute paths so this works from any subfolder
+  createEmbed('header', '/header.html');
+  createEmbed('nav', '/nav.html');
+</script>
+
+
+
+
+<head>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 40px;
+        }
+        .collapsible-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .collapsible {
+            width: 220px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: width 0.3s, height 0.3s;
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            margin: 0;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+        }
+        .thumbnail {
+            height: 220px;
+            width: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .collapsible.expanded {
+            width: 100%;
+            max-width: 98vw;
+            height: auto; /* Let height grow with content */
+        }
+        .collapsible-header {
+            background: #0078d4;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .collapsible-footer {
+            background: #0078d4;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            display: none;
+        }
+        .collapsible.expanded .collapsible-footer {
+            display: block;
+        }
+        .collapsible-content {
+            padding: 15px;
+            display: none;
+            /* Remove max-height and overflow-y for natural height */
+            cursor: default; /* Show default cursor, not pointer */
+        }
+        .collapsible.expanded .collapsible-content {
+            display: block;
+        }
+        .collapsible.expanded .thumbnail {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Collapsible Thumbnails Example</h2>
+    <div class="collapsible-container">
+        <div class="collapsible" id="collapsible1">
+            <div class="collapsible-header">Project 1</div>
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/180" alt="Thumb 1">
+                <div>Click to expand</div>
+            </div>
+            <div class="collapsible-content">
+                <p>This is the expanded content for Project 1.</p>
+            </div>
+            <div class="collapsible-footer">Collapse</div>
+        </div>
+        <div class="collapsible" id="collapsible2">
+            <div class="collapsible-header">Project 2</div>
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/180" alt="Thumb 2">
+                <div>Click to expand</div>
+            </div>
+            <div class="collapsible-content">
+                <p>This is the expanded content for Project 2.</p>
+            </div>
+            <div class="collapsible-footer">Collapse</div>
+        </div>
+        <div class="collapsible" id="collapsible3">
+            <div class="collapsible-header">Project 3</div>
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/180" alt="Thumb 3">
+                <div>Click to expand</div>
+            </div>
+            <div class="collapsible-content">
+                <p>This is the expanded content for Project 3.</p>
+            </div>
+            <div class="collapsible-footer">Collapse</div>
+        </div>
+        <div class="collapsible" id="collapsible4">
+            <div class="collapsible-header">Project 4</div>
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/180" alt="Thumb 4">
+                <div>Click to expand</div>
+            </div>
+            <div class="collapsible-content">
+                <p>This is the expanded content for Project 4.</p>
+            </div>
+            <div class="collapsible-footer">Collapse</div>
+        </div>
+        <div class="collapsible" id="collapsible5">
+            <div class="collapsible-header">Project 5</div>
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/180" alt="Thumb 5">
+                <div>Click to expand</div>
+            </div>
+            <div class="collapsible-content">
+                <p>This is the expanded content for Project 5.</p>
+            </div>
+            <div class="collapsible-footer">Collapse</div>
+        </div>
+        <div class="collapsible" id="collapsible6">
+            <div class="collapsible-header">Project 6</div>
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/180" alt="Thumb 6">
+                <div>Click to expand</div>
+            </div>
+            <div class="collapsible-content">
+                <p>This is the expanded content for Project 6.</p>
+            </div>
+            <div class="collapsible-footer">Collapse</div>
+        </div>
+        <div class="collapsible" id="collapsible7">
+            <div class="collapsible-header">Project 7</div>
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/180" alt="Thumb 7">
+                <div>Click to expand</div>
+            </div>
+            <div class="collapsible-content">
+                <p>This is the expanded content for Project 7.</p>
+            </div>
+            <div class="collapsible-footer">Collapse</div>
+        </div>
+        <div class="collapsible" id="collapsible8">
+            <div class="collapsible-header">Project 8</div>
+           <div class="thumbnail">
+                <img src="https://via.placeholder.com/180" alt="Thumb 8">
+                <div>Click to expand</div>
+            </div>
+            <div class="collapsible-content">
+                <p>This is the expanded content for Project 8. During gameplay, you traverse to areas that lock you in a space 
+				to prevent progression until all the enemies within are destroyed.<br>
+				This is what we call an arena.<br>
+				I made this skull UI element that is used to count enemies currently active within a wave.<br>
+				The initial concept of the arena skull was made by another artist
+				on the team; to which I was tasked with making the final sprite,
+				as well as animating it.During gameplay, you traverse to areas that lock you in a space 
+				to prevent progression until all the enemies within are destroyed.<br>
+				This is what we call an arena.<br>
+				I made this skull UI element that is used to count enemies currently active within a wave.<br>
+				The initial concept of the arena skull was made by another artist
+				on the team; to which I was tasked with making the final sprite,
+				as well as animating it.During gameplay, you traverse to areas that lock you in a space 
+				to prevent progression until all the enemies within are destroyed.<br>
+				This is what we call an arena.<br>
+				I made this skull UI element that is used to count enemies currently active within a wave.<br>
+				The initial concept of the arena skull was made by another artist
+				on the team; to which I was tasked with making the final sprite,
+				as well as animating it.During gameplay, you traverse to areas that lock you in a space 
+				to prevent progression until all the enemies within are destroyed.<br>
+				This is what we call an arena.<br>
+				I made this skull UI element that is used to count enemies currently active within a wave.<br>
+				The initial concept of the arena skull was made by another artist
+				on the team; to which I was tasked with making the final sprite,
+				as well as animating it.During gameplay, you traverse to areas that lock you in a space 
+				to prevent progression until all the enemies within are destroyed.<br>
+				This is what we call an arena.<br>
+				I made this skull UI element that is used to count enemies currently active within a wave.<br>
+				The initial concept of the arena skull was made by another artist
+				on the team; to which I was tasked with making the final sprite,
+				as well as animating it.</p>
+                <img src="grimwar_img/arena_skull_concept.png" alt="" class="gallery-image">
+    		<img src="grimwar_img/EyeFlames.gif" alt="" class="gallery-image">
+    		<img src="grimwar_img/Skull Showcase5.gif" alt="" class="gallery-image">
+    		<img src="grimwar_img/SkullShowcase-All.gif" alt="" class="gallery-image">
+            </div>
+            <div class="collapsible-footer">Collapse</div>
+        </div>
+        <div class="collapsible" id="collapsible9">
+            <div class="collapsible-header">Project 9</div>
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/180" alt="Thumb 9">
+                <div>Click to expand</div>
+            </div>
+            <div class="collapsible-content">
+                <p>This is the expanded content for Project 9.</p>
+            </div>
+            <div class="collapsible-footer">Collapse</div>
+        </div>
+        <div class="collapsible" id="collapsible10">
+            <div class="collapsible-header">Project 10</div>
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/180" alt="Thumb 10">
+                <div>Click to expand</div>
+            </div>
+            <div class="collapsible-content">
+                <p>This is the expanded content for Project 10.</p>
+            </div>
+            <div class="collapsible-footer">Collapse</div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.collapsible').forEach(div => {
+            const header = div.querySelector('.collapsible-header');
+            const footer = div.querySelector('.collapsible-footer');
+            header.addEventListener('click', () => {
+                div.classList.toggle('expanded');
+            });
+            footer.addEventListener('click', () => {
+                div.classList.remove('expanded');
+            });
+            div.querySelector('.thumbnail').addEventListener('click', () => {
+                div.classList.add('expanded');
+            });
+        });
+    </script>
+</body>
+</html>

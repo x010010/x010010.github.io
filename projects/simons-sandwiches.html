@@ -1,30 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <title>alecks.art - Simon's Sandwiches</title>
-<div id="header"></div>
-<div id="nav"></div>
-<script>
 
+<div id="header"></div>
+<script>
   fetch("../header.html")
     .then(res => res.text())
     .then(html => {
-      // Inject <base href="../"> right after <head>
       const modifiedHTML = html.replace(
         /<head([^>]*)>/i,
         `<head$1><base href="../">`
       );
-
       const parser = new DOMParser();
       const doc = parser.parseFromString(modifiedHTML, "text/html");
-
       document.getElementById('header').innerHTML = doc.body.innerHTML;
-    });
-
-
-  fetch('../nav.html').then(res => res.text()).then(html => {
-    document.getElementById('nav').innerHTML = html;
   });
 </script>
+
 <body>
 
     <!-- Scrolling Background -->

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+
+<title>EXAMPLE PROJECT</title>
+<div id="header"></div>
+<div id="nav"></div>
+<script>
+  fetch("../header.html")
+    .then(res => res.text())
+    .then(html => {
+      const modifiedHTML = html.replace(
+        /<head([^>]*)>/i,
+        `<head$1><base href="../">`
+      );
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(modifiedHTML, "text/html");
+      document.getElementById('header').innerHTML = doc.body.innerHTML;
+    });
+  fetch('../nav.html').then(res => res.text()).then(html => {
+    document.getElementById('nav').innerHTML = html;
+  });
+</script>
+
+<head></head>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 40px;
+        }
+        /* test vertical center line */
+        #center-line {
+            position: fixed;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            transform: translateX(-50%);
+            background: rgba(255, 0, 0, 0.85); /* visible test color */
+            z-index: 9999;
+            pointer-events: none; /* don't block clicks */
+        }
+        .collapsible-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .collapsible {
+            width: 220px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: width 0.3s, height 0.3s;
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+            box-sizing: border-box;
+            margin: 0;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+        }
+        .thumbnail {
+            height: 220px;
+            width: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .collapsible.expanded {
+            width: 100%;
+            max-width: 98vw;
+            height: auto; /* Let height grow with content */
+        }
+        .collapsible-header {
+            background: #0078d4;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .collapsible-footer {
+            background: #0078d4;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            display: none;
+        }
+        .collapsible.expanded .collapsible-footer {
+            display: block;
+        }
+        .collapsible-content {
+            padding: 15px;
+            display: none;
+            /* Remove max-height and overflow-y for natural height */
+            cursor: default; /* Show default cursor, not pointer */
+        }
+        .collapsible.expanded .collapsible-content {
+            display: block;
+        }
+        .collapsible.expanded .thumbnail {
+            display: none;
+        }
+    </style>
+
+<body>
+    <div id="center-line" aria-hidden="true"></div>
+    
+    <div class="collapsible-container">
+        <div class="collapsible" id="asset1">
+            <div class="collapsible-header">Asset 1</div>
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/180" alt="Thumb 1">
+                <div>Click to expand</div>
+            </div>
+            <div class="collapsible-content">
+                <p>Content for this asset.</p>
+            </div>
+            <div class="collapsible-footer">Collapse</div>
+        </div>
+     
+    </div>
+    <script>
+        document.querySelectorAll('.collapsible').forEach(div => {
+            const header = div.querySelector('.collapsible-header');
+            const footer = div.querySelector('.collapsible-footer');
+            header.addEventListener('click', () => {
+                div.classList.toggle('expanded');
+            });
+            footer.addEventListener('click', () => {
+                div.classList.remove('expanded');
+            });
+            div.querySelector('.thumbnail').addEventListener('click', () => {
+                div.classList.add('expanded');
+            });
+        });
+    </script>
+</body>
+</html>

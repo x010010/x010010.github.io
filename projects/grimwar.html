@@ -2,32 +2,23 @@
 <html lang="en">
 	
 <title>alecks.art - GRIMWAR</title>
-<div id="header"></div>
-<div id="nav"></div>
-<script>
 
+<div id="header"></div>
+<script>
   fetch("../header.html")
     .then(res => res.text())
     .then(html => {
-      // Inject <base href="../"> right after <head>
       const modifiedHTML = html.replace(
         /<head([^>]*)>/i,
         `<head$1><base href="../">`
       );
-
       const parser = new DOMParser();
       const doc = parser.parseFromString(modifiedHTML, "text/html");
-
       document.getElementById('header').innerHTML = doc.body.innerHTML;
-    });
-
-
-  fetch('../nav.html').then(res => res.text()).then(html => {
-    document.getElementById('nav').innerHTML = html;
   });
 </script>
-<body>
 
+<body>
 <div class="content-section">
         <div class="banner-bg">
         	<img src="grimwar_img/grimwar_screenshot.jpg" alt="">   
@@ -225,10 +216,7 @@
     color: #1b2838;
     border-color: #ffffff;
   }
-</style>
-
-
-<style>
+  
   .steam-button {
     display: inline-block;
     background-color: #1b2838;
