@@ -3,10 +3,10 @@
 <meta charset="UTF-8">
 
 <title>EXAMPLE PROJECT</title>
+
 <div id="header"></div>
-<div id="nav"></div>
 <script>
-  fetch("../header.html")
+    fetch("../header.html")
     .then(res => res.text())
     .then(html => {
       const modifiedHTML = html.replace(
@@ -17,117 +17,121 @@
       const doc = parser.parseFromString(modifiedHTML, "text/html");
       document.getElementById('header').innerHTML = doc.body.innerHTML;
     });
-  fetch('../nav.html').then(res => res.text()).then(html => {
-    document.getElementById('nav').innerHTML = html;
-  });
 </script>
 
-<head></head>
-    
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            padding: 40px;
-        }
-        /* test vertical center line */
-        #center-line {
-            position: fixed;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            transform: translateX(-50%);
-            background: rgba(255, 0, 0, 0.85); /* visible test color */
-            z-index: 9999;
-            pointer-events: none; /* don't block clicks */
-        }
-        .collapsible-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-        .collapsible {
-            width: 220px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: width 0.3s, height 0.3s;
-            cursor: pointer;
-            position: relative;
-            flex-shrink: 0;
-            box-sizing: border-box;
-            margin: 0;
-            height: 220px;
-            display: flex;
-            flex-direction: column;
-        }
-        .thumbnail {
-            height: 220px;
-            width: 220px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .collapsible.expanded {
-            width: 100%;
-            max-width: 98vw;
-            height: auto; /* Let height grow with content */
-        }
-        .collapsible-header {
-            background: #0078d4;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .collapsible-footer {
-            background: #0078d4;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-            font-weight: bold;
-            cursor: pointer;
-            display: none;
-        }
-        .collapsible.expanded .collapsible-footer {
-            display: block;
-        }
-        .collapsible-content {
-            padding: 15px;
-            display: none;
-            /* Remove max-height and overflow-y for natural height */
-            cursor: default; /* Show default cursor, not pointer */
-        }
-        .collapsible.expanded .collapsible-content {
-            display: block;
-        }
-        .collapsible.expanded .thumbnail {
-            display: none;
-        }
-    </style>
+<body>
+    <div class="content-section">
+        <div class="banner-bg">
+        	<img src="grimwar_img/grimwar_screenshot.jpg" alt="">   
+			<img class="logo-image" src="grimwar_img/GRIMWAR_logo.png" alt="">
+			</div>
+    </div>
+</body>
+
+
 
 <body>
-    <div id="center-line" aria-hidden="true"></div>
-    
     <div class="collapsible-container">
-        <div class="collapsible" id="asset1">
+
+        <div class="collapsible" id="collapsible1">
             <div class="collapsible-header">Asset 1</div>
             <div class="thumbnail">
-                <img src="https://via.placeholder.com/180" alt="Thumb 1">
+                <img src="https://via.placeholder.com/180" alt="">
                 <div>Click to expand</div>
             </div>
             <div class="collapsible-content">
-                <p>Content for this asset.</p>
+                <p>This is the expanded content for Asset 1.</p>
             </div>
             <div class="collapsible-footer">Collapse</div>
         </div>
-     
+
+        <div class="collapsible" id="collapsible2">
+            <div class="collapsible-header">Asset 2</div>
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/180" alt="">
+                <div>Click to expand</div>
+            </div>
+            <div class="collapsible-content">
+                <p>This is the expanded content for Asset 2.</p>
+            </div>
+            <div class="collapsible-footer">Collapse</div>
+        </div>
+
+        <div class="collapsible" id="collapsible3">
+            <div class="collapsible-header">Asset 3</div>
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/180" alt="">
+                <div>Click to expand</div>
+            </div>
+            <div class="collapsible-content">
+                <p>This is the expanded content for Asset 3.</p>
+            </div>
+            <div class="collapsible-footer">Collapse</div>
+        </div>
+
+        <div class="collapsible" id="collapsible4">
+            <div class="collapsible-header">Asset 4</div>
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/180" alt="">
+                <div>Click to expand</div>
+            </div>
+            <div class="collapsible-content">
+                <p>This is the expanded content for Asset 4.</p>
+            </div>
+            <div class="collapsible-footer">Collapse</div>
+        </div>
+
+        <div class="collapsible" id="collapsible5">
+            <div class="collapsible-header">Asset 5</div>
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/180" alt="">
+                <div>Click to expand</div>
+            </div>
+            <div class="collapsible-content">
+                <p>This is the expanded content for Asset 5.</p>
+            </div>
+            <div class="collapsible-footer">Collapse</div>
+        </div>
+
+        <div class="collapsible" id="collapsible6">
+            <div class="collapsible-header">Asset 6</div>
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/180" alt="">
+                <div>Click to expand</div>
+            </div>
+            <div class="collapsible-content">
+                <p>This is the expanded content for Asset 6.</p>
+            </div>
+            <div class="collapsible-footer">Collapse</div>
+        </div>
+
+        <div class="collapsible" id="collapsible7">
+            <div class="collapsible-header">Asset 7</div>
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/180" alt="">
+                <div>Click to expand</div>
+            </div>
+            <div class="collapsible-content">
+                <p>This is the expanded content for Asset 7.</p>
+            </div>
+            <div class="collapsible-footer">Collapse</div>
+        </div>
+
+        <div class="collapsible" id="collapsible8">
+            <div class="collapsible-header">Asset 8</div>
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/180" alt="">
+                <div>Click to expand</div>
+            </div>
+            <div class="collapsible-content">
+                <p>This is the expanded content for Asset 8.</p>
+            </div>
+            <div class="collapsible-footer">Collapse</div>
+        </div>
+
+
     </div>
+    
     <script>
         document.querySelectorAll('.collapsible').forEach(div => {
             const header = div.querySelector('.collapsible-header');
@@ -143,5 +147,116 @@
             });
         });
     </script>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .content-section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        padding: 20px;
+    }    
+     .logo-image {
+	    position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;	
+	    max-width: 500px;
+	    transform: translate(-50%, -50%);
+        width: 50%;
+    }
+    .banner-bg {
+        position: relative;
+        text-align: center;
+        width: 100%;
+    	max-width: 1000px;
+    }
+    .banner-bg img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+</style>
+
+<style>
+  body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 40px;
+  }
+  .collapsible-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+  }
+  .collapsible {
+      width: 220px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: width 0.3s, height 0.3s;
+      cursor: pointer;
+      position: relative;
+      flex-shrink: 0;
+      box-sizing: border-box;
+      margin: 0;
+      height: 220px;
+      display: flex;
+      flex-direction: column;
+  }
+  .thumbnail {
+      height: 220px;
+      width: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+  .collapsible.expanded {
+      width: 100%;
+      max-width: 98vw;
+      height: auto;
+  }
+  .collapsible-header {
+      background: #0078d4;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      cursor: pointer;
+  }
+  .collapsible-footer {
+      background: #0078d4;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      cursor: pointer;
+      display: none;
+  }
+  .collapsible.expanded .collapsible-footer {
+      display: block;
+  }
+  .collapsible-content {
+      padding: 15px;
+      display: none;
+      cursor: default;
+  }
+  .collapsible.expanded .collapsible-content {
+      display: block;
+  }
+  .collapsible.expanded .thumbnail {
+      display: none;
+  }
+</style>
+
 </body>
 </html>

@@ -10,8 +10,6 @@
 </script>
 
 <body>
-	
-<!-- Scrolling BG -->
     <div class="scrolling-background"></div>
 	<style>
 	.scrolling-background {
@@ -27,21 +25,24 @@
     	animation: scroll 60s linear infinite;
     	image-rendering: crisp-edges;
 		}
-	@keyframes scroll {
-    	from {transform: translate(0, 0);}
-    	to {transform: translate(-50%, -50%);}
+	    @keyframes scroll {
+    	    from {transform: translate(0, 0);}
+    	    to {transform: translate(-50%, -50%);}
 		}
 	</style> 
-<!-- Scrolling BG End -->
 	
- 		<div class="contact">
-            <img src="images/Contact.png" alt="">
-        </div>
- 
-
+ 	<div class="contact">
+        <img src="images/Contact.png" alt="">
+    </div>
 </body>
 
 <style>
+       * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
     @font-face {
         font-family: 'Better VCR';
         src: url('fonts/Better_VCR_6.1.ttf') format('truetype'); /* Use the relative path to your font file */
@@ -60,13 +61,8 @@
         overflow: hidden; /* Prevent scrolling */
     }
 
-    /* Basic Reset */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
 
+ 
 
     /* Content Section */
     .content-section {
@@ -76,36 +72,6 @@
         align-items: center;
         justify-content: center;
         height: calc(100vh - 60px); /* Adjust content section height to fit the page */
-    }
-
-    /* Holographic Title */
-    .holographic-title {
-        font-size: 72px;
-        font-weight: bold;
-        color: white;
-        text-transform: uppercase;
-        background: linear-gradient(45deg, #00FFFF, #FF00FF, #FFFF00, #00FF00, #FF4500);
-        background-size: 400% 400%;
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        animation: hologram 5s ease infinite;
-        letter-spacing: 5px;
-        /* Reduced glow */
-        text-shadow: 0 0 2px rgba(255, 255, 255, 0.6), 0 0 5px rgba(255, 255, 255, 0.4), 0 0 8px rgba(255, 255, 255, 0.3);
-    }
-
-    /* Hologram Animation */
-    @keyframes hologram {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
     }
 
     /* Subheading */
