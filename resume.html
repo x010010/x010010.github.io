@@ -10,6 +10,7 @@
   });
 </script>
 
+
 <style>
 html {
   font-size: clamp(14px, 2.5vw, 18px);
@@ -30,7 +31,7 @@ body {
 }
 </style>
 
-<main class="content-container"><!-- Content Below -->
+<main class="content-container">
 	
 <center>
 <div class="pdf-container">
@@ -47,7 +48,7 @@ iframe {
 		</style>
 
 	
-</main><!-- Content Above -->
+</main>
 <style>
 .content-container {
   position: relative;
@@ -97,7 +98,154 @@ iframe {
   height: auto;
   display: block;
 }
-
 </style>
-<div id="footer"></div>
+
+<div class="footerbar-container">
+  <div class="footerbar-scaler">
+    <nav class="custom-footerbar">
+      <img src="images/navbar/navbar-left.png" class="footer-left" />
+      <div class="footer-links-wrapper">
+        <div class="footer-section">
+          <div class="footer-bg"><a href="files/Alex_Resume.pdf" target="_blank">OPEN IN NEW TAB</a></div>
+        </div>
+        <img src="images/navbar/navbar-sep.png" class="footer-sep" />
+        <div class="footer-section">
+          <div class="footer-bg"><a href="files/Alex_Resume.pdf" download>DOWNLOAD</a></div>
+        </div>
+      </div>
+      <img src="images/navbar/navbar-right.png" class="footer-right" />
+    </nav>
+  </div>
+</div>
+
+<style>
+:root {
+  --footer-size: 40px;
+}
+
+.footerbar-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding-top: 0px; 
+  padding-bottom: 9px;
+  position: relative;
+  z-index: 1;
+}
+
+.footerbar-scaler {
+  transform-origin: top center;
+  transition: transform 0.2s ease;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.custom-footerbar {
+  display: flex;
+  align-items: center;
+  height: var(--footer-size);
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+  max-width: 100%;
+  transition: height 0.3s ease;
+}
+
+.custom-footerbar img {
+  width: var(--footer-size);
+  height: var(--footer-size);
+  flex-shrink: 0;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.footer-links-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.footer-section {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.footer-bg {
+  background-image: url('images/navbar/navbar-middle.png');
+  background-repeat: repeat-x;
+  background-size: 100% 100%;
+  height: var(--footer-size);
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
+  white-space: nowrap;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  flex-shrink: 0;
+  transition: padding 0.3s ease, height 0.3s ease;
+}
+
+.footer-sep {
+  width: var(--footer-size);
+  height: var(--footer-size);
+  flex-shrink: 0;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.footer-bg a {
+  color: black;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: calc(var(--footer-size) * 0.45);
+  line-height: var(--footer-size);
+  display: inline-block;
+  transition: font-size 0.3s ease, color 0.3s ease, font-weight 0.3s ease;
+  font-weight: normal;
+}
+
+.footer-bg:hover a {
+  color: #b89cb8;
+  font-weight: bold;
+}
+
+@media (max-width: 1100px) {
+  :root {
+    --footer-size: 38px;
+  }
+  .footer-bg {
+    padding: 0 30px;
+  }
+}
+@media (max-width: 800px) {
+  :root {
+    --footer-size: 36px;
+  }
+  .footer-bg {
+    padding: 0 10px;
+  }
+}
+@media (max-width: 600px) {
+  :root {
+    --footer-size: 35px;
+  }
+  .footer-bg {
+    padding: 0 2px;
+  }
+}
+@media (max-width: 450px) {
+  :root {
+    --footer-size: 32px;
+  }
+  .footer-bg {
+    padding: 0 0px;
+  }
+}
+</style>
 </html>

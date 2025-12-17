@@ -30,10 +30,25 @@ body {
 }
 </style>
 
-<main class="content-container"><!-- Content Below -->
+<main class="content-container">
 	
     <div class="content-section">
-		
+<!--		
+           <a href="projects/avernoth.html" class="content-bar-link">
+            <div class="content-bar">
+                <img src="images/Avernoth1-thumbnail.png" alt="" class="thumbnail">
+                <div class="content-text">
+                    <h2>Avernoth</h2>
+                    <p class="subheading">Outlandish Development - 22 person team</p>
+                    <p class="subheading2">Character Concept & Design, UI</p>
+                </div>
+                <p class="more-text">Ongoing</p>
+                    <div class="top-right-thumb" tabindex="0">
+                        <img src="images/Engine-Unreal.png" alt="" title="Unreal Engine">
+                    </div>
+            </div>
+        </a>
+-->
         <a href="projects/grimwar.html" class="content-bar-link">
             <div class="content-bar">
                 <img src="images/GRIMWAR_Thumbnail.png" alt="" class="thumbnail">
@@ -42,10 +57,13 @@ body {
                     <p class="subheading">Bookwyrm - 12 person team</p>
                     <p class="subheading2">UI, hand sprite animations</p>
                 </div>
-                <p class="more-text">8 months</p>
+                <p class="more-text">Ongoing</p>
+                    <div class="top-right-thumb" tabindex="0">
+                        <img src="images/Engine-Unity.png" alt="" title="Unity">
+                    </div>                
             </div>
         </a>
-		<!--
+<!--		
 		 <a href="projects/zleep.html" class="content-bar-link">
             <div class="content-bar">
                 <img src="images/Zleep_thumbnail.png" alt="" class="thumbnail">
@@ -55,6 +73,9 @@ body {
                     <p class="subheading2">UI elements, character design, animations</p>
                 </div>
                 <p class="more-text">2 months --March 2025 - May 2025</p>
+                    <div class="top-right-thumb" tabindex="0">
+                        <img src="images/Engine-Unity.png" alt="" title="Unity">
+                    </div>                
             </div>
         </a>
 		
@@ -67,10 +88,13 @@ body {
                     <p class="subheading2">UI elements, character design</p>
                 </div>
                 <p class="more-text">1 month</p>
+                    <div class="top-right-thumb" tabindex="0">
+                        <img src="images/Engine-Unity.png" alt="" title="Unity">
+                    </div>                
             </div>
         </a>
-		-->
-		
+	
+-->		
         <a href="projects/simons-sandwiches.html" class="content-bar-link">
             <div class="content-bar">
                 <img src="images/SimonsSandwiches_Thumbnail.png" alt="" class="thumbnail">
@@ -80,6 +104,9 @@ body {
                     <p class="subheading2">UI elements, character design</p>
                 </div>
                 <p class="more-text">2 months</p>
+                    <div class="top-right-thumb" tabindex="0">
+                        <img src="images/Engine-Unity.png" alt="" title="Unity">
+                    </div>                
             </div>
         </a>
 
@@ -92,6 +119,9 @@ body {
                     <p class="subheading2">Half of 2D Sprites, cleanup, &amp; all animation</p>
                 </div>
                 <p class="more-text">1 month</p>
+                    <div class="top-right-thumb" tabindex="0">
+                        <img src="images/Engine-Unity.png" alt="" title="Unity">
+                    </div>                
             </div>
         </a>
     </div>
@@ -132,6 +162,24 @@ html, body {
     border-radius: 0px;
     min-height: 120px;
     position: relative;
+}
+
+.top-right-thumb {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 64px;
+    height: 64px;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    image-rendering: pixelated;
+}
+.top-right-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .thumbnail {
@@ -185,7 +233,7 @@ html, body {
 
 </style>
 
-</main><!-- Content Above -->
+</main>
 <style>
 .content-container {
   position: relative;

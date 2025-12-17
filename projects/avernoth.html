@@ -17,53 +17,7 @@
       document.getElementById('header').innerHTML = doc.body.innerHTML;
   });
 </script>
-<style>
-.page-frame {
-  position: relative;
-}
 
-.side-art {
-  position: absolute;
-  top: 0;
-  width: calc((100vw - 1100px) / 2);
-  height: 100%;
-  background-repeat: repeat-y;
-  background-position: top;  
-  background-size: cover;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.side-art.left {
-  left: 0;
-  background-image: url("../images/SideArtTest-L.png");
-  image-rendering: pixelated;
-}
-
-.side-art.right {
-  right: 0;
-  background-image: url("../images/SideArtTest-R.png");
-  image-rendering: pixelated;
-}
-
-/* Hide on small screens */
-@media (max-width: 1200px) {
-  .side-art {
-    display: none;
-  }
-}
-</style>
-
-    <body>
-  <div class="side-art left"></div>
-  <div class="side-art right"></div>
-
-  <main class="everything">
-
-  
-
-
-</div>
 <body>
 <div class="content-section">
         <div class="banner-bg">
@@ -230,61 +184,62 @@
 			
     </p>
 </div>
-
-<div class="steam-button-container">
+	<div class="steam-button-container">
   <a href="https://store.steampowered.com/app/3649130/GRIMWAR/" target="_blank" class="steam-button">
     View on Steam!
   </a>
 </div>
 
 <style>
-    .steam-button-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 30px 0;
-    }   
-    .steam-button {
-        display: inline-block;
-        background-color: #1b2838;
-        color: #c6d4df;
-        font-family: 'Segoe UI', sans-serif;
-        font-size: 16px;
-        padding: 12px 24px;
-        border: 1px solid #66c0f4;
-        border-radius: 4px;
-        text-decoration: none;
-        transition: background 0.3s, border 0.3s, color 0.3s;
-    }   
-    .steam-button:hover {
-        background-color: #66c0f4;
-        color: #1b2838;
-        border-color: #ffffff;
-    }
-    .steam-button {
-         display: inline-block;
-         background-color: #1b2838;
-         color: #c6d4df;
-         font-family: 'Segoe UI', sans-serif;
-         font-size: 16px;
-         padding: 12px 24px;
-         border: 1px solid #66c0f4;
-         border-radius: 4px;
-         text-decoration: none;
-         transition: background 0.3s, border 0.3s, color 0.3s;
-    }
-    .steam-button:hover {
-         background-color: #66c0f4;
-         color: #1b2838;
-         border-color: #ffffff;
-    }
+  .steam-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+  }
+
+  .steam-button {
+    display: inline-block;
+    background-color: #1b2838;
+    color: #c6d4df;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: 1px solid #66c0f4;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.3s, border 0.3s, color 0.3s;
+  }
+
+  .steam-button:hover {
+    background-color: #66c0f4;
+    color: #1b2838;
+    border-color: #ffffff;
+  }
+  
+  .steam-button {
+    display: inline-block;
+    background-color: #1b2838;
+    color: #c6d4df;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: 1px solid #66c0f4;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.3s, border 0.3s, color 0.3s;
+  }
+
+  .steam-button:hover {
+    background-color: #66c0f4;
+    color: #1b2838;
+    border-color: #ffffff;
+  }
 </style>
 
 	
 </body>
-
-	</main>
-</body>
+	
 	
   		
 <style>

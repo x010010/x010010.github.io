@@ -17,53 +17,7 @@
       document.getElementById('header').innerHTML = doc.body.innerHTML;
   });
 </script>
-<style>
-.page-frame {
-  position: relative;
-}
 
-.side-art {
-  position: absolute;
-  top: 0;
-  width: calc((100vw - 1100px) / 2);
-  height: 100%;
-  background-repeat: repeat-y;
-  background-position: top;  
-  background-size: cover;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.side-art.left {
-  left: 0;
-  background-image: url("../images/SideArtTest-L.png");
-  image-rendering: pixelated;
-}
-
-.side-art.right {
-  right: 0;
-  background-image: url("../images/SideArtTest-R.png");
-  image-rendering: pixelated;
-}
-
-/* Hide on small screens */
-@media (max-width: 1200px) {
-  .side-art {
-    display: none;
-  }
-}
-</style>
-
-    <body>
-  <div class="side-art left"></div>
-  <div class="side-art right"></div>
-
-  <main class="everything">
-
-  
-
-
-</div>
 <body>
 <div class="content-section">
         <div class="banner-bg">
@@ -282,9 +236,7 @@
 
 	
 </body>
-
-	</main>
-</body>
+	
 	
   		
 <style>

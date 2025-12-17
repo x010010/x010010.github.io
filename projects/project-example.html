@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
 
 <title>EXAMPLE PROJECT</title>
 
 <div id="header"></div>
 <script>
-    fetch("../header.html")
+  fetch("../header.html")
     .then(res => res.text())
     .then(html => {
       const modifiedHTML = html.replace(
@@ -16,247 +18,413 @@
       const parser = new DOMParser();
       const doc = parser.parseFromString(modifiedHTML, "text/html");
       document.getElementById('header').innerHTML = doc.body.innerHTML;
-    });
+  });
 </script>
 
 <body>
-    <div class="content-section">
+<div class="content-section">
         <div class="banner-bg">
         	<img src="grimwar_img/grimwar_screenshot.jpg" alt="">   
 			<img class="logo-image" src="grimwar_img/GRIMWAR_logo.png" alt="">
 			</div>
+        <div class="content-row">
+            <div class="text-left">
+                <h2 class="subheading">About GRIMWAR</h2>
+                <p class="description">
+                    GRIMWAR is a first person movement shooter with pixel-centric visuals and fast paced gameplay.
+					Use magical spells to vanquish mysterious entities while running through a treacherous tower.
+					With an emphasis on movement, your swift feet are your avenues for freedom from your perilous imprisonment. <br>
+					<br>
+					This project is inspired by the pillars of the FPS genre; using their optimization as creative
+					fuel while being unbound by limitations of hardware.
+                </p>
+            </div>
+			<figure>
+            <div class="image-right">
+                <img src="grimwar_img/play-DreamsDungeon.gif" alt="">
+            </div>
+			 <figcaption class="caption">Using Dreams teleport</figcaption>
+        </figure>
+        </div>
+
+        <div class="content-row">
+			<figure>
+            <div class="image-left">
+                <img src="grimwar_img/play-LightningLab.gif" alt="">
+            </div>
+			 <figcaption class="caption">Using Lightning</figcaption>
+        </figure>
+            <div class="text-right">
+                <h2 class="subheading">Project Specs</h2>
+                <p class="description">
+                    Team size: 11<br>
+                    Role: 2D Artist<br>
+                    Duration: September 2024 – May 2025<br>
+                    Engine: Unity<br>
+                    Software: Aseprite,<br> Adobe Photoshop &amp; Premiere
+                </p>
+            </div>
+        </div>
+<!-- Line --> <hr> <style>hr {border-top: 2px solid white;width: 80%;margin: 20px auto;}</style>
+		<div class="banner-bg">
+            <img src="grimwar_img/grimwar_screenshot.jpg" alt="" style="height: 150px; object-fit: cover;">
+            <h2 class="heading">My Work</h2>
+		</div>
+
+		<p class="center-description">
+        	    I created conceptualizations, frame-by-frame animations, and 2D visual assets for this project.<br>
+		</p>
+</div>
+<div class="collapsible-container" id="collapsibleContainer">
+
+      <div class="collapsible">
+        <div class="collapsible-header">Asset 1</div>
+        <div class="thumbnail">
+          <img src="https://via.placeholder.com/600x400" alt="asset 1 thumbnail">
+        </div>
+        <div class="collapsible-content">
+          <p>This is the expanded content for Asset 1. Put whatever you want here.</p>
+        </div>
+        <div class="collapsible-footer">Collapse</div>
+      </div>
+
+      <div class="collapsible">
+        <div class="collapsible-header">Asset 2</div>
+        <div class="thumbnail">
+          <img src="https://via.placeholder.com/400x600" alt="asset 2 thumbnail">
+        </div>
+        <div class="collapsible-content">
+          <p>This is the expanded content for Asset 2.</p>
+        </div>
+        <div class="collapsible-footer">Collapse</div>
+      </div>
+
+      <div class="collapsible">
+        <div class="collapsible-header">Asset 3</div>
+        <div class="thumbnail">
+          <img src="grimwar_img/ArenaSkull-Thumbnail.webp" alt="asset 3 thumbnail">
+        </div>
+        <div class="collapsible-content">
+          <p>This is the expanded content for Asset 3.</p>
+        </div>
+        <div class="collapsible-footer">Collapse</div>
+      </div>
+
+</div>
+
+<div class="content-section">
+	<div class="banner-bg">
+            <img src="grimwar_img/grimwar_screenshot.jpg" alt="" style="height: 150px; object-fit: cover;">
+            <h2 class="heading">Reflection</h2>
+		</div>
+                <img src="grimwar_img/play-GravityLab.gif" alt="">
+				
+            
+		 <figcaption class="caption">Lightning and Gravity spell slinging</figcaption>
+		<p class="center-description">
+        	    I love the style of the game. Pixelated, crunchy, and moody are asethetic choices I appreciate. I've done my best to match that style with my assets. The process for making the hands has been tough at times and I've experimented with different approaches. Most of the methods I had in mind were soley for cutting time spent on assets, though would hinder overall quality. I found that doing it in the way I've demonstrated was the best direction to go, even if the result took longer to produce. Team members were a great guide for direction and helped with scope considerations.<br>
+				Seeing this project come together has been a pleasure and a fulfilling journey!
+    </p>
+
+    <div class="steam-button-container">
+      <a href="https://store.steampowered.com/app/3649130/GRIMWAR/" target="_blank" class="steam-button">
+        View on Steam!
+      </a>
     </div>
-</body>
 
+    <style>
+        .steam-button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+        }   
+        .steam-button {
+            display: inline-block;
+            background-color: #1b2838;
+            color: #c6d4df;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 16px;
+            padding: 12px 24px;
+            border: 1px solid #66c0f4;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.3s, border 0.3s, color 0.3s;
+        }   
+        .steam-button:hover {
+            background-color: #66c0f4;
+            color: #1b2838;
+            border-color: #ffffff;
+        }
+        .steam-button {
+             display: inline-block;
+             background-color: #1b2838;
+             color: #c6d4df;
+             font-family: 'Segoe UI', sans-serif;
+             font-size: 16px;
+             padding: 12px 24px;
+             border: 1px solid #66c0f4;
+             border-radius: 4px;
+             text-decoration: none;
+             transition: background 0.3s, border 0.3s, color 0.3s;
+        }
+        .steam-button:hover {
+             background-color: #66c0f4;
+             color: #1b2838;
+             border-color: #ffffff;
+        }
+    </style>
 
-
-<body>
-    <div class="collapsible-container">
-
-        <div class="collapsible" id="collapsible1">
-            <div class="collapsible-header">Asset 1</div>
-            <div class="thumbnail">
-                <img src="https://via.placeholder.com/180" alt="">
-                <div>Click to expand</div>
-            </div>
-            <div class="collapsible-content">
-                <p>This is the expanded content for Asset 1.</p>
-            </div>
-            <div class="collapsible-footer">Collapse</div>
-        </div>
-
-        <div class="collapsible" id="collapsible2">
-            <div class="collapsible-header">Asset 2</div>
-            <div class="thumbnail">
-                <img src="https://via.placeholder.com/180" alt="">
-                <div>Click to expand</div>
-            </div>
-            <div class="collapsible-content">
-                <p>This is the expanded content for Asset 2.</p>
-            </div>
-            <div class="collapsible-footer">Collapse</div>
-        </div>
-
-        <div class="collapsible" id="collapsible3">
-            <div class="collapsible-header">Asset 3</div>
-            <div class="thumbnail">
-                <img src="https://via.placeholder.com/180" alt="">
-                <div>Click to expand</div>
-            </div>
-            <div class="collapsible-content">
-                <p>This is the expanded content for Asset 3.</p>
-            </div>
-            <div class="collapsible-footer">Collapse</div>
-        </div>
-
-        <div class="collapsible" id="collapsible4">
-            <div class="collapsible-header">Asset 4</div>
-            <div class="thumbnail">
-                <img src="https://via.placeholder.com/180" alt="">
-                <div>Click to expand</div>
-            </div>
-            <div class="collapsible-content">
-                <p>This is the expanded content for Asset 4.</p>
-            </div>
-            <div class="collapsible-footer">Collapse</div>
-        </div>
-
-        <div class="collapsible" id="collapsible5">
-            <div class="collapsible-header">Asset 5</div>
-            <div class="thumbnail">
-                <img src="https://via.placeholder.com/180" alt="">
-                <div>Click to expand</div>
-            </div>
-            <div class="collapsible-content">
-                <p>This is the expanded content for Asset 5.</p>
-            </div>
-            <div class="collapsible-footer">Collapse</div>
-        </div>
-
-        <div class="collapsible" id="collapsible6">
-            <div class="collapsible-header">Asset 6</div>
-            <div class="thumbnail">
-                <img src="https://via.placeholder.com/180" alt="">
-                <div>Click to expand</div>
-            </div>
-            <div class="collapsible-content">
-                <p>This is the expanded content for Asset 6.</p>
-            </div>
-            <div class="collapsible-footer">Collapse</div>
-        </div>
-
-        <div class="collapsible" id="collapsible7">
-            <div class="collapsible-header">Asset 7</div>
-            <div class="thumbnail">
-                <img src="https://via.placeholder.com/180" alt="">
-                <div>Click to expand</div>
-            </div>
-            <div class="collapsible-content">
-                <p>This is the expanded content for Asset 7.</p>
-            </div>
-            <div class="collapsible-footer">Collapse</div>
-        </div>
-
-        <div class="collapsible" id="collapsible8">
-            <div class="collapsible-header">Asset 8</div>
-            <div class="thumbnail">
-                <img src="https://via.placeholder.com/180" alt="">
-                <div>Click to expand</div>
-            </div>
-            <div class="collapsible-content">
-                <p>This is the expanded content for Asset 8.</p>
-            </div>
-            <div class="collapsible-footer">Collapse</div>
-        </div>
-
-
-    </div>
-    
-    <script>
-        document.querySelectorAll('.collapsible').forEach(div => {
-            const header = div.querySelector('.collapsible-header');
-            const footer = div.querySelector('.collapsible-footer');
-            header.addEventListener('click', () => {
-                div.classList.toggle('expanded');
-            });
-            footer.addEventListener('click', () => {
-                div.classList.remove('expanded');
-            });
-            div.querySelector('.thumbnail').addEventListener('click', () => {
-                div.classList.add('expanded');
-            });
-        });
-    </script>
+</div>
 
 <style>
+
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+    }   
+    @font-face {
+        font-family: 'Better VCR';
+        src: url('fonts/Better_VCR_6.1.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
     }
-
+    body {
+        font-family: 'Better VCR', sans-serif;
+        line-height: 1.6;
+        padding: 0;
+        background-color: #ffffff;
+        color: #000000;
+        margin: 0;
+        height: 100%;
+    }
     .content-section {
         display: flex;
         flex-direction: column;
         gap: 20px;
         align-items: center;
         padding: 20px;
-    }    
-     .logo-image {
-	    position: absolute;
+    }
+    .logo-image {	position: absolute;
         top: 50%;
         left: 50%;
-        z-index: 1;	
-	    max-width: 500px;
-	    transform: translate(-50%, -50%);
-        width: 50%;
-    }
-    .banner-bg {
+        z-index: 1;		max-width: 500px;	transform: translate(-50%, -50%);
+        width: 50%;}.banner-bg {
         position: relative;
         text-align: center;
-        width: 100%;
-    	max-width: 1000px;
+        width: 100%;	max-width: 1000px;
     }
     .banner-bg img {
         width: 100%;
-        height: auto;
+        height: auto;	
         display: block;
+    }
+    .collapsible-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }   
+    .collapsible {
+        width: 260px;
+        background: #fff;
+        border-radius: 0;
+        box-shadow: 0 3px 10px rgba(0,0,0,.15);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: all .28s ease;
+    }   
+    .collapsible-header {
+        background: #dcdcdc;
+        color: #111;
+        font-weight: bold;
+        text-align: center;
+        font-size: 1.1em;
+        padding: 16px;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        border-radius: 0;
+        box-shadow: inset 0 -2px 0 rgba(255,255,255,.4);
+        cursor: pointer;
+    }   
+    .collapsible-footer {
+        background: #dcdcdc;
+        color: #111;
+        font-weight: bold;
+        text-align: center;
+        padding: 12px;
+        display: none;
+        border-top: 1px solid rgba(0,0,0,0.08);
+        border-radius: 0;
+        box-shadow: inset 0 2px 0 rgba(255,255,255,.4);
+        cursor: pointer;
+    }   
+    .thumbnail {
+        width: 100%;
+        height: 260px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fafafa;
+        border-radius: 0;
+        overflow: hidden;
+        cursor: pointer;
+    }   
+    .thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    
+    }   
+    .collapsible-content {
+        display: none; /* hidden when collapsed */
+        padding: 0 15px;
+    }   
+    .collapsible.expanded {
+        width: 100%;
+        max-width: 98vw;
+    }   
+    .collapsible.expanded .thumbnail {
+        display: none;
+    }   
+    .collapsible.expanded .collapsible-content {
+        display: block; /* fully exposed and will grow to fit content */
+        padding: 15px;
+    }   
+    .collapsible.expanded .collapsible-footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .heading {
+        font-size: 40px;
+        color: #ddd;
+        margin-bottom: 15px;
+		position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;	
+	}	
+    .subheading {
+        font-size: 24px;
+        color: #ddd;
+        margin-bottom: 15px;
+    }
+    .description {
+        font-size: 18px;
+        color: #bbb;
+        margin-bottom: 15px;
+        max-width: 700px;
+    }
+	.center-description {
+        font-size: 18px;
+        color: #bbb;
+        margin-bottom: 15px;
+        max-width: 1500px;
+    }
+    .image-with-caption {
+        text-align: center;
+    }
+    .image-with-caption img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+    .caption {
+        font-size: 14px;
+        color: #777;
+    }
+ 
+    .content-row {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+        max-width: 1500px;
+    }
+    .text-left, .image-right {
+        flex: 1;
+    }
+    .text-left {
+        padding-right: 20px;
+        text-align: left;
+    }
+    .image-right img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+    .image-left, .text-right {
+        flex: 1;
+    }
+    .image-left img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+    .text-right {
+        padding-left: 8px;
+        text-align: right;
+    }
+    @media (max-width: 768px) {
+        .content-row {
+            flex-direction: column;
+        }
+	}
+	.image-gallery {
+    	display: flex;
+    	gap: 8px; /* Add space between the images */
+    	flex-wrap: wrap; /* Allow images to wrap in smaller screens */
+    	margin: 20px;
+	}
+	.gallery-image {
+    	width: 23%; /* Each image will take up about 1/4 of the container */
+    	height: auto; /* Maintain the aspect ratio */
+    	border-radius: 5px; /* Optional: for rounded corners */
+    	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add a shadow effect */
+	}	
+	figure {
+    margin: 0;
+    display: inline-block;
+    text-align: center;
+}
+
+    figcaption {
+        font-size: 14px;
+        color: #bbb;
+        margin-top: 5px;
     }
 </style>
 
-<style>
-  body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      padding: 40px;
-  }
-  .collapsible-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-  }
-  .collapsible {
-      width: 220px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: width 0.3s, height 0.3s;
-      cursor: pointer;
-      position: relative;
-      flex-shrink: 0;
-      box-sizing: border-box;
-      margin: 0;
-      height: 220px;
-      display: flex;
-      flex-direction: column;
-  }
-  .thumbnail {
-      height: 220px;
-      width: 220px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-  }
-  .collapsible.expanded {
-      width: 100%;
-      max-width: 98vw;
-      height: auto;
-  }
-  .collapsible-header {
-      background: #0078d4;
-      color: #fff;
-      padding: 10px;
-      text-align: center;
-      font-weight: bold;
-      cursor: pointer;
-  }
-  .collapsible-footer {
-      background: #0078d4;
-      color: #fff;
-      padding: 10px;
-      text-align: center;
-      font-weight: bold;
-      cursor: pointer;
-      display: none;
-  }
-  .collapsible.expanded .collapsible-footer {
-      display: block;
-  }
-  .collapsible-content {
-      padding: 15px;
-      display: none;
-      cursor: default;
-  }
-  .collapsible.expanded .collapsible-content {
-      display: block;
-  }
-  .collapsible.expanded .thumbnail {
-      display: none;
-  }
-</style>
+<script>
+    const container = document.getElementById('collapsibleContainer');
+    const collapsibles = Array.from(container.children);
+    const originalOrder = collapsibles.slice();
+
+    collapsibles.forEach(c => {
+      c.addEventListener('click', e => {
+        if (e.target.closest('.collapsible-content')) return;
+        const isExpanding = !c.classList.contains('expanded');
+        collapsibles.forEach(item => item.classList.remove('expanded'));
+        originalOrder.forEach(el => container.appendChild(el));
+        if (isExpanding) {
+          container.insertBefore(c, container.firstChild);
+          c.classList.add('expanded');
+        }
+      });
+    });
+
+    document.querySelectorAll('.collapsible-footer').forEach(f => {
+      f.addEventListener('click', e => {
+        e.stopPropagation();
+        const c = f.closest('.collapsible');
+        c.classList.remove('expanded');
+        originalOrder.forEach(el => container.appendChild(el));
+      });
+    });
+</script>
 
 </body>
 </html>
