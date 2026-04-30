@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Pattern Container Layout</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f00;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.page-frame {
+  position: relative;
+  width: 100%;
+  max-width: 1550px;
+}
+
+.content-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 950px;
+  margin: auto;
+  padding: 48px;
+  background: url('images/walltexture.png') repeat;
+}
+
+.side-strip {
+  position: absolute;
+  inset-block: 0;
+  width: 300px;
+  z-index: 1;
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  image-rendering: pixelated;
+}
+
+.left {
+  right: calc(50% + 475px);
+  background: url('images/SideArtTest-L.png') top right / 100% auto repeat-y;
+}
+
+.right {
+  left: calc(50% + 475px);
+  background: url('images/sidebar-testR.png') top left / 100% auto repeat-y;
+}
+
+@media (max-width: 899px), (orientation: portrait) 
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+p {
+  max-width: 700px;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+</style>
+</head>
+<body>
+<div class="page-frame">
+  <div class="side-strip left"></div>
+
+  <main class="content-container">
+    <h1>Page Content</h1>
+
+    <p>Mobile and narrow portrait screens will hide the decorative sidebars so the content uses full width.</p>
+
+    <p>Around 4:3 monitor sizing, the layout is intended to feel full frame with the side strips visible and minimal outer background.</p>
+
+    <p>The container height is determined only by its content, and the side strips match that exact height automatically.</p>
+
+    <p>On wider monitors, the bright red page background becomes visible outside the side strips, helping demonstrate the intended behavior.</p>
+    
+    
+    
+  </main>
+
+  <div class="side-strip right"></div>
+</div>
+</body>
+</html>
