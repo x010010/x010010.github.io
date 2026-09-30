@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+
+<title>Zleep - alecks.art</title>
+
+<div id="header"></div>
+<script>
+  fetch("../header.html")
+    .then(res => res.text())
+    .then(html => {
+      const modifiedHTML = html.replace(
+        /<head([^>]*)>/i,
+        `<head$1><base href="../">`
+      );
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(modifiedHTML, "text/html");
+      document.getElementById('header').innerHTML = doc.body.innerHTML;
+  });
+</script>
+
+<body>
+<main class="content-container">
+    <div class="content-section">
+        <div class="banner-bg">
+            <img src="zleep_img/zleep-conceptbg.png" alt="" style="image-rendering: pixelated;">   
+    		<img class="logo-image" src="zleep_img/Zleep_logo.png" alt="">
+            <img src="project_img/construction-banner.png" alt="">   
+    	</div>
+        <div class="content-row">
+            <div class="text-left">
+                <h2 class="subheading">About Zleep</h2>
+                <p class="description" style="text-indent: 20px;">
+                    Zleep is a top-down dream walking experience. 
+                </p>
+            </div>
+    		<figure>
+            <div class="image-right">
+                   <img src="zleep_img/TimeTravel3.png" alt="">
+            </div>
+    			 <figcaption class="caption">Concept environment</figcaption>
+           </figure>
+    </div>
+
+    <div class="content-row">
+    	<figure>
+        <div class="image-left">
+            <img src="zleep_img/Water-Showcase.gif" alt="">
+        </div>
+    		<figcaption class="caption">Water tile showcase</figcaption>
+        </figure>
+        <div class="text-right">
+            <h2 class="subheading">Project Specs</h2>
+            <p class="description">
+                <b>Team size:</b> 7<br>
+                <b>Role:</b> Producer, Lead 2D Artist, Concept Artist, Character Designer, UI Designer, Animator<br>
+                <b>Duration:</b> March 2025 – May 2025<br>
+                <b>Engine:</b> Unity<br>
+                <b>Software:</b> Aseprite
+            </p>
+        </div>
+    </div>
+    <!-- Line --> <hr> <style>hr {border-top: 2px solid white;width: 80%;margin: 20px auto;}</style>
+    <div class="banner-bg">
+        <img src="zleep_img/zleep-conceptbg.png" alt="" style="height: 150px; object-fit: cover;">
+           <h2 class="heading">My Work</h2>
+    </div>
+
+    	<p class="center-description">
+            I lead the team for this project and created character art, animations, UI, and game icons-
+             including the concept work for each.<br>
+             NOTE: This page is still under construction. I wanted to show the assets in a gallery format 
+             below to show before it is organized in the future!<br>
+    	</p>
+    
+<div class="gallery" style="image-rendering: pixelated;">
+            		<img src="zleep_img/ASG-Char.png" alt="" class="gallery-image">
+            		<img src="zleep_img/ASG-Outline.png" alt="" class="gallery-image">
+                    </div>
+<div class="gallery" style="image-rendering: pixelated;">
+            		<img src="zleep_img/ASG-Pixels.png" alt="" class="gallery-image">
+            		<img src="zleep_img/ASG-units.png" alt="" class="gallery-image">
+                    </div>
+                    <figcaption class="caption">Art Style Guide pages</figcaption>
+
+          <style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+  }
+
+  .gallery img {
+    width: 100%;
+    height: auto; 
+    display: block;
+  }
+</style>
+
+<div class="gallery" style="image-rendering: pixelated;">
+    <img src="zleep_img/assets/ProtagColorHood-Showcase.gif" alt="">
+    <img src="zleep_img/assets/ProtagUnhoodAnimatedShowcase.gif" alt="">
+    <img src="zleep_img/assets/RPG-showcase2.gif" alt="">
+    <img src="zleep_img/assets/FishTankInterior.gif" alt="">
+    <img src="zleep_img/assets/FrontFish-Red.gif" alt="">
+    <img src="zleep_img/assets/Fishtank.gif" alt="">
+    <img src="zleep_img/assets/Memory1.gif" alt="">
+    <img src="zleep_img/assets/Paperio-showcase.gif" alt="">
+    <img src="zleep_img/assets/RPG-showcase1.png" alt="">
+    <img src="zleep_img/assets/char1-SHOW.png" alt="">
+    <img src="zleep_img/assets/LoginComputerOS-Ref.png" alt="">
+    <img src="zleep_img/assets/StoreComputerOS-OrderPage REF.png" alt="">
+    <img src="zleep_img/assets/MainRef.png" alt="">
+    <img src="zleep_img/assets/RPG Background.png" alt="">
+    <img src="zleep_img/assets/Clouds1.png" alt="">
+    <img src="zleep_img/assets/Space1.png" alt="">
+    <img src="zleep_img/assets/Space2.png" alt="">
+    <img src="zleep_img/assets/Drawer.png" alt="">
+    <img src="zleep_img/assets/Cabinet.png" alt="">
+    <img src="zleep_img/assets/Bed-Empty.png" alt="">
+    <img src="zleep_img/assets/TimeTravel1.png" alt="">
+    <img src="zleep_img/assets/Grass1.png" alt="">
+    <img src="zleep_img/assets/stair-showcase.png" alt="">
+    <img src="zleep_img/assets/Stalagmite-Stalactite-Showcase.png" alt="">
+    <figcaption class="caption">Various raw assets from the game</figcaption>
+</div>
+<!--	           	
+    </div>
+    !-- Line --<hr> <style>hr {border-top: 2px solid white;width: 80%;margin: 20px auto;}</style>
+    <div class="content-section">
+    	<div class="banner-bg">
+            <img src="zleep_img/zleep-conceptbg.png" alt="" style="height: 150px; object-fit: cover;">
+            <h2 class="heading">Reflection</h2>
+    	</div>
+            <img src="grimwar_img/play-GravityLab.gif" alt="">
+        
+    		<figcaption class="caption">Lightning and Gravity spell slinging</figcaption>
+    		<p class="center-description" style="text-indent: 20px;">
+           	    Avernoth is one of the more extensive projects I've worked on, requiring lots of hands-on interation along side project leads for a look that satisfied the art style while maintaining efficient output. 
+                It also did not go without its challenges- sometimes leading to overhauling art to better match an ever-evolving style. 
+                I am glad to have had a hand in refining the look of the 2D assets in-game in every aspect. 
+                The work is fun and has helped me utilize my ability to its fullest potential.
+            </p>
+    </div>
+
+    <div class="steam-button-container">
+        <a href="https://store.steampowered.com/app/4246110/Avernoth/" target="_blank" class="steam-button">
+            View on Steam!
+        </a>
+    </div>
+
+    <style>
+        .steam-button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            }   
+        .steam-button {
+            display: inline-block;
+            background-color: #1b2838;
+            color: #c6d4df;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 16px;
+            padding: 12px 24px;
+            border: 1px solid #66c0f4;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.3s, border 0.3s, color 0.3s;
+            }   
+        .steam-button:hover {
+            background-color: #66c0f4;
+            color: #1b2838;
+            border-color: #ffffff;
+            }
+    </style>
+-->	
+</main>
+</div>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }   
+    @font-face {
+        font-family: 'Better VCR';
+        src: url('fonts/Better_VCR_6.1.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        }
+    body {
+        font-family: 'Better VCR', sans-serif;
+        line-height: 1.6;
+        padding: 0;
+        background-color: #17131f;
+        color: #000000;
+        margin: 0;
+        height: 100%;
+        }
+    .content-container {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 950px;
+        margin: auto;
+        padding: 0px;
+        background-color: #000000;
+        }
+    .content-section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        padding: 20px;
+        }
+    .logo-image {	
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;		
+        max-width: 500px;	
+        transform: translate(-50%, -50%);
+        width: 50%;}.banner-bg {
+        position: relative;
+        text-align: center;
+        width: 100%;	
+        max-width: 1000px;
+        }
+    .banner-bg img {
+        width: 100%;
+        height: auto;	
+        display: block;
+        }
+    .collapsible-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        }   
+    .collapsible {
+        width: 260px;
+        background: #2e2631;
+        border-radius: 0;
+        box-shadow: 0 3px 10px rgba(0,0,0,.15);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: all .28s ease;
+        }   
+    .collapsible-header {
+        background: #90819e;
+        color: #111;
+        font-weight: bold;
+        text-align: center;
+        font-size: 1.1em;
+        padding: 16px;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        border-radius: 0;
+        box-shadow: inset 0 -2px 0 rgba(255,255,255,.4);
+        cursor: pointer;
+        }   
+    .collapsible-footer {
+        background: #90819e;
+        color: #111;
+        font-weight: bold;
+        text-align: center;
+        padding: 12px;
+        display: none;
+        border-top: 1px solid rgba(0,0,0,0.08);
+        border-radius: 0;
+        box-shadow: inset 0 2px 0 rgba(255,255,255,.4);
+        cursor: pointer;
+        }   
+    .thumbnail {
+        width: 100%;
+        height: 260px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fafafa;
+        border-radius: 0;
+        overflow: hidden;
+        cursor: pointer;
+        }   
+    .thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        }   
+    .collapsible-content {
+        display: none;
+        padding: 0 15px;
+        }   
+    .collapsible.expanded {
+        width: 100%;
+        max-width: 98vw;
+        }   
+    .collapsible.expanded .thumbnail {
+        display: none;
+        }   
+    .collapsible.expanded .collapsible-content {
+        display: block;
+        padding: 15px;
+        }   
+    .collapsible.expanded .collapsible-footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+    .heading {
+        font-size: 40px;
+        color: #ddd;
+        margin-bottom: 15px;
+		position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;	
+	    }	
+    .subheading {
+        font-size: 24px;
+        color: #ddd;
+        margin-bottom: 15px;
+        }
+    .description {
+        font-size: 18px;
+        color: #bbb;
+        margin-bottom: 15px;
+        max-width: 700px;
+        }
+	.center-description {
+        font-size: 18px;
+        color: #bbb;
+        margin-bottom: 15px;
+        max-width: 1500px;
+        }
+    .image-with-caption {
+        text-align: center;
+        }
+    .image-with-caption img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        }
+    .caption {
+        font-size: 14px;
+        color: #777;
+        }
+    .content-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px 0;
+        width: 100%;
+        max-width: 1500px;
+        }
+    .text-left, .image-right {
+        flex: 1;
+        }
+    .image-left, .text-right {
+        flex: 1;
+        justify-content: space-between;
+        }               
+    .text-left {
+        padding-right: 20px;
+        text-align: left;
+        }
+    .text-right {
+        padding-left: 20px;
+        text-align: right;
+        }    
+    .image-left img {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        }
+    .image-right img {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        }
+    .image-left, .image-right {
+        width: 400px;
+        flex-shrink: 0;
+        }
+    @media (max-width: 768px) {
+        .content-row {
+            flex-direction: column;
+        }
+	    }
+	.image-gallery {
+    	display: flex;
+        justify-content: center;
+    	gap: 3px;
+    	flex-wrap: wrap;
+    	margin: 0px;
+	    }
+	.gallery-image {
+    	width: 24%;
+    	height: auto;
+    	border-radius: 0px;
+    	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	    }	
+	figure {
+        margin: 0;
+        display: inline-block;
+        text-align: center;
+        }
+    figcaption {
+        font-size: 14px;
+        color: #bbb;
+        margin-top: 5px;
+        }
+</style>
+
+<script>
+    const container = document.getElementById('collapsibleContainer');
+    const collapsibles = Array.from(container.children);
+    const originalOrder = collapsibles.slice();
+
+    collapsibles.forEach(c => {
+      c.addEventListener('click', e => {
+        if (e.target.closest('.collapsible-content')) return;
+        const isExpanding = !c.classList.contains('expanded');
+        collapsibles.forEach(item => item.classList.remove('expanded'));
+        originalOrder.forEach(el => container.appendChild(el));
+        if (isExpanding) {
+          container.insertBefore(c, container.firstChild);
+          c.classList.add('expanded');
+        }
+      });
+    });
+
+    document.querySelectorAll('.collapsible-footer').forEach(f => {
+      f.addEventListener('click', e => {
+        e.stopPropagation();
+        const c = f.closest('.collapsible');
+        c.classList.remove('expanded');
+        originalOrder.forEach(el => container.appendChild(el));
+      });
+    });
+</script>
+
+</body>
+</html>

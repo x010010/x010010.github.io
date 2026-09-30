@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Contact - alecks.art</title>
+
+<div id="header"></div>
+<script>
+  fetch('header.html').then(res => res.text()).then(html => {
+    document.getElementById('header').innerHTML = html;
+  });
+</script>
+
+<body>
+    <div class="scrolling-background"></div>
+
+	<style>
+	.scrolling-background {
+    	position: fixed;
+    	top: 0;
+    	left: 0;
+    	width: 200%;
+    	height: 200%;
+    	background-image: url("images/stars-pattern.gif");
+    	background-size: auto;
+    	background-repeat: repeat;
+    	z-index: -1;
+    	animation: scroll 60s linear infinite;
+    	image-rendering: crisp-edges;
+		}
+	    @keyframes scroll {
+    	    from {transform: translate(0, 0);}
+    	    to {transform: translate(-50%, -50%);}
+		}
+	</style> 
+	
+ 	<div class="contact">
+        <img src="images/Contact.png" alt="">
+    </div>
+</body>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    @font-face {
+        font-family: 'Better VCR';
+        src: url('fonts/Better_VCR_6.1.ttf') format('truetype'); 
+        font-style: normal;
+    }
+    body {
+        font-family: 'Better VCR', sans-serif; 
+        line-height: 1.6;
+        padding: 0;
+        background-color: #222;
+        color: #fff;
+        margin: 0;
+        height: 100%;
+        overflow: hidden; /* Prevent scrolling */
+    }
+    .content-section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        height: calc(100vh - 60px); /* Adjust content section height to fit the page */
+    }
+    .subheading {
+        font-size: 24px;
+        color: #ddd;
+        margin-bottom: 15px;
+    }
+    .description {
+        font-size: 18px;
+        color: #bbb;
+        text-align: center;
+        margin-bottom: 15px;
+        max-width: 700px;
+    }
+    .small-text {
+        font-size: 14px;
+        color: #777;
+        text-align: center;
+    }
+  .contact {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+    .contact img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;	
+		max-width: 500px;
+		transform: translate(-50%, -50%);
+        width: 100%;
+	}
+</style>
+</html>

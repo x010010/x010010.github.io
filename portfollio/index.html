@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Hello, thanks for inspecting the code to the site! This website is hosted with Github Pages and is made with pure HTML.-->
+<title>alecks.art</title>
+<head></head>
+
+<div id="header"></div>
+<script>
+  fetch('header.html').then(res => res.text()).then(html => {
+    document.getElementById('header').innerHTML = html;
+  });
+</script>
+<style>
+html {
+  font-size: clamp(14px, 2.5vw, 18px);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+	
+body {
+  margin: 0;
+  background: #111;
+  color: #fff;
+  font-family: sans-serif;
+  background: url('images/clouds.png');
+}
+</style>
+
+<main class="content-container"><!-- Content Below -->
+	
+	<div class="content-section">
+        <h1 class="holographic-title">Alecks.Art</h1>
+
+        <h2 class="subheading">Welcome to my game project portfolio site!</h2>
+
+        <p class="description">
+            
+            I'm Alex Ibanez and I specialize in 2D Sprite Art &amp; Design.<br>
+			Skills include sprite work, UI, character design, concept art, 2D animation.
+        </p>
+
+        <p class="small-text">
+            Use the top bar for navigation
+            <img src="images/Desktop-info.png" alt="">
+        </p>
+    </div>
+	<style>
+    @font-face {
+        font-family: 'Perfect DOS';
+        src: url('fonts/Perfect_DOS_VGA_437.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    body {
+        font-family: 'Perfect DOS', sans-serif;
+        line-height: 1.6;
+        padding: 0;
+        background-color: #222;
+        color: #fff;
+        margin: 0;
+        height: 100%;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        background-color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    nav ul li {
+        display: inline-block;
+        margin: 0 20px;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 20px;
+        display: block;
+    }
+
+    nav ul li a:hover {
+        background-color: #575757;
+    }
+
+    .content-section {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    .holographic-title {
+        font-size: clamp(4rem, 8vw, 72px);
+        font-weight: bold;
+        color: white;
+        text-transform: uppercase;
+        background: linear-gradient(45deg, #00FFFF, #FF00FF, #FFFF00, #00FF00, #FF4500);
+        background-size: 400% 400%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: hologram 5s ease infinite;
+        letter-spacing: 5px;
+        /* Reduced glow */
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.6), 0 0 5px rgba(255, 255, 255, 0.4), 0 0 8px rgba(255, 255, 255, 0.3);
+		margin-top: 15%;
+    }
+
+    @keyframes hologram {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .subheading {
+        font-size: 24px;
+        color: #ddd;
+        margin-bottom: 15px;
+    }
+
+    .description {
+        font-size: 18px;
+        color: #bbb;
+        text-align: center;
+        margin-bottom: 15px;
+        max-width: 700px;
+    }
+
+    .small-text {
+        font-size: 14px;
+        color: #777;
+        text-align: center;
+    }
+
+</style>
+</main><!-- Content Above -->
+<style>
+.content-container {
+  position: relative;
+  max-width: 80%;
+  margin: 2em auto;
+  padding: 2em 1em;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  background-image: url('images/stars-pattern.gif');
+  background-repeat: repeat;
+  background-size: auto;
+  animation: background-scroll 60s linear infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow-y: auto;
+  height: calc(70vh - 6px);
+}
+
+@keyframes background-scroll {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -500px -500px;
+  }
+}
+	
+@media (max-width: 600px) {
+  .content-container {
+    transform: scale(0.99);
+    transform-origin: top center;
+	padding: 2em 1.5em;
+	max-width: 100%;
+  }
+}
+	
+.content-container img,
+.content-container video,
+.content-container iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+</style>
+
+</html>
