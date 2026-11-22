@@ -1,212 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
 <!--Hello, thanks for inspecting the code to the site! This website is hosted with Github Pages and is made with pure HTML.-->
-<title>alecks.art</title>
-<head></head>
 
-<div id="header"></div>
-<script>
-  fetch('header.html').then(res => res.text()).then(html => {
-    document.getElementById('header').innerHTML = html;
-  });
-</script>
+<head>
+  <title>alecks.art</title>
+  <link rel="preload" as="image" href="images/header/Navabr.png">
+  <link rel="preload" as="image" href="images/header/header-home1.png">
+  <link rel="preload" as="image" href="images/header/header-home2.png">
+  <link rel="preload" as="image" href="images/header/header-title.png">
+  <link rel="preload" as="image" href="images/header/header-quote.png">
+  <script>
+    const pageCache = new Map();
+    let currentPage = null;
+    let requestId = 0;
+
+    function getPage(id) {
+      if (!pageCache.has(id)) {
+        const req = fetch(id + '.html').then(res => {
+          if (!res.ok) throw new Error('missing');
+          return res.text();
+        });
+        req.catch(() => pageCache.delete(id));
+        pageCache.set(id, req);
+      }
+      return pageCache.get(id);
+    }
+
+    function pageId() {
+      const id = location.hash.slice(1) || 'home';
+      return /^[a-z0-9-]+$/i.test(id) && id.toLowerCase() !== 'index' ? id : null;
+    }
+
+    function markCurrentTab() {
+      document.querySelectorAll('#header .cell').forEach(a => {
+        if (a.getAttribute('href') === '#' + currentPage) a.setAttribute('aria-current', 'page');
+        else a.removeAttribute('aria-current');
+      });
+    }
+
+    async function showPage() {
+      const id = pageId();
+      currentPage = id || location.hash.slice(1);
+      markCurrentTab();
+      const mine = ++requestId;
+      let html;
+      try {
+        if (!id) throw new Error('bad id');
+        html = await getPage(id);
+      } catch (e) {
+        html = '<h1>Page not found</h1><p>That page does not exist.</p>';
+      }
+      if (mine !== requestId) return;
+      document.getElementById('content').innerHTML = html;
+    }
+
+    function fitTitle() {
+      const img = document.querySelector('#header .z-title');
+      const link = document.querySelector('#header .title-link');
+      if (!img || !link) return;
+      const apply = () => {
+        const w = img.naturalWidth, h = img.naturalHeight;
+        if (!w || !h) return;
+        const left = Math.round(254 - w / 2);
+        const top = Math.max(0, Math.round(64 - h / 2));
+        img.style.left = link.style.left = (left / 507 * 100) + '%';
+        img.style.top = link.style.top = (top / 176 * 100) + '%';
+        img.style.width = link.style.width = (w / 507 * 100) + '%';
+        link.style.height = (h / 176 * 100) + '%';
+        img.classList.add('fit');
+      };
+      if (img.complete) apply();
+      else { img.addEventListener('load', apply); img.addEventListener('error', () => img.classList.add('fit')); }
+    }
+
+    function contentBounds(img) {
+      try {
+        const c = document.createElement('canvas');
+        c.width = img.naturalWidth;
+        c.height = img.naturalHeight;
+        const g = c.getContext('2d');
+        g.drawImage(img, 0, 0);
+        const d = g.getImageData(0, 0, c.width, c.height).data;
+        let minX = c.width, minY = c.height, maxX = -1, maxY = -1;
+        for (let y = 0; y < c.height; y++) {
+          for (let x = 0; x < c.width; x++) {
+            if (d[(y * c.width + x) * 4 + 3] > 0) {
+              if (x < minX) minX = x;
+              if (x > maxX) maxX = x;
+              if (y < minY) minY = y;
+              if (y > maxY) maxY = y;
+            }
+          }
+        }
+        return maxX < 0 ? null : { minX, minY, maxX, maxY };
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function fitBubble() {
+      const img = document.querySelector('#header .z-bubble');
+      if (!img) return;
+      const apply = () => {
+        const w = img.naturalWidth, h = img.naturalHeight;
+        if (!w || !h) return;
+        const b = contentBounds(img) || { minX: 5, minY: 5, maxX: w - 6, maxY: h - 6 };
+        img.style.left = ((465 - (b.maxX + 1)) / 507 * 100) + '%';
+        img.style.top = ((16 - b.minY) / 176 * 100) + '%';
+        img.style.width = (w / 507 * 100) + '%';
+        img.classList.add('fit');
+      };
+      if (img.complete) apply();
+      else { img.addEventListener('load', apply); img.addEventListener('error', () => img.classList.add('fit')); }
+    }
+
+    function watchSticky() {
+      const header = document.querySelector('#header .site-header');
+      const stage = header.querySelector('.nav-stage');
+      let queued = false;
+      function update() {
+        queued = false;
+        const r = stage.getBoundingClientRect();
+        header.classList.toggle('stuck', r.top + r.height * 123 / 176 <= 0);
+      }
+      function queue() {
+        if (!queued) { queued = true; requestAnimationFrame(update); }
+      }
+      window.addEventListener('scroll', queue, { passive: true });
+      window.addEventListener('resize', queue);
+      update();
+    }
+
+    function pickQuote(text) {
+      const quotes = text.split('\n').map(q => q.trim()).filter(Boolean);
+      if (!quotes.length) return;
+      let last = -1;
+      try { last = Number(sessionStorage.getItem('lastQuote')); } catch (e) {}
+      let i;
+      do { i = Math.floor(Math.random() * quotes.length); } while (quotes.length > 1 && i === last);
+      try { sessionStorage.setItem('lastQuote', i); } catch (e) {}
+      document.getElementById('quote').textContent = quotes[i];
+    }
+
+    function avatarSrc(name, part) {
+      return 'images/header/avatar/' + encodeURIComponent(name) + '-' + part + '.png';
+    }
+
+    function loadImage(src) {
+      return new Promise(resolve => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = src;
+      });
+    }
+
+    function pickAvatar(text) {
+      const names = text.split('\n').map(n => n.trim()).filter(n => n && !/[\/\\]/.test(n));
+      if (!names.length) return null;
+      let last = null;
+      try { last = sessionStorage.getItem('lastAvatar'); } catch (e) {}
+      let name;
+      do { name = names[Math.floor(Math.random() * names.length)]; } while (names.length > 1 && name === last);
+      try { sessionStorage.setItem('lastAvatar', name); } catch (e) {}
+      return name;
+    }
+
+    const avatarReq = fetch('avatars.txt').then(res => res.ok ? res.text() : '').catch(() => '');
+    const headerReq = fetch('header.html').then(res => res.text());
+    const quoteReq = fetch('quotes.txt').then(res => res.ok ? res.text() : '').catch(() => '');
+    const firstId = pageId();
+    if (firstId) getPage(firstId).catch(() => {});
+
+    window.addEventListener('hashchange', showPage);
+    document.addEventListener('DOMContentLoaded', async () => {
+      showPage();
+      const [headerHtml, avatarText] = await Promise.all([headerReq, avatarReq]);
+      const avatar = pickAvatar(avatarText);
+      const loaded = avatar ? await Promise.all([loadImage(avatarSrc(avatar, 'Ava')), loadImage(avatarSrc(avatar, 'Arms'))]) : [];
+      document.getElementById('header').innerHTML = headerHtml;
+      if (loaded.length && loaded.every(Boolean)) {
+        document.querySelector('#header .z-avatar').src = avatarSrc(avatar, 'Ava');
+        document.querySelector('#header .z-hands').src = avatarSrc(avatar, 'Arms');
+      }
+      markCurrentTab();
+      fitTitle();
+      fitBubble();
+      watchSticky();
+      quoteReq.then(pickQuote);
+      document.querySelectorAll('#header .cell').forEach(a => {
+        const id = a.getAttribute('href').slice(1);
+        if (/^[a-z0-9-]+$/i.test(id)) getPage(id).catch(() => {});
+      });
+    });
+  </script>
+</head>
+
 <style>
-html {
-  font-size: clamp(14px, 2.5vw, 18px);
-}
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-	
-body {
   margin: 0;
-  background: #111;
-  color: #fff;
-  font-family: sans-serif;
-  background: url('images/clouds.png');
-}
-</style>
-
-<main class="content-container"><!-- Content Below -->
-	
-	<div class="content-section">
-        <h1 class="holographic-title">Alecks.Art</h1>
-
-        <h2 class="subheading">Welcome to my game project portfolio site!</h2>
-
-        <p class="description">
-            
-            I'm Alex Ibanez and I specialize in 2D Sprite Art &amp; Design.<br>
-			Skills include sprite work, UI, character design, concept art, 2D animation.
-        </p>
-
-        <p class="small-text">
-            Use the top bar for navigation
-            <img src="images/Desktop-info.png" alt="">
-        </p>
-    </div>
-	<style>
-    @font-face {
-        font-family: 'Perfect DOS';
-        src: url('fonts/Perfect_DOS_VGA_437.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    body {
-        font-family: 'Perfect DOS', sans-serif;
-        line-height: 1.6;
-        padding: 0;
-        background-color: #222;
-        color: #fff;
-        margin: 0;
-        height: 100%;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    nav ul {
-        list-style-type: none;
-        padding: 0;
-        background-color: #333;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    nav ul li {
-        display: inline-block;
-        margin: 0 20px;
-    }
-
-    nav ul li a {
-        color: white;
-        text-decoration: none;
-        font-size: 18px;
-        padding: 10px 20px;
-        display: block;
-    }
-
-    nav ul li a:hover {
-        background-color: #575757;
-    }
-
-    .content-section {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-        justify-content: center;
-        
-    }
-
-    .holographic-title {
-        font-size: clamp(4rem, 8vw, 72px);
-        font-weight: bold;
-        color: white;
-        text-transform: uppercase;
-        background: linear-gradient(45deg, #00FFFF, #FF00FF, #FFFF00, #00FF00, #FF4500);
-        background-size: 400% 400%;
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        animation: hologram 5s ease infinite;
-        letter-spacing: 5px;
-        /* Reduced glow */
-        text-shadow: 0 0 2px rgba(255, 255, 255, 0.6), 0 0 5px rgba(255, 255, 255, 0.4), 0 0 8px rgba(255, 255, 255, 0.3);
-		margin-top: 15%;
-    }
-
-    @keyframes hologram {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
-    }
-
-    .subheading {
-        font-size: 24px;
-        color: #ddd;
-        margin-bottom: 15px;
-    }
-
-    .description {
-        font-size: 18px;
-        color: #bbb;
-        text-align: center;
-        margin-bottom: 15px;
-        max-width: 700px;
-    }
-
-    .small-text {
-        font-size: 14px;
-        color: #777;
-        text-align: center;
-    }
-
-</style>
-</main><!-- Content Above -->
-<style>
-.content-container {
-  position: relative;
-  max-width: 80%;
-  margin: 2em auto;
-  padding: 2em 1em;
+  padding: 0;
   box-sizing: border-box;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  background-image: url('images/stars-pattern.gif');
-  background-repeat: repeat;
-  background-size: auto;
-  animation: background-scroll 60s linear infinite;
+  }
+body {
+  background: rgb(133, 127, 206);
+  font-family: Arial, sans-serif;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  }
+.page-frame {
+  position: relative;
+  width: 100%;
+  max-width: 1550px;
+  }
+.page-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 950px;
+  margin: auto;
+  padding: 0 48px 48px;
+  background: url('images/walltexture.png') repeat;
+  container-type: inline-size;
+  }
+#header {
+  display: contents;
+  }
+.side-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   overflow: hidden;
-  text-align: center;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  overflow-y: auto;
-  height: calc(70vh - 6px);
-}
-
-@keyframes background-scroll {
-  from {
-    background-position: 0 0;
+  pointer-events: none;
   }
-  to {
-    background-position: -500px -500px;
+.side-strips {
+  position: absolute;
+  inset-block: 0;
+  width: 300px;
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  image-rendering: pixelated;
   }
-}
-	
-@media (max-width: 600px) {
-  .content-container {
-    transform: scale(0.99);
-    transform-origin: top center;
-	padding: 2em 1.5em;
-	max-width: 100%;
+.left-strip {
+  right: calc(50% + min(475px, 50%));
+  background: url('images/SideArtTest-L.png') top right / 100% auto repeat-y;
   }
-}
-	
-.content-container img,
-.content-container video,
-.content-container iframe {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
+.right-strip {
+  left: calc(50% + min(475px, 50%));
+  background: url('images/sidebar-testR.png') top left / 100% auto repeat-y;
+  }
+@media (max-width: 899px), (orientation: portrait) {
+  .side-strips { display: none; }
+  .page-container { padding: 0 20px 20px; }
+  }
+h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  }
+p {
+  max-width: 700px;
+  margin-bottom: 16px;
+  line-height: 1.6;
+  }
 </style>
 
+<body>
+<div class="page-frame">
+  <div class="side-layer">
+    <div class="side-strips left-strip"></div>
+    <div class="side-strips right-strip"></div>
+  </div>
+
+  <main class="page-container">
+    <div id="header"></div>
+    
+    <div id="content"></div>
+    
+    
+    
+  </main>
+
+</div>
+</body>
 </html>

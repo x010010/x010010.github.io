@@ -1,265 +1,102 @@
-<!DOCTYPE html>
-<html lang="en">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link rel="stylesheet" href="styles.css">
-
-<header>
-	<img src="images/Port-header.webp" alt="Header" class="header-image">
-</header>
-
 <style>
-  .header-image {
-  	display: block;  
-  	padding-top: 20px;
-      width: clamp(60%, 80%, 90%);
-      max-width: 550px;
-      height: auto;
-      z-index: 10;
-      position: relative;
-  	pointer-events: none;
-  	margin: 0 auto;
-  	margin-bottom: -43px;
-  }
+.site-header{
+  display:contents;
+  --focus:#2b6cb0; --hover:rgba(255,255,255,.3); --active:rgba(15,25,110,.4);
+}
+.nav-stage{
+  position:relative; width:100%; aspect-ratio:507/176;
+}
+.bar-group{
+  position:sticky; top:0; z-index:5;
+  width:calc(484/507*100%); aspect-ratio:484/40;
+  margin:calc(-53/507*100%) 0 calc(13/507*100% + 24px) calc(12/507*100%);
+}
+.site-header.stuck .bar-group{ filter:drop-shadow(0 2px 2px rgba(0,0,0,.35)); }
+.layer{
+  position:absolute; inset:0; width:100%; height:100%;
+  image-rendering:pixelated; pointer-events:none; user-select:none;
+}
+.art{ position:absolute; height:auto; image-rendering:pixelated; pointer-events:none; user-select:none; }
+.z-avatar, .z-hands{ left:calc(34/507*100%); top:calc(1/176*100%); width:calc(170/507*100%); }
+.z-avatar{ z-index:1; }
+.z-hands{ z-index:6; transition:transform .07s ease-out, opacity .07s ease-out; }
+.site-header.stuck .z-hands{ transform:translateY(-12%); opacity:0; }
+.z-bar{ left:0; top:0; width:100%; z-index:1; }
+.z-home{ left:0; top:0; width:calc(40/484*100%); z-index:3; }
+.z-home-hover{ visibility:hidden; }
+.bar-group:has(.c-home:hover, .c-home:focus-visible) .z-home{ visibility:hidden; }
+.bar-group:has(.c-home:hover, .c-home:focus-visible) .z-home-hover{ visibility:visible; }
+.z-title{ left:calc(215/507*100%); top:calc(25/176*100%); width:calc(78/507*100%); z-index:3; visibility:hidden; }
+.z-title.fit{ visibility:visible; }
+.z-bubble{ left:calc(171/507*100%); top:calc(11/176*100%); width:calc(299/507*100%); z-index:2; visibility:hidden; }
+.z-bubble.fit{ visibility:visible; }
 
-  @media (max-width: 1100px) {
-    .header-image {
-  	margin-bottom: -44px;
-  	}
-  }
-  @media (max-width: 800px) {
-    .header-image {
-  	margin-bottom: -44px;
-  	}
-  }
-  @media (max-width: 695px) {
-   .header-image {
-  	margin-bottom: -44px;
-  	}
-  }
-  @media (max-width: 660px) {
-   .header-image {
-  	margin-bottom: -42px;
-  	}
-  }
-  @media (max-width: 635px) {
-   .header-image {
-  	margin-bottom: -41px;
-  	}
-  }
-  @media (max-width: 550px) {
-   .header-image {
-  	margin-bottom: -38px;
-  	}
-  }
-  @media (max-width: 500px) {
-   .header-image {
-  	margin-bottom: -39px;
-  	}
-  }
+.cell{
+  position:absolute; display:flex; align-items:center; justify-content:center;
+  top:calc(3/40*100%); height:calc(34/40*100%);
+  color:#fff; text-shadow:0 1px 0 rgba(0,0,60,.55); text-decoration:none; font-size:3.6cqw; line-height:1; font-weight:600;
+  z-index:2; -webkit-tap-highlight-color:transparent;
+}
+.cell span{ position:relative; z-index:6; padding-top:.1em; transition:transform .12s steps(2); }
+.cell::before{ content:""; position:absolute; inset:0; background:transparent; transition:background .1s; }
+.cell:hover::before, .cell:focus-visible::before{ background:var(--hover); }
+.cell[aria-current="page"]:not(.c-home)::before{ background:var(--active); }
+.cell:active span{ transform:translateY(2px); }
+.cell:focus-visible{ outline:2px solid #fff; outline-offset:-3px; }
+.c-home{ left:calc(2/484*100%);   width:calc(36/484*100%); }
+.c-f1  { left:calc(41/484*100%);  width:calc(145/484*100%); }
+.c-f2  { left:calc(189/484*100%); width:calc(146/484*100%); }
+.c-f3  { left:calc(338/484*100%); width:calc(144/484*100%); }
+.sr{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+
+.title-link{
+  position:absolute; z-index:6; left:calc(215/507*100%); top:calc(25/176*100%);
+  width:calc(78/507*100%); height:calc(79/176*100%);
+}
+.title-link:focus-visible{ outline:3px solid var(--focus); }
+.z-title{ transform-origin:50% 50%; transition:transform .15s ease-out; }
+.title-link:hover ~ .z-title, .title-link:focus-visible ~ .z-title{ transform:scale(1.03); }
+
+.quote{
+  position:absolute; z-index:4; left:calc(350/507*100%); top:calc(22/176*100%);
+  width:calc(109/507*100%); height:calc(90/176*100%);
+  display:flex; align-items:center; font-size:3.3cqw; line-height:1.2;
+  margin:0; overflow:hidden; pointer-events:none;
+}
+
+.avatar-hit{
+  position:absolute; z-index:6; left:calc(52/507*100%); top:calc(10/176*100%);
+  width:calc(116/507*100%); height:calc(116/176*100%);
+}
+.z-avatar{ transition:transform .1s steps(2); }
+.avatar-hit:hover ~ .z-avatar{ transform:translateY(-1.2%); }
+@media (prefers-reduced-motion: reduce){
+  .z-avatar, .z-hands{ transition:none; }
+  .z-title, .cell span{ transition:none; }
+}
 </style>
 
+<nav class="site-header" aria-label="Main">
+  <div class="nav-stage">
+    <a class="title-link" href="#home"><span class="sr">Alex Ibanez 2D Art (home)</span></a>
+    <div class="avatar-hit" aria-hidden="true"></div>
 
-<body>
-<div class="navbar-container">
-  <div class="navbar-scaler">
-    <nav class="home-navbar">
-      <img src="images/navbar/navbar-left.webp" alt="" class="nav-left" />
-      <div class="nav-links-wrapper">
-        <div class="left-half">
-          <div class="nav-section">
-            <div class="nav-bg"><a href="index.html">HOME</a></div>
-          </div>
-          <img src="images/navbar/navbar-sep.webp" alt="" class="nav-sep" />
-          <div class="nav-section">
-            <div class="nav-bg"><a href="projects.html">PROJECTS</a></div>
-          </div>
-        </div>
-        <img src="images/navbar/navbar-sep.webp" alt="" class="nav-sep" />
-        <div class="right-half">
-          <div class="nav-section">
-            <div class="nav-bg"><a href="resume.html">RESUME</a></div>
-          </div>
-          <img src="images/navbar/navbar-sep.webp" alt="" class="nav-sep" />
-          <div class="nav-section">
-            <div class="nav-bg"><a href="contact.html">CONTACT</a></div>
-          </div>
-        </div>
-      </div>
-      <img src="images/navbar/navbar-right.webp" alt="" class="nav-right" />
-    </nav>
+    <img class="art z-avatar" src="images/header/avatar/Port-Ava.png" alt="">
+    <img class="art z-bubble" src="images/header/header-quote.png" alt="">
+    <img class="art z-title" src="images/header/header-title.png" alt="">
+    <img class="art z-hands" src="images/header/avatar/Port-Arms.png" alt="">
+
+    <p class="quote" id="quote" aria-live="polite">Example quote.</p>
   </div>
-</div>
-</body>
 
-<style>
-  :root {
-    --nav-size: 40px;
-  }
-  .navbar-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-    padding-top: 20px;
-    position: relative;
-    z-index: 8;
-  }
-  .navbar-scaler {
-    transform-origin: top center;
-    transition: transform 0.2s ease;
-    max-width: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-  }
-  .home-navbar {
-    display: flex;
-    align-items: center;
-    height: var(--nav-size);
-    box-sizing: border-box;
-    flex-wrap: nowrap;
-    max-width: 100%;
-    transition: height 0.3s ease;
-    margin: 0 auto;
-  }
-  .home-navbar img {
-    width: var(--nav-size);
-    height: var(--nav-size);
-    flex-shrink: 0;
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
-    transition: width 0.3s ease, height 0.3s ease;
-  }
-  .nav-links-wrapper {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    overflow: hidden;
-    width: 100%;
-  }
-  .nav-section {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-  }
-  .nav-bg {
-    background-image: url('images/navbar/navbar-middle.webp');
-    background-repeat: repeat-x;
-    background-size: 100% 100%;
-    height: var(--nav-size);
-    display: flex;
-    align-items: center;
-    padding: 0 50px;
-    white-space: nowrap;
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
-    flex-shrink: 0;
-    transition: padding 0.3s ease, height 0.3s ease;
-  }
-  .nav-sep {
-    width: var(--nav-size);
-    height: var(--nav-size);
-    flex-shrink: 0;
-    transition: width 0.3s ease, height 0.3s ease;
-  }
-  .nav-bg a {
-    color: black;
-    text-decoration: none;
-    font-family: sans-serif;
-    font-size: calc(var(--nav-size) * 0.45);
-    line-height: var(--nav-size);
-    display: inline-block;
-    transition: font-size 0.3s ease, color 0.3s ease, font-weight 0.3s ease;
-    font-weight: normal;
-    z-index: 9;
-  }
-  .nav-bg:hover a {
-    color: #b89cb8;
-    font-weight: bold;
-  }
-  .nav-links-wrapper img.nav-sep:nth-of-type(2) {
-    visibility: hidden;
-  }
-  .navbar-scaler::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 0;
-    width: var(--nav-size);
-    height: var(--nav-size);
-    pointer-events: none;
-    background-image: url('images/navbar/navbar-sep.webp');
-    background-repeat: no-repeat;
-    background-size: contain;
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
-    z-index: 5;
-  }
-  .nav-links-wrapper .left-half {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex: 1;
-  }
-  .nav-links-wrapper .right-half {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex: 1;
-  }
-  @media (max-width: 10000px) {
-    :root {
-      --nav-size: 40px;
-    }
-    .nav-bg {
-      padding: 0 40px;
-    }
-  }
-  @media (max-width: 1500px) {
-    :root {
-      --nav-size: 40px;
-    }
-    .nav-bg {
-      padding: 0 40px;
-    }
-  }
-  @media (max-width: 1100px) {
-    :root {
-      --nav-size: 38px;
-    }
-    .nav-bg {
-      padding: 0 30px;
-    }
-  }
-  @media (max-width: 800px) {
-    :root {
-      --nav-size: 36px;
-    }
-    .nav-bg {
-      padding: 0 10px;
-    }
-  }
-  @media (max-width: 600px) {
-    :root {
-      --nav-size: 35px;
-    }
-    .nav-bg {
-      padding: 0 2px;
-    }
-  }
-  @media (max-width: 450px) {
-    :root {
-      --nav-size: 32px;
-    }
-    .nav-bg {
-      padding: 0 0px;
-    }
-  }
-</style>
+  <div class="bar-group">
+    <img class="art z-bar" src="images/header/Navabr.png" alt="">
+    <img class="art z-home" src="images/header/header-home1.png" alt="">
+    <img class="art z-home z-home-hover" src="images/header/header-home2.png" alt="">
 
-</html>
+    <a class="cell c-home" href="../index.html"><span class="sr">Home</span></a>
+    <a class="cell c-f1"   href="#projects"><span>Projects</span></a>
+    <a class="cell c-f2"   href="#resume"><span>Resume</span></a>
+    <a class="cell c-f3"   href="#contact"><span>Contact</span></a>
+  </div>
+</nav>
